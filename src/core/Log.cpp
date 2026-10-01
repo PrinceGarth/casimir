@@ -126,7 +126,7 @@ void Log::Logger::WriteLog(Time::DateTime time, Severity sv, std::string_view ms
 			flags = SDL_MESSAGEBOX_INFORMATION;
 
 		// convert to std::string since we're going to be pausing the program here for the message box anyways
-		SDL_ShowSimpleMessageBox(flags, "Pioneer Warning", std::string(msg).c_str(), 0);
+		SDL_ShowSimpleMessageBox(flags, "Casimir Warning", std::string(msg).c_str(), 0);
 	}
 }
 
@@ -169,7 +169,7 @@ void Log::LogOld(Severity sv, const char *message, fmt::printf_args args)
 	std::string out_message = fmt::vsprintf(fmt::string_view(message), args);
 	GetLog()->LogLevel(sv, out_message);
 	if (sv == Severity::Warning) {
-		SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_WARNING, "Pioneer warning", out_message.c_str(), 0);
+		SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_WARNING, "Casimir warning", out_message.c_str(), 0);
 	}
 }
 
@@ -177,7 +177,7 @@ void Log::LogOld(Severity sv, const char *message, fmt::printf_args args)
 {
 	std::string out_message = fmt::vsprintf(fmt::string_view(message), args);
 	GetLog()->LogLevel(Severity::Fatal, out_message);
-	SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Pioneer error", out_message.c_str(), 0);
+	SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Casimir error", out_message.c_str(), 0);
 
 	exit(1);
 }

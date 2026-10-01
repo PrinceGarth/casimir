@@ -1,23 +1,8 @@
-blank_issues_enabled: false
+blank_issues_enabled: true
 contact_links:
-  - name: "💡 Suggest a feature"
-    url: https://forum.pioneerspacesim.net/
-    about: Feature requests and development discussions go on the forum - not on the issue tracker
-  - name: "❓ Pioneer FAQ"
-    url: https://wiki.pioneerspacesim.net/wiki/FAQ
-    about: Others might have had the same question before.
-  - name: "ℹ️ Pioneer Manual"
+  - name: "ℹ️ Pioneer Manual (base game)"
     url: https://wiki.pioneerspacesim.net/wiki/Manual
-    about: Manual for the game
-  - name: "🚀 Pioneer Flight Manual"
+    about: Manual for the base game. Casimir is an unofficial fork of Pioneer, so some things differ.
+  - name: "🚀 Pioneer Flight Manual (base game)"
     url: https://wiki.pioneerspacesim.net/wiki/Basic_flight
     about: Manual for flying
-  - name: "🆘 Get in touch with other players"
-    url: https://spacesimcentral.com/viewforum.php?f=49
-    about: Community forum is for players sharing
-  - name: "👨‍💻 Get in touch with developers"
-    url: https://kiwiirc.com/client/irc.libera.chat/pioneer
-    about: Developers coordinate through IRC (mostly inactive during CET night).
-  - name: "🗣️ Contribute language translation"
-    url: https://wiki.pioneerspacesim.net/wiki/Translations
-    about: All translations and language improvements are entirely community driven

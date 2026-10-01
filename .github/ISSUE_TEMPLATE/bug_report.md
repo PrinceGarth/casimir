@@ -24,7 +24,7 @@ note: See FAQ on how to report bugs and crashes, and common causes
 ### Steps to reproduce
 
 
-__My pioneer version (and OS):__
+__My Casimir version or commit (and OS):__
 
 
 __My output.txt (required) and game save (optional, but recommended)__

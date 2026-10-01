@@ -55,6 +55,11 @@ local function showInfo()
 	end)
 
 	ui.withFont(pionillium.body, function()
+		ui.textWrapped("Casimir is an unofficial, AI-assisted (\"vibe-coded\") fork of Pioneer. It is not affiliated with, endorsed by, or supported by the Pioneer project. Please do not report Casimir bugs to upstream Pioneer.")
+		ui.spacing()
+	end)
+
+	ui.withFont(pionillium.body, function()
 		ui.textWrapped(l.INFO_BLURB)
 		ui.textWrapped(l.INFO_BODY)
 
@@ -64,10 +69,6 @@ local function showInfo()
 		ui.bulletText(l.LINK_HOMEPAGE)
 		ui.sameLine()
 		ui.textLinkOpenURL("http://pioneerspacesim.net/")
-
-		ui.bulletText(l.LINK_BUG_TRACKER)
-		ui.sameLine()
-		ui.textLinkOpenURL("https://github.com/pioneerspacesim/pioneer/issues/")
 
 		ui.bulletText(l.LINK_COMMUNITY_FORUM)
 		ui.sameLine()
@@ -88,14 +89,9 @@ local function showInfo()
 		ui.separator()
 		ui.spacing()
 
-		ui.textWrapped(l.GAME_RELEASE)
 		ui.bulletText(l.VERSION_CURRENT)
 		ui.sameLine()
 		ui.inputText("##current_version", Engine.version , { "ReadOnly" })
-
-		ui.bulletText(l.VERSION_LATEST)
-		ui.sameLine()
-		ui.textLinkOpenURL(l.VERSION_LATEST_CONTINUED, "https://github.com/pioneerspacesim/pioneer")
 
 	end)
 end
@@ -176,6 +172,7 @@ local function showGPL()
 	ui.withFont(pionillium.body, function()
 		ui.text("Licensed under the terms of the GPL v3")
 		ui.text("Copyright © 2008-2026 Pioneer Developers")
+		ui.text("Casimir modifications: AI-assisted fork of Pioneer")
 		ui.text("Portions copyright © 2013-2014 Meteoric Games Ltd")
 
 		ui.textWrapped("Pioneer's core code and extension modules are licensed under the terms of the GNU General Public License version 3. See licenses/GPL-3.txt for details.")

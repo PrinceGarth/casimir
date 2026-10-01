@@ -119,7 +119,7 @@ namespace Graphics {
 		PROFILE_SCOPED()
 		assert(vs.rendererType == Graphics::RendererType::RENDERER_OPENGL_3x);
 
-		const std::string name("Pioneer");
+		const std::string name("Casimir");
 		SDL_Window *window = nullptr;
 		SDL_GLContext glContext = nullptr;
 

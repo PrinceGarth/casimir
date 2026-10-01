@@ -1,32 +1,21 @@
-# Contributing
+# Contributing to Casimir
 
-Contributions are welcome!
+Casimir is an unofficial, AI-assisted ("vibe-coded") fork of Pioneer. Contributions are welcome, including AI-assisted ones.
+The full policy is in the [README](../README.md#contributing). The short version:
 
-The following text assumes you're about to submit a new pull request.
-For _how_ to contribute, please see [contributor documentation](https://dev.pioneerspacesim.net/contribute/).
+### Before submitting
 
-### Check before submitting
+- **Disclose AI use.** If AI wrote or substantially shaped the change, say so in the PR description. There is no penalty.
+- **You are responsible for what you submit.** By opening a PR you certify you have the right to submit it under the project's licences (GPLv3 for code, CC-BY-SA-3.0 for assets in `data/` unless noted in `AUTHORS.txt`). Don't submit code you know or suspect is copied from an incompatibly licensed source.
+- **Review it yourself.** Build it, run `./build/unittest`, and run `./autoformat`.
+- **Don't import upstream-rejected work.** Don't copy in code from an upstream Pioneer PR that was closed for being AI-generated or for licensing reasons.
+- **Describe the change.** For a new feature, explain it (a screenshot helps if it's graphical). For a bug fix, use [closing keywords](https://help.github.com/articles/closing-issues-via-commit-messages/), e.g. `fixes #1234`.
+- Open the PR from a separate branch, not from `master`.
 
-- Have you read [code style](https://dev.pioneerspacesim.net/contribute/coding-conventions) in the development documentation?
-- If new to github, make sure you're not opening this pull request from your _master_ branch, but rather a new [separate branch](https://dev.pioneerspacesim.net/contribute/git-and-github#making-a-pull-request)
-- Have you reviewed your code? Don't trust the developers to do it, as they don't have time to read your code.
-- Do you foresee any potential pitfalls or issues? If so please mention them.
-- If a new feature, then please describe it, possibly with screenshot if something graphical.
-- If a bug fix, then please use [key phrases](https://help.github.com/articles/closing-issues-via-commit-messages/) so that the original issue will be auto-closed upon merge. E.g.:
+Maintainers may reject or revert anything that is low quality, unclear in origin, or a licensing risk.
 
-```
-    fix #1234
-    fixes #1234
-    close #1234
-    closes #1234
-    resolve #1234
-    resolves #1234
-```
+### Please don't bother upstream
 
-
-### Consider after submitting
-After a pull request has been submitted, it is more common than not, that the branch keeps being modified, as bugs or issues are raised. If the change is to the latest commit on the branch, use `git add`, followed by `git commit --amend`, followed by a forced push, `git push -f`, to keep commit history clean. See our [documentation](https://dev.pioneerspacesim.net/contribute/git-and-github) for details on editing/fixing commits.
-
-If you're hungry to contribute more, you'll find some pointers on [How you can contribute](https://wiki.pioneerspacesim.net/wiki/How_you_can_contribute).
+Don't send Casimir changes to upstream Pioneer, and don't report Casimir bugs there. Upstream does not accept AI-generated contributions and can't support this fork.
 
 Thanks for your contribution!
