@@ -14,8 +14,13 @@ The full policy is in the [README](../README.md#contributing). The short version
 
 Maintainers may reject or revert anything that is low quality, unclear in origin, or a licensing risk.
 
-### Please don't bother upstream
+### Respect upstream Pioneer
 
-Don't send Casimir changes to upstream Pioneer, and don't report Casimir bugs there. Upstream does not accept AI-generated contributions and can't support this fork.
+Casimir wouldn't exist without the Pioneer developers and their human-written code. Their rule against AI-generated contributions is theirs to make, and this fork supports it.
+
+- Don't try to get around it: no AI-written PRs, patches, issues or comments sent upstream, disclosed or not.
+- Don't argue with, pressure or harass Pioneer's developers or community about their policy or this fork.
+- Report Casimir bugs here, not upstream.
+- Support Pioneer on its own terms: play it, report bugs you can reproduce in upstream's own builds, donate, or contribute your own human-written work.
 
 Thanks for your contribution!

@@ -57,8 +57,11 @@ See [COMPILING.txt](COMPILING.txt). Quick version on Linux:
 ```
 ./bootstrap
 make -C build -j$(nproc)
-./pioneer
+./casimir
 ```
+
+Settings and saves live in `~/.casimir/` (Windows: `Documents\Casimir`,
+macOS: `~/Library/Application Support/Casimir`), separate from Pioneer's.
 
 Tests: `make -C build unittest -j$(nproc) && ./build/unittest`
 
@@ -83,6 +86,20 @@ Contributions are welcome, including AI-assisted ones, under these terms.
    reasons.
 6. **Maintainers may reject or revert anything** that is low quality, unclear
    in origin, or a licensing risk.
+
+### Respect upstream Pioneer
+
+Casimir wouldn't exist without the Pioneer developers and years of their
+work, almost all of it human-written code. Their rule against AI-generated
+contributions is theirs to make, and this fork supports it.
+
+- **Don't try to get around it.** Don't send AI-written PRs, patches, issues
+  or comments to upstream, whether disclosed or not.
+- **Don't harass anyone.** Don't argue with, pressure or mock Pioneer's
+  developers or community about their policy or about this fork, anywhere.
+- **Report Casimir bugs here,** not upstream.
+- **Support Pioneer on its own terms.** Play it, report bugs you can reproduce
+  in upstream's own builds, donate, or contribute your own human-written work.
 
 ### Licensing note
 

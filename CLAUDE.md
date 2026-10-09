@@ -8,6 +8,7 @@ This repository is Casimir, an unofficial, AI-assisted ("vibe-coded") fork of up
 
 - AI-authored changes, commits, and comments are fine here, in this fork.
 - Never produce patches, PRs, or issue text intended for upstream `pioneerspacesim/pioneer`. Upstream's ban stands, and this fork respects it.
+- Never help get around upstream's AI policy, or argue with, pressure or harass Pioneer's developers or community. Casimir exists because of their human-written work; speak about them with respect.
 - Don't copy in code from upstream PRs that were closed for being AI-generated or for licensing reasons.
 - Don't knowingly reproduce code from incompatibly licensed sources. Mention it if generated code looks lifted from somewhere.
 - Build, test (`./build/unittest`) and run `./autoformat` before calling a change done.
@@ -17,9 +18,11 @@ This repository is Casimir, an unofficial, AI-assisted ("vibe-coded") fork of up
 
 ```
 ./bootstrap                 # generates build/ via CMake (pass extra CMake args through)
-make -C build -j$(nproc)    # builds the `pioneer` executable
-./pioneer                   # run the game (portable mode: run from repo root, data/ alongside)
+make -C build -j$(nproc)    # builds the `casimir` executable (build/casimir)
+./casimir                   # run the game (wrapper: rebuilds if needed, then execs build/casimir)
 ```
+
+User config and saves: `~/.casimir/` on Linux (`src/posix/FileSystemPosix.cpp`), deliberately separate from upstream Pioneer's `~/.pioneer`.
 
 VSCode: copy `pioneer-default.code-workspace` to `pioneer.code-workspace`, use CMake Tools with a configure preset from `CMakePresets.json` (e.g. `x64-Linux-Debug`).
 
