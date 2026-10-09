@@ -2,5 +2,7 @@
 
 <!-- AI use (required): was any of this written or substantially shaped by AI? Which tool? -->
 
-<!-- I built it, ran ./build/unittest, and ran ./autoformat. -->
+<!-- Translation fix? Link the issue or include a screenshot of where the text appears. -->
+
+<!-- I built it, ran ./build/unittest, ran ./autoformat, and ran scripts/translations.py check. -->
 <!-- I have the right to submit this under the project's licences (see CONTRIBUTING). -->

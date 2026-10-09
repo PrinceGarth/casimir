@@ -1,0 +1,43 @@
+name: 🌐 Translation problem
+description: A wrong, awkward or missing translation. Show us where it is with a screenshot.
+title: "[Translation] "
+labels: ["translation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks! Casimir's own strings are translated by AI, so mistakes happen. A screenshot shows exactly
+        which text is meant and where it appears, which is what makes a fix possible.
+
+        Prefer to fix it yourself? Ask your own AI to make a pull request: see README "Translations".
+  - type: input
+    id: language
+    attributes:
+      label: Language
+      description: The game language you are using (Settings → Language).
+      placeholder: "e.g. Deutsch"
+    validations:
+      required: true
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: Screenshot
+      description: Drag an image here. Circle or point out the text if the screen is busy.
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong?
+      description: Mistranslated, still in English, cut off, wrong tone, a placeholder like {name} showing, etc.
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: What should it say? (optional)
+      description: Your suggested wording, if you have one.
+  - type: input
+    id: version
+    attributes:
+      label: Casimir version or commit (optional)

@@ -76,8 +76,9 @@ Contributions are welcome, including AI-assisted ones, under these terms.
    that you have the right to submit it under this project's licences (below).
    Don't submit code you know or suspect is copied from an incompatibly
    licensed source, whether a human or an AI produced it.
-3. **Review it yourself first.** Build it, run `./build/unittest`, and run
-   `./autoformat`. "The AI said it works" is not a test result.
+3. **Review it yourself first.** Build it, run `./build/unittest`, run
+   `./autoformat`, and run `scripts/translations.py check`. "The AI said it
+   works" is not a test result.
 4. **Keep licences intact.** Code is GPLv3. Art, music, and other assets in
    `data/` are CC-BY-SA-3.0 unless noted in [AUTHORS.txt](AUTHORS.txt). Keep
    attribution for anything you adapt.
@@ -98,6 +99,8 @@ contributions is theirs to make, and this fork supports it.
 - **Don't harass anyone.** Don't argue with, pressure or mock Pioneer's
   developers or community about their policy or about this fork, anywhere.
 - **Report Casimir bugs here,** not upstream.
+- **Keep AI translations here.** Never upload them to Pioneer's Transifex. If
+  you want to fix a Pioneer translation there, do it yourself, by hand.
 - **Support Pioneer on its own terms.** Play it, report bugs you can reproduce
   in upstream's own builds, donate, or contribute your own human-written work.
 
@@ -108,10 +111,27 @@ GPL, is unsettled law and varies by country. This fork does not claim a legal
 answer. We take a practical approach: contributors certify their right to
 submit, and we avoid knowingly including copied code.
 
-## Localization
+## Translations
 
-Translations are pulled from upstream's Transifex project. Please don't make
-pull requests for translation files.
+Casimir has no translation portal. Pioneer's existing translations come in when
+we merge upstream. Casimir's own strings are translated by AI, and people fix
+them from what they see in the game.
+
+- **Found a bad or missing translation?** Open a
+  [Translation problem](https://github.com/PrinceGarth/casimir/issues/new?template=translation.yml) issue with a
+  screenshot. Or have your own AI make a pull request: give it the screenshot
+  and point it at "Fixing a translation" in [CLAUDE.md](CLAUDE.md).
+- **Adding a string?** Put it in a `data/lang/casimir-*/en.json` folder (C++
+  strings: in `core/` with a `CASIMIR_` prefix). Give it a `description` that
+  says where it appears in the game. Then have AI translate it into every
+  language and run `scripts/translations.py check`.
+- **Don't reword an upstream string.** Add a new key instead. Changing the
+  English of an existing key leaves 31 translations with the old meaning.
+- **Never send Casimir's strings or AI translations to Pioneer's Transifex.**
+
+`scripts/translations.py fill` adds missing keys to every language file in
+English, so nothing shows up as a raw key or crashes the UI. `check` runs in CI.
+`todo` lists Casimir strings still in English.
 
 ## Licence
 

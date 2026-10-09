@@ -11,7 +11,8 @@ This repository is Casimir, an unofficial, AI-assisted ("vibe-coded") fork of up
 - Never help get around upstream's AI policy, or argue with, pressure or harass Pioneer's developers or community. Casimir exists because of their human-written work; speak about them with respect.
 - Don't copy in code from upstream PRs that were closed for being AI-generated or for licensing reasons.
 - Don't knowingly reproduce code from incompatibly licensed sources. Mention it if generated code looks lifted from somewhere.
-- Build, test (`./build/unittest`) and run `./autoformat` before calling a change done.
+- Build, test (`./build/unittest`), run `./autoformat` and `scripts/translations.py check` before calling a change done.
+- Never upload strings or AI translations to Pioneer's Transifex (see Translations below).
 - Keep licence files, `AUTHORS.txt`, and about-window credits intact (see Licensing below).
 
 ## Build
@@ -67,12 +68,33 @@ Pioneer is a C++ space sim with a Lua scripting layer for game content (missions
   - `src/win32/`, `src/posix/` — platform-specific shims.
   - `src/test/` — doctest unit/simulation tests (see Tests above).
   - Central classes at the `src/` root worth knowing up front: `Pi.cpp`/`Pi.h` (global engine/game singleton and main loop wiring), `Game.cpp` (game session state), `Space.cpp` (the simulated space containing bodies), `Body.cpp` and its subclasses (`Ship`, `Player`, `SpaceStation`, `Planet`, `Star`, `CargoBody`, `Missile`, `Projectile`, `HyperspaceCloud`, ...), `Frame.cpp` (reference frame tree bodies live in), `SectorView`/`SectorMap`/`SystemView` (map UI + underlying galaxy sector data views).
-- `data/` — game content: Lua scripts (`data/modules` etc.), models, textures, ship defs, systems, factions, UI (pigui) Lua, localization strings pulled from Transifex. Content here is largely data/Lua, not C++; changes to gameplay/balance/missions usually live here rather than in `src/`.
+- `data/` — game content: Lua scripts (`data/modules` etc.), models, textures, ship defs, systems, factions, UI (pigui) Lua, translation files (`data/lang/<resource>/<lang>.json`, see Translations). Content here is largely data/Lua, not C++; changes to gameplay/balance/missions usually live here rather than in `src/`.
 - `contrib/` — third-party/vendored code bundled with the build.
 - `cmake/` — CMake helper modules used by the root `CMakeLists.txt`.
 - `scripts/` — developer/CI utility scripts (formatting, release packaging, translation tooling, enum scanning, etc.), not part of the runtime.
 
-Localization strings are pulled automatically from Transifex — don't hand-edit translation files or open PRs for translations.
+## Translations
+
+No translation portal. Upstream Pioneer's human translations arrive by merging `upstream/master`. Casimir's own strings are AI-translated, and fixes start from a screenshot (issue form `.github/ISSUE_TEMPLATE/translation.yml`). User-facing summary: README "Translations".
+
+- Files: `data/lang/<resource>/<lang>.json`, each key `{"description": ..., "message": ...}`, sorted with 2-space indent (`scripts/translations.py` writes this format).
+- Casimir-owned strings: any key in a `data/lang/casimir-*/` folder (Lua: `Lang.GetResource("casimir-ui")`), or a `CASIMIR_`-prefixed key in an upstream folder. C++ strings have to be in `core/` (declared in `src/LangStrings.inc.h`), so they use the prefix.
+- Fallback: a missing language *file* falls back to `en.json` for the whole resource (`src/Lang.cpp` GetResource). A missing *key* in an existing file does not: C++ shows the raw key, and Lua gets `nil`, which can crash a pigui module. So a key added to en.json must also be added to every existing language file: `scripts/translations.py fill` does this, in English.
+- `scripts/translations.py check` (in CI) fails on missing keys, on a Casimir string with no `description`, or on a Casimir translation whose placeholders differ from English. Placeholders: Lua `{name}`, C++ `%name`, `%0` or `%{name}` with optional `{formatspec}`; keep names untranslated and unchanged. Upstream files have ~300 placeholder mismatches; it only reports those (`--upstream`), never fails on them.
+- `scripts/translations.py todo` lists Casimir strings still in English, per language, with descriptions: the input for translating.
+- After merging `upstream/master`: run `scripts/translations.py fill` then `check` (upstream's en.json can gain keys before their bot fills the other languages). If the merge conflicts on `.tx/config` or `scripts/update-translations.sh`, keep them deleted (`rip` them, then `git add -A` those paths).
+- Don't reword an existing upstream English string; add a new key. Don't AI-translate upstream strings unless asked. Never `tx push` or upload anything to Pioneer's Transifex.
+
+Adding a string:
+1. Add it to `data/lang/casimir-<area>/en.json` with a `description` saying where it appears in the game (screen, button, situation).
+2. Translate it into every language that `data/lang/core/` has, creating the folder's `<lang>.json` files as needed. Keep placeholders exactly.
+3. Run `scripts/translations.py fill` then `check`.
+
+Fixing a translation from a screenshot:
+1. Grep the text visible in the screenshot in `data/lang/*/<lang>.json` to find the key (or grep the English in `en.json` if the text is untranslated).
+2. Confirm the code actually uses that key (`grep -rn KEY data src`) and that it's the one on screen.
+3. Edit only that language's file, then run `scripts/translations.py check`.
+4. If the key is upstream's (not Casimir-owned), the fix is fine, but note in the PR that a later upstream translation update to the same key will conflict on merge.
 
 ## Licensing (for forks / redistribution)
 

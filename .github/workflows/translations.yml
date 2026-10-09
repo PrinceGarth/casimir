@@ -1,0 +1,26 @@
+# Check that every language file has every key, and that Casimir's own strings
+# have a description and intact placeholders. See README "Translations".
+
+name: Translations
+
+on:
+  push:
+    branches:
+    - master
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v6
+
+    - name: Check translation files
+      run: python3 scripts/translations.py check
