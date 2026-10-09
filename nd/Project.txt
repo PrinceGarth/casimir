@@ -6,7 +6,7 @@
 # Project Information
 # ------------------------------------------------------------------------
 
-Title: Pioneer
+Title: Casimir
 Subtitle: API documentation
 
 Timestamp: yyyy-mm-dd
