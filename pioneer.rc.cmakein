@@ -16,7 +16,7 @@ BEGIN
             VALUE "InternalName",       "Pioneer"
             VALUE "LegalCopyright",     "Copyright 2008-@BUILD_YEAR@ Pioneer developers"
             VALUE "LegalTrademarks",    "https://www.gnu.org/licenses/gpl-3.0.en.html"
-            VALUE "OriginalFilename",   "pioneer.exe"
+            VALUE "OriginalFilename",   "casimir.exe"
             VALUE "ProductName",        "Pioneer"
             VALUE "ProductVersion",     "@PIONEER_VERSION@"
         END

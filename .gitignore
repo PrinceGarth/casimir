@@ -50,7 +50,7 @@ Thumbs.db
 
 # Exclude build artefacts
 pioneer
-pioneer.exe
+casimir.exe
 modelviewer
 modelviewer.exe
 modelcompiler

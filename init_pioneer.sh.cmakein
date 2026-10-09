@@ -15,7 +15,7 @@ then
     shift
     cd $APPDIR && $BIN_DIRECTORY/savegamedump "$@"
 else
-    cd $APPDIR && $BIN_DIRECTORY/pioneer "$@"
+    cd $APPDIR && $BIN_DIRECTORY/casimir "$@"
 fi
 
 cd $OLD_DIR

@@ -106,7 +106,7 @@
 				"name": "Debug",
 				"type": "cppdbg",
 				"request": "launch",
-				"program": "${command:cmake.buildDirectory}/pioneer",
+				"program": "${command:cmake.buildDirectory}/casimir",
 				"args": [],
 				"environment": [],
 				"cwd": "${workspaceRoot:pioneer}",

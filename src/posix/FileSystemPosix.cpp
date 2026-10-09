@@ -59,22 +59,10 @@ namespace FileSystem {
 		}
 
 #ifdef __APPLE__
-		path += "Library/Application Support/Pioneer";
+		path += "Library/Application Support/Casimir";
 #else
-		struct stat info;
-		int err = stat((path + ".pioneer").c_str(), &info);
-		if (err == 0 && S_ISDIR(info.st_mode)) {
-			// Check for legacy pioneer directory.
-			path += ".pioneer";
-		} else {
-			char *data_home = getenv("XDG_DATA_HOME");
-			if (data_home == NULL || strcmp(data_home, "") == 0) {
-				path += ".local/share/pioneer";
-			} else {
-				path = data_home;
-				path += "/pioneer";
-			}
-		}
+		// Casimir keeps its config and saves apart from upstream Pioneer's
+		path += ".casimir";
 #endif
 		return path;
 	}

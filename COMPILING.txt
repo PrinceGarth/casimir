@@ -73,9 +73,9 @@ questions are welcome anytime.
    CMake process.
 
 3. Run 'make -C build -jX', where X is the number of CPU cores you have. If in
-   doubt, 4 is a good default. This will compile the pioneer executable.
+   doubt, 4 is a good default. This will compile the casimir executable.
 
-4. Run `./pioneer` to start the game!
+4. Run `./casimir` to start the game!
 
 1.1a Linux - VSCode + CMake
 ---------
