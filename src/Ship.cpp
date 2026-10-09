@@ -898,6 +898,11 @@ void Ship::SetFlightState(Ship::FlightState newState)
 		ClearAngThrusterState();
 	}
 
+	// Player input stops reaching the guns once the ship isn't flying (e.g. the station takes over
+	// docking), so a trigger held at that moment would keep them firing until they overheat.
+	if (newState != FLYING)
+		m_gunManager->SetAllGroupsFiring(false);
+
 	m_flightState = newState;
 	Properties().Set("flightState", EnumStrings::GetString("ShipFlightState", m_flightState));
 
