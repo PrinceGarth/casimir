@@ -403,10 +403,14 @@ local isQualifiedFor = function(ad)
 	-- TODO: enable reputation based qualifications
 
 	-- collect equipment requirements per mission flavor
-	local empty_cabins = ad.pickup_crew + ad.deliver_crew + ad.pickup_pass + ad.deliver_pass
-	local avail_cabins = Passengers.CountFreeBerths(Game.player)
+	-- People delivered to the target board now, so they need free berths. People picked up board
+	-- at the target, so they only need berths on the ship: passengers from other missions may have
+	-- left by then (if not, the pickup ends as partial).
+	local cabins = ad.pickup_crew + ad.deliver_crew + ad.pickup_pass + ad.deliver_pass
+	local deliver = ad.deliver_crew + ad.deliver_pass
+	local total_berths = Passengers.CountOccupiedBerths(Game.player) + Passengers.CountFreeBerths(Game.player)
 
-	return avail_cabins >= empty_cabins
+	return Passengers.CountFreeBerths(Game.player) >= deliver and total_berths >= cabins
 end
 
 -- extended mission functions
