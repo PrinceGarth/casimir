@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <!-- Casimir logo, simplified for icons of 32 px and below: no waves or stars, heavier shapes. -->
+  <circle cx="256" cy="256" r="248" fill="#E8A13A"/>
+  <circle cx="256" cy="256" r="212" fill="#0A1330"/>
+  <rect x="96" y="150" width="320" height="44" rx="22" fill="#CFEFFF"/>
+  <rect x="96" y="318" width="320" height="44" rx="22" fill="#CFEFFF"/>
+  <path d="M236 244 L142 256 L236 268 Z" fill="#E8A13A"/>
+  <path d="M372 256 L206 208 L240 256 L206 304 Z" fill="#F4F1EA"/>
+</svg>
