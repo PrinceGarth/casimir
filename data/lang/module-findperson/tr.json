@@ -253,7 +253,7 @@
   },
   "INTROTEXT_DELIVER_MESSAGE_FEMALE_2": {
     "description": "",
-    "message": "Merhaba. Ben {client}. Eski bir arkadaşımı arıyorum. Adı {wanted}. {system} ({sectorx}, {sectory}, {sectorz}) sisteminde yaşadığını biliyorum ama tam olarak nerede olduğunu bilmiyorum. Ona bir mesaj iletebilirseniz size {cash} öderim."
+    "message": "Merhaba. Ben {client}, {friend} arıyorum. Adı {wanted}. {system} ({sectorx}, {sectory}, {sectorz}) sisteminde yaşadığını biliyorum ama tam olarak nerede olduğunu bilmiyorum. Ona bir mesaj iletebilirseniz size {cash} öderim."
   },
   "INTROTEXT_DELIVER_MESSAGE_FEMALE_3": {
     "description": "",

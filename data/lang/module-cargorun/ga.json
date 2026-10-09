@@ -333,7 +333,7 @@
   },
   "INTROTEXT_EXPENSIVE_1": {
     "description": "",
-    "message": "Go mbeannaí Dia duit. Táimid ag lorg píolóta a bhfuil seantaithí aige chun lasta a sheachadadh chuig {starport} i réaltchóras ({sectorx}, {sectory}, {sectorz}), {dist} solasbhliain ar shiúl. D'fhéadfadh sé a bheith contúirteach. Íocfaimid {cash} as."
+    "message": "Go mbeannaí Dia duit. Táimid ag lorg píolóta a bhfuil seantaithí aige chun lasta a sheachadadh chuig {starport} i réaltchóras {system} ({sectorx}, {sectory}, {sectorz}), {dist} solasbhliain ar shiúl. D'fhéadfadh sé a bheith contúirteach. Íocfaimid {cash} as."
   },
   "INTROTEXT_FLUFFY_1": {
     "description": "this is used for the delivery of Quibbles, which is a nod to Tribble (star trek ref. see wikipedia)",

@@ -357,7 +357,7 @@
   },
   "INTROTEXT_MINING_1": {
     "description": "{name} is the full name of a person",
-    "message": "Salut. Compania Minieră {name} dorește să livreze {cargoname} la {starport} în sistemul ({sectorx}, {sectory}, {sectorz}) care este la distanță de {dist} a.l. în vederea construirii unei noi mine. Plata este de {cash}."
+    "message": "Salut. Compania Minieră {name} dorește să livreze {cargoname} la {starport} în sistemul {system} ({sectorx}, {sectory}, {sectorz}) care este la distanță de {dist} a.l. în vederea construirii unei noi mine. Plata este de {cash}."
   },
   "INTROTEXT_PICKUP_1": {
     "description": "",

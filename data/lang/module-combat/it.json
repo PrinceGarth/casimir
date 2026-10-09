@@ -321,7 +321,7 @@
   },
   "POLICE_3": {
     "description": "{area} is an asteroid or planet",
-    "message": "I nostri mercati sono stati invasi da merci di contrabbando. Abbiamo tracciato l'origine su una base nascosta su {area} nel sistema ({sectorx}, {sectory}, {sectorz}). Distante appena {dist} AL. Per via dei ridotti fondi della polizia, le autorità locali vorrebbero esternalizzare questa missione assegnando {cash} per l'operazione."
+    "message": "I nostri mercati sono stati invasi da merci di contrabbando. Abbiamo tracciato l'origine su una base nascosta su {area} nel sistema {system} ({sectorx}, {sectory}, {sectorz}). Distante appena {dist} AL. Per via dei ridotti fondi della polizia, le autorità locali vorrebbero esternalizzare questa missione assegnando {cash} per l'operazione."
   },
   "POLICE_IT_MUST_BE_COMPLETED_BY": {
     "description": "",

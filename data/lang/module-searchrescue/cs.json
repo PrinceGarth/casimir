@@ -541,7 +541,7 @@
   },
   "PROBLEM_CREW_2": {
     "description": "",
-    "message": "posádka musela pronásledovat smrtícího hada nalezeného na lodi"
+    "message": "posádka musela pronásledovat smrtícího hada z {locality}, který se na lodi volně pohyboval"
   },
   "PROBLEM_CREW_3": {
     "description": "",

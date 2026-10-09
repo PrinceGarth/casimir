@@ -29,7 +29,7 @@
   },
   "FLAVOUR_0_TEXT": {
     "description": "Selling second hand ship equipment",
-    "message": "Posebna ponuda, prodajem jednu {opremu}."
+    "message": "Posebna ponuda, prodajem jednu {equipment}."
   },
   "FLAVOUR_0_TITLE": {
     "description": "Selling second hand ship equipment",
@@ -41,7 +41,7 @@
   },
   "FLAVOUR_1_TEXT": {
     "description": "Selling second hand ship equipment",
-    "message": "Praktički nekorištena {oprema}, po pristupačnoj cijeni!"
+    "message": "Praktički nekorištena {equipment}, po pristupačnoj cijeni!"
   },
   "FLAVOUR_1_TITLE": {
     "description": "Selling second hand ship equipment",
@@ -49,11 +49,11 @@
   },
   "FLAVOUR_2_BODY": {
     "description": "",
-    "message": "Pozdrav! Ja sam {name} i imam vrlo dobru {opremu} koja bi mogla biti vaša za samo {price}."
+    "message": "Pozdrav! Ja sam {name} i imam vrlo dobru {equipment} koja bi mogla biti vaša za samo {price}."
   },
   "FLAVOUR_2_TEXT": {
     "description": "Selling second hand ship equipment",
-    "message": "Prodajem jednu {opremu}, po povoljnoj cijeni!"
+    "message": "Prodajem jednu {equipment}, po povoljnoj cijeni!"
   },
   "FLAVOUR_2_TITLE": {
     "description": "Selling second hand ship equipment",
@@ -61,11 +61,11 @@
   },
   "FLAVOUR_3_BODY": {
     "description": "",
-    "message": "Pozdrav! Imam dodatnu {opremu} koje se moram riješiti, moja tražena cijena je {price}."
+    "message": "Pozdrav! Imam dodatnu {equipment} koje se moram riješiti, moja tražena cijena je {price}."
   },
   "FLAVOUR_3_TEXT": {
     "description": "Selling second hand ship equipment",
-    "message": "Nudim jednu {opremu}, u dobrom stanju."
+    "message": "Nudim jednu {equipment}, u dobrom stanju."
   },
   "FLAVOUR_3_TITLE": {
     "description": "Selling second hand ship equipment",
@@ -73,11 +73,11 @@
   },
   "FLAVOUR_4_BODY": {
     "description": "",
-    "message": "Pozdrav! Imamo dodatnu {opremu} koja bi mogla biti vaša za {cijena}."
+    "message": "Pozdrav! Imamo dodatnu {equipment} koja bi mogla biti vaša za {price}."
   },
   "FLAVOUR_4_TEXT": {
     "description": "Selling second hand ship equipment",
-    "message": "Prodaje se: preostala {oprema}, u dobrom stanju."
+    "message": "Prodaje se: preostala {equipment}, u dobrom stanju."
   },
   "FLAVOUR_4_TITLE": {
     "description": "Selling second hand ship equipment",
@@ -85,11 +85,11 @@
   },
   "FLAVOUR_5_BODY": {
     "description": "",
-    "message": "Pozdrav! Želite li kupiti moju staru {opremu}? Dobro mi je služila, ali sada sam je nadogradio i ne treba mi. Cijena je {price}."
+    "message": "Pozdrav! Želite li kupiti moju staru {equipment}? Dobro mi je služila, ali sada sam je nadogradio i ne treba mi. Cijena je {price}."
   },
   "FLAVOUR_5_TEXT": {
     "description": "Selling second hand ship equipment",
-    "message": "U ponudi: stara {oprema}, u ispravnom stanju."
+    "message": "U ponudi: stara {equipment}, u ispravnom stanju."
   },
   "FLAVOUR_5_TITLE": {
     "description": "Selling second hand ship equipment",

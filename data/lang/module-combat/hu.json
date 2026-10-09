@@ -213,15 +213,15 @@
   },
   "MILITARY_2": {
     "description": "{area} is an asteroid or planet",
-    "message": "Kalóz tevékenységre válaszként a helyi hatóságok {cash} összeget fizetnek harci küldetésért az {area} körzetben, {system} rendszerben ({sectorx}, {sectory}, {sectorz})."
+    "message": "Kalóz tevékenységre válaszként a helyi hatóságok {cash} összeget fizetnek harci küldetésért az {area} körzetben, {system} rendszerben ({sectorx}, {sectory}, {sectorz}), {dist} fényévre."
   },
   "MILITARY_3": {
     "description": "",
-    "message": "A kémelhárítás civil pilótát keres,  {mission} feladat elvégzésére, aki nem kérdezősködik. Helyszín: [system] rendszer ({sectorx}, sectory}, {sectorz}), {dist} fényévre. Fizetség: {cash}."
+    "message": "A kémelhárítás civil pilótát keres,  {mission} feladat elvégzésére, aki nem kérdezősködik. Helyszín: {system} rendszer ({sectorx}, {sectory}, {sectorz}), {dist} fényévre. Fizetség: {cash}."
   },
   "MILITARY_IT_MUST_BE_COMPLETED_BY": {
     "description": "",
-    "message": "Egy különítmény fogja átvenni a terület ellenőrzését. Ezért különösen fontos a küldetés sikeres végrehajtása {date}-ig."
+    "message": "Egy különítmény fogja átvenni {area} ellenőrzését. Ezért különösen fontos a küldetés sikeres végrehajtása {date}-ig."
   },
   "MILITARY_LAND_THERE": {
     "description": "",

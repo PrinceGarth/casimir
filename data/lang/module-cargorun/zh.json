@@ -361,11 +361,11 @@
   },
   "INTROTEXT_PICKUP_1": {
     "description": "",
-    "message": "你好吗？ 我叫{name}，现在需要一艘能够飞到{system}星系（{sectorx}，{sectory}，{sectorz}）中的{starport}的船只来取回{cargoname}并返回{dom_system}星系（{dom_sectorx}，{dom_sectory}，{dom_sectorz}）中的dom_starport}。 {system}的距离是{dist}，报酬有{cash}。"
+    "message": "你好吗？ 我叫{name}，现在需要一艘能够飞到{system}星系（{sectorx}，{sectory}，{sectorz}）中的{starport}的船只来取回{cargoname}并返回{dom_system}星系（{dom_sectorx}，{dom_sectory}，{dom_sectorz}）中的{dom_starport}。 {system}的距离是{dist}光年，报酬有{cash}。"
   },
   "INTROTEXT_PICKUP_2": {
     "description": "",
-    "message": "你好! 我叫 {name}. 我的一个客户希望从距离我们 {dist} 光年的 {system} ({sectorx}, {sectory}, {sectorz}) 星系进口 {cargoname} . 他愿意为这趟跑货付 {cash} . 你需要回到 {dom_system} ({dom_sectorx}, {dom_sectory}, {dom_sectorz}) 星系的 {dom_starport} 星港来交付货物. "
+    "message": "你好! 我叫 {name}. 我的一个客户希望从距离我们 {dist} 光年的 {system} ({sectorx}, {sectory}, {sectorz}) 星系的 {starport} 星港进口 {cargoname} . 他愿意为这趟跑货付 {cash} . 你需要回到 {dom_system} ({dom_sectorx}, {dom_sectory}, {dom_sectorz}) 星系的 {dom_starport} 星港来交付货物. "
   },
   "INTROTEXT_PICKUP_LOCAL_1": {
     "description": "",
@@ -377,7 +377,7 @@
   },
   "INTROTEXT_WEDDING_1": {
     "description": "",
-    "message": "您好。 您是否在{system}星系（{sectorx}，{sectory}，{sectorz}）中听说过{starport}的婚礼季节？ 我们需要运输{cargoname}。 运费是{cash}。 这个怎么样？"
+    "message": "您好。 您是否在{system}星系（{sectorx}，{sectory}，{sectorz}）中听说过{starport}的婚礼季节？ 我们需要运输{cargoname}。 距离是{dist}光年。 运费是{cash}。 这个怎么样？"
   },
   "INTROTEXT_WHOLESALER_1": {
     "description": "",

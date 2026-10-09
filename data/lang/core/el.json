@@ -1085,7 +1085,7 @@
   },
   "NUMBER_TONNES": {
     "description": "",
-    "message": "%(mass) τόννοι"
+    "message": "%{mass} τόνοι"
   },
   "N_ATMOSPHERE": {
     "description": "",
@@ -1525,7 +1525,7 @@
   },
   "STABLE_SYSTEM_WITH_N_MAJOR_BODIES_STARPORTS": {
     "description": "",
-    "message": "Σταθερό σύστημα με %bodycount κύρια % [body(s)] και %portcount %[starport(s)]"
+    "message": "Σταθερό σύστημα με %bodycount κύρια %{body(s)} και %portcount %{starport(s)}"
   },
   "STARPORT": {
     "description": "",

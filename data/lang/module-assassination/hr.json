@@ -137,7 +137,7 @@
   },
   "FLAVOUR_3_INTROTEXT": {
     "description": "",
-    "message": "{target} mora biti sveden na svemirsku prašinu. Nagradit ću te novcem (cash) da to učiniš."
+    "message": "{target} mora biti sveden na svemirsku prašinu. Nagradit ću te s {cash} da to učiniš."
   },
   "FLAVOUR_3_SUCCESSMSG": {
     "description": "",
@@ -181,7 +181,7 @@
   },
   "FLAVOUR_5_FAILUREMSG2": {
     "description": "",
-    "message": "Metu je neutralizirao netko drugi."
+    "message": "Metu, {target}, neutralizirao je netko drugi."
   },
   "FLAVOUR_5_INTROTEXT": {
     "description": "",
@@ -189,7 +189,7 @@
   },
   "FLAVOUR_5_SUCCESSMSG": {
     "description": "",
-    "message": "Poruka o {target}-ovoj uspješno završenoj karijeri. Evo vašeg {casha}."
+    "message": "Poruka o {target}-ovoj uspješno završenoj karijeri. Evo vaših {cash}."
   },
   "HOW_SOON_MUST_IT_BE_DONE": {
     "description": "",
@@ -205,11 +205,11 @@
   },
   "IT_MUST_BE_DONE_AFTER_FEMALE": {
     "description": "",
-    "message": "To se mora učiniti nakon što napusti {svemirsku luku}. Ne propustite ovu priliku."
+    "message": "To se mora učiniti nakon što napusti {spaceport}. Ne propustite ovu priliku."
   },
   "IT_MUST_BE_DONE_AFTER_MALE": {
     "description": "",
-    "message": "To se mora učiniti nakon što napusti {svemirsku luku}. Ne propustite ovu priliku."
+    "message": "To se mora učiniti nakon što napusti {spaceport}. Ne propustite ovu priliku."
   },
   "OK_AGREED": {
     "description": "",

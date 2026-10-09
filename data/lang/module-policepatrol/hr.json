@@ -5,7 +5,7 @@
   },
   "FINES_ADMONISHING_2": {
     "description": "FINES_INTRO_$ + FINES_MESSAGE_$ + FINES_ADMONISHING_$(this)",
-    "message": "Posjetite najbližu policijsku postaju i riješite ovaj problem."
+    "message": "Posjetite najbliži ured {policeforce} i riješite ovaj problem."
   },
   "FINES_ADMONISHING_3": {
     "description": "FINES_INTRO_$ + FINES_MESSAGE_$ + FINES_ADMONISHING_$(this)",
@@ -13,7 +13,7 @@
   },
   "FINES_ADMONISHING_4": {
     "description": "FINES_INTRO_$ + FINES_MESSAGE_$ + FINES_ADMONISHING_$(this)",
-    "message": "Na svakoj većoj postaji postoji {policijska} postaja. Platite kazne!"
+    "message": "Na svakoj većoj postaji postoji ured {policeforce}. Platite kazne!"
   },
   "FINES_ADMONISHING_HARSH_1": {
     "description": "FINES_INTRO_$ + FINES_MESSAGE_$ + FINES_ADMONISHING_HARSH_$(this)",

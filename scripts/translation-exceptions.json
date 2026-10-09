@@ -1,0 +1,50 @@
+{
+  "module-assassination/fr/IT_MUST_BE_DONE_AFTER_FEMALE": {
+    "message": "Cela doit être fait lorsque {target} aura quitté {spaceport}. Ne loupez pas cette opportunité.",
+    "reason": "Uses {target}, which the code provides (Assassination.lua); English just says 'she'."
+  },
+  "module-assassination/fr/IT_MUST_BE_DONE_AFTER_MALE": {
+    "message": "Cela doit être fait lorsque {target} aura quitté {spaceport}. Ne loupez pas cette opportunité.",
+    "reason": "Uses {target}, which the code provides (Assassination.lua); English just says 'he'."
+  },
+  "module-cargorun/ru/INTROTEXT_EXPENSIVE_1": {
+    "message": "Здравствуйте.\nНам требуется опытный пилот для рискованной доставки {cargoname} в космопорт {starport} в системе {system} ({sectorx}, {sectory}, {sectorz}). Система находится в {dist} св.лет отсюда. Оплата {cash}.",
+    "reason": "Names the cargo with {cargoname}, which the code provides (CargoRun.lua introtext)."
+  },
+  "module-cargorun/ru/INTROTEXT_WHOLESALER_1": {
+    "message": "Здравствуйте, меня зовут {name}.\nЯ являюсь оптовым дилером в системе {system}. Я плачу {cash} за доставку {cargoname} в космопорт {starport} в системе {system} ({sectorx}, {sectory}, {sectorz}) . Расстояние {dist} св.л.",
+    "reason": "Names the cargo with {cargoname}, which the code provides (CargoRun.lua introtext)."
+  },
+  "module-cargorun/ru/INTROTEXT_WHOLESALER_2": {
+    "message": "Привет, меня зовут {name}.\nЯ работаю на Haber Corp и плачу {cash} за доставку {cargoname} в космопорт {starport} в системе {system} ({sectorx}, {sectory}, {sectorz}) . Расстояние {dist} св.л.",
+    "reason": "Names the cargo with {cargoname}, which the code provides (CargoRun.lua introtext)."
+  },
+  "module-fuelclub/fi/WHAT_CONDITIONS_APPLY": {
+    "message": "Mitä ehtoja on radioaktiivisen jätteen hävittämisessä?",
+    "reason": "Commodity name written out to inflect it; it is a fixed string."
+  },
+  "module-fuelclub/fi/YOU_MUST_BUY": {
+    "message": "Teidän täytyy ostaa {military_fuel}ttamme, ennen kuin voimme ottaa jätettänne vastaan.",
+    "reason": "Radioactives written out to inflect it; it is a fixed string."
+  },
+  "module-fuelclub/pl/FLAVOUR_0_WELCOME": {
+    "message": "Witamy w Spółdzielni Paliwowej Pilotów Międzygwiezdnych",
+    "reason": "Club name written out in the locative case; {clubname} is a fixed string (FLAVOUR_0_CLUBNAME)."
+  },
+  "module-fuelclub/pl/WE_WILL_ONLY_DISPOSE_OF": {
+    "message": "Zutylizujemy tylko tyle odpadów radioaktywnych, ile zakupisz od nas paliwa wojskowego.",
+    "reason": "Commodity names written out to inflect them; they are fixed strings."
+  },
+  "module-searchrescue/el/FLAVOUR_1_INTROTEXT": {
+    "message": "Ο έλεγχος εναέριας κυκλοφορίας του {starport} χρειάζεται την ΑΜΕΣΗ βοήθειά σας για την αντιμετώπιση μιας αναγκαστικής προσεδάφισης ενός σκάφους τύπου {ship_base} στον πλανήτη {planet}. Η κατάσταση των συστημάτων υποστήριξης ζωής είναι άγνωστη. Το σκάφος είναι ασφαλισμένο, από την ασφάλεια του κοσμοδρομίου {starport}, για την περίπτωση αντιμετώπισης έκτακτης ανάγκη με ποσό αποζημίωσης {cash}.",
+    "reason": "Uses {ship_base} (provided by SearchRescue.lua) after 'ενός σκάφους τύπου', which reads better in Greek than {ship_indef}; it previously used {ship}, which the code does not provide."
+  },
+  "module-system/pl/DISCOVERED_HIDDEN_BASES": {
+    "message": "Ilość odkrytych baz:  {portcount}",
+    "reason": "Rephrased as 'number of bases found: N' to avoid Polish plural forms of {bases}; no information lost."
+  },
+  "module-taxi/hu/FLAVOUR_8_ADTEXT": {
+    "message": "Sürgős személyszállításra keres hajót {system} rendszerbe. {cash} ellentételezés tartalmazza a veszélyességi pótlékot.",
+    "reason": "Shows the payment with {cash}, which the code provides (Taxi.lua placeAdvert)."
+  }
+}

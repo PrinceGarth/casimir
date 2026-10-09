@@ -1,7 +1,7 @@
 {
   "MSG_1": {
     "description": "",
-    "message": "Vissza az unalmas szoftvereidhez?"
+    "message": "Az {yes} gombbal visszatérhetsz az unalmas szoftvereidhez?"
   },
   "MSG_10": {
     "description": "",
@@ -13,7 +13,7 @@
   },
   "MSG_12": {
     "description": "",
-    "message": "Egy keménykötésű fejvadász {no}et mondana. A szentek mehetnek."
+    "message": "Egy keménykötésű fejvadász a {no} gombot választaná. A szentek finoman az {yes} gombra kattintanak."
   },
   "MSG_13": {
     "description": "\"Seeing\" as in having an affair / being unfaithful",
@@ -69,7 +69,7 @@
   },
   "MSG_5": {
     "description": "(Inspired by Wolfenstein 3D)",
-    "message": "Válaszd  a {no}-et ha kalandra vágysz, Igen-t, ha keserves munkára."
+    "message": "Válaszd a {no} gombot, ha kalandra vágysz, az {yes} gombot, ha keserves munkára."
   },
   "MSG_6": {
     "description": "",
@@ -85,7 +85,7 @@
   },
   "MSG_9": {
     "description": "",
-    "message": "Vissza akarsz térni a sivár munkanapokba?"
+    "message": "Az {yes} gombbal vissza kell térned a sivár munkanapokba."
   },
   "NO": {
     "description": "No, don't quit program",

@@ -109,7 +109,7 @@
   },
   "CORPORATION_8": {
     "description": "Name of a corporation",
-    "message": "{naziv} d.o.o."
+    "message": "{name} d.o.o."
   },
   "DANGER": {
     "description": "The risk level",
@@ -317,7 +317,7 @@
   },
   "POLICE_2": {
     "description": "{area} is an asteroid or planet",
-    "message": "{Org} će platiti {cash} za borbenu misiju u sustavu {system} ({sectorx}, {sectory}, {sectorz}). Nedostaju nam piloti i brodovi. Dakle, ovo će biti prilika za lojalnog građanina da zaradi novac. Cilj je mala gusarska baza na {area}. Trebate hiperpogonsko gorivo za {dist} i dodatno gorivo za povratnu rutu."
+    "message": "{org} će platiti {cash} za borbenu misiju u sustavu {system} ({sectorx}, {sectory}, {sectorz}). Nedostaju nam piloti i brodovi. Dakle, ovo će biti prilika za lojalnog građanina da zaradi novac. Cilj je mala gusarska baza na {area}. Trebate hiperpogonsko gorivo za {dist} ly i dodatno gorivo za povratnu rutu."
   },
   "POLICE_3": {
     "description": "{area} is an asteroid or planet",

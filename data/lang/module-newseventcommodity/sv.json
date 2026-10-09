@@ -73,7 +73,7 @@
   },
   "FLAVOUR_16_HEADLINE": {
     "description": "",
-    "message": "NYHETER {date}: Allvarlig olycka inträffade under den årliga marknaden."
+    "message": "NYHETER {date}: Allvarlig olycka inträffade under den årliga stora ångmässan i {system}."
   },
   "FLAVOUR_16_NEWSBODY": {
     "description": "Imply high demand of FARM_MACHINERY.",

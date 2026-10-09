@@ -333,7 +333,7 @@
   },
   "INTROTEXT_EXPENSIVE_1": {
     "description": "",
-    "message": "Cześć. Potrzebujemy kogoś doświadczonego do potencjalnie niebezpiecznego przelotu do {starport} w układzie system} ({sectorx}, {sectory}, {sectorz}). Zapłacimy {cash}. Odległość wynosi {dist} lś."
+    "message": "Cześć. Potrzebujemy kogoś doświadczonego do potencjalnie niebezpiecznego przelotu do {starport} w układzie {system} ({sectorx}, {sectory}, {sectorz}). Zapłacimy {cash}. Odległość wynosi {dist} lś."
   },
   "INTROTEXT_FLUFFY_1": {
     "description": "this is used for the delivery of Quibbles, which is a nod to Tribble (star trek ref. see wikipedia)",

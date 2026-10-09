@@ -321,11 +321,11 @@
   },
   "INTROTEXT_1": {
     "description": "",
-    "message": "Üdv, {name} vagyok. Készpénzben fizetek {cash} $-t, ha leszállítod {cargoname} rakományomat {system} rendszerbe ({sectorx}, {sectory}, {sectorz}, {dist} fényévre)"
+    "message": "Üdv, {name} vagyok. Fizetek {cash} összeget, ha leszállítod {cargoname} rakományomat {starport} kikötőbe, {system} rendszerbe ({sectorx}, {sectory}, {sectorz}, {dist} fényévre)"
   },
   "INTROTEXT_2": {
     "description": "{name} is the full name of a person",
-    "message": "Üdv! {name} Szállító Szolgálat-nak szüksege van valakire, {cargoname} rakomány szállítására, {system} rendszerbe. ({sectorx}, {sectory}, {sectorz}, {dist} fényév). A fizettség {cash}, amennyiben sértetlenül és hiánytalanul leszállítja a rakományt."
+    "message": "Üdv! {name} Szállító Szolgálat-nak szüksege van valakire, {cargoname} rakomány szállítására {starport} kikötőbe, {system} rendszerbe. ({sectorx}, {sectory}, {sectorz}, {dist} fényév). A fizettség {cash}, amennyiben sértetlenül és hiánytalanul leszállítja a rakományt."
   },
   "INTROTEXT_3": {
     "description": "",

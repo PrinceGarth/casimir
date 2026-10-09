@@ -289,7 +289,7 @@
   },
   "HOWMUCH_2": {
     "description": "regarding mass, always more than 1t",
-    "message": "%(mass) τόννοι"
+    "message": "{amount} τόνοι"
   },
   "HOWMUCH_3": {
     "description": "regarding mass, always more than 1t",
@@ -361,11 +361,11 @@
   },
   "INTROTEXT_PICKUP_1": {
     "description": "",
-    "message": "Πώς τα πάτε; Λέγομαι {name}, και χρειάζομαι σκάφος ικανό να μεταβεί στο {starport} του {system} ({sectorx}, {sectory}, {sectorz}) συστήματος, να παραλάβει φορτίο {cargoname} και να επιστρέψει στο {dom_system} ({dom_sectorx}, {dom_sectory}, {dom_sectorz}) σύστημα για {cash}. Η απόσταση του {system} είναι {dist} ly."
+    "message": "Πώς τα πάτε; Λέγομαι {name}, και χρειάζομαι σκάφος ικανό να μεταβεί στο {starport} του {system} ({sectorx}, {sectory}, {sectorz}) συστήματος, να παραλάβει φορτίο {cargoname} και να επιστρέψει στο {dom_starport} του {dom_system} ({dom_sectorx}, {dom_sectory}, {dom_sectorz}) συστήματος για {cash}. Η απόσταση του {system} είναι {dist} ly."
   },
   "INTROTEXT_PICKUP_2": {
     "description": "",
-    "message": "Πώς είσαι; Ονομάζομαι {name}. Ένας από τους πελάτες μου θέλει να εισάγει φορτίο {cargoname} από το {system} ({sectorx}, {sectory}, {sectorz}) σύστημα, απόστασης {dist} ly. Πληρώνει {cash} για το συγκεκριμένο δρομολόγιο. Επέστρεψε εδώ στο {dom_starport} του {dom_system} ({dom_sectorx}, {dom_sectory}, {dom_sectorz}) συστήματος για να ξεφορτώσεις το εμπόρευμα."
+    "message": "Πώς είσαι; Ονομάζομαι {name}. Ένας από τους πελάτες μου θέλει να εισάγει φορτίο {cargoname} από το {starport} του {system} ({sectorx}, {sectory}, {sectorz}) συστήματος, απόστασης {dist} ly. Πληρώνει {cash} για το συγκεκριμένο δρομολόγιο. Επέστρεψε εδώ στο {dom_starport} του {dom_system} ({dom_sectorx}, {dom_sectory}, {dom_sectorz}) συστήματος για να ξεφορτώσεις το εμπόρευμα."
   },
   "INTROTEXT_PICKUP_LOCAL_1": {
     "description": "",

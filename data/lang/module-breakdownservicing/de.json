@@ -33,7 +33,7 @@
   },
   "FLAVOUR_1_PRICE": {
     "description": "",
-    "message": "Die Kosten für die Instandhaltung Ihres Antriebs wird {price} sein\n{lasttime}"
+    "message": "Die Kosten für die Instandhaltung Ihres Antriebs ({drive}) betragen {price}\n{lasttime}"
   },
   "FLAVOUR_1_RESPONSE": {
     "description": "",
@@ -81,7 +81,7 @@
   },
   "FLAVOUR_3_PRICE": {
     "description": "",
-    "message": "\n\n{lasttime}\nWir können Ihren Hyperraumantrieb für nur {price} komplett überholen. Keiner ist günstiger!"
+    "message": "\n\n{lasttime}\nWir können Ihren Antrieb ({drive}) für nur {price} komplett überholen. Keiner ist günstiger!"
   },
   "FLAVOUR_3_RESPONSE": {
     "description": "",

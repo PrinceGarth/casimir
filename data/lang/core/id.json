@@ -1425,7 +1425,7 @@
   },
   "SET_SPEED_M_S": {
     "description": "",
-    "message": "Atur kecepatan: %speed[f.0] m/s"
+    "message": "Atur kecepatan: %speed{f.0} m/s"
   },
   "SHIELD_INTEGRITY": {
     "description": "",
@@ -1469,7 +1469,7 @@
   },
   "SHIP_MASS_N_TONNES": {
     "description": "",
-    "message": "Massa kapal: %[mass]ton"
+    "message": "Massa kapal: %{mass} ton"
   },
   "SHIP_NEARBY": {
     "description": "",

@@ -157,7 +157,7 @@
   },
   "FLAVOUR_10_INTROTEXT": {
     "description": "",
-    "message": "Zovem se {name}. Želim brzi prijelaz u sustav {system} ({sector}, {sector}, {sector}), udaljen od {dist} ly. Plaćam {cash}."
+    "message": "Zovem se {name}. Želim brzi prijelaz u sustav {system} ({sectorx}, {sectory}, {sectorz}), udaljen od {dist} ly. Plaćam {cash}."
   },
   "FLAVOUR_10_SUCCESSMSG": {
     "description": "",
@@ -193,7 +193,7 @@
   },
   "FLAVOUR_11_INTROTEXT": {
     "description": "",
-    "message": "Zovem se {name}. Trebam brzi prijelaz u sustav {system} ({sector}, {sector}, {sector}), udaljen {dist} ly. Platit ću {cash}."
+    "message": "Zovem se {name}. Trebam brzi prijelaz u sustav {system} ({sectorx}, {sectory}, {sectorz}), udaljen {dist} ly. Platit ću {cash}."
   },
   "FLAVOUR_11_SUCCESSMSG": {
     "description": "",
@@ -229,7 +229,7 @@
   },
   "FLAVOUR_12_INTROTEXT": {
     "description": "",
-    "message": "Zovem se {name}. Trebam prolaz do sustava {system} ({sector}, {sector}, {sector}), udaljenog {dist} ly. Platit ću {cash}."
+    "message": "Zovem se {name}. Trebam prolaz do sustava {system} ({sectorx}, {sectory}, {sectorz}), udaljenog {dist} ly. Platit ću {cash}."
   },
   "FLAVOUR_12_SUCCESSMSG": {
     "description": "",
@@ -481,7 +481,7 @@
   },
   "FLAVOUR_7_INTROTEXT": {
     "description": "",
-    "message": "Pozdrav, moje ime je {name} i trebam siguran prolaz do sustava {system} ({sector}, {sector}, {sector}), udaljenog {dist} ly. Platit ću {cash}."
+    "message": "Pozdrav, moje ime je {name} i trebam siguran prolaz do sustava {system} ({sectorx}, {sectory}, {sectorz}), udaljenog {dist} ly. Platit ću {cash}."
   },
   "FLAVOUR_7_SUCCESSMSG": {
     "description": "",
@@ -517,7 +517,7 @@
   },
   "FLAVOUR_8_INTROTEXT": {
     "description": "",
-    "message": "Zovem se {name}. Trebam brzi prijelaz u sustav {system} ({sector}, {sector}, {sector}), udaljen {dist} ly. Platit ću {cash}."
+    "message": "Zovem se {name}. Trebam brzi prijelaz u sustav {system} ({sectorx}, {sectory}, {sectorz}), udaljen {dist} ly. Platit ću {cash}."
   },
   "FLAVOUR_8_SUCCESSMSG": {
     "description": "",
@@ -553,7 +553,7 @@
   },
   "FLAVOUR_9_INTROTEXT": {
     "description": "",
-    "message": "Zovem se {name}. Trebam brzi prijelaz u sustav {system} ({sector}, {sector}, {sector}), udaljen {dist} ly. Platit ću {cash}."
+    "message": "Zovem se {name}. Trebam brzi prijelaz u sustav {system} ({sectorx}, {sectory}, {sectorz}), udaljen {dist} ly. Platit ću {cash}."
   },
   "FLAVOUR_9_SUCCESSMSG": {
     "description": "",

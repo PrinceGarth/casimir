@@ -9,7 +9,7 @@
   },
   "MESSAGE": {
     "description": "",
-    "message": "我叫{name}。急需{commodity}，可以支付两倍市价。"
+    "message": "我叫{name}。急需{commodity}，可以支付两倍市价（{price}）。"
   },
   "NOT_IN_STOCK": {
     "description": "Regarding selling more than the player has",

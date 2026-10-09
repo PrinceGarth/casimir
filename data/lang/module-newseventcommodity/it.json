@@ -189,7 +189,7 @@
   },
   "FLAVOUR_7_NEWSBODY": {
     "description": "Imply demand of INDUSTRIAL_MACHINERY.",
-    "message": "Il protrarsi della mancata manutenzione dei macchinari ha causato un blocco dell'industria nel sistema {system} "
+    "message": "Il protrarsi della mancata manutenzione dei macchinari ha causato un blocco dell'industria nel sistema {system} ({sectorx}, {sectory}, {sectorz})."
   },
   "FLAVOUR_8_HEADLINE": {
     "description": "",

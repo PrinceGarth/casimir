@@ -109,11 +109,11 @@
   },
   "GREETING_DELIVER_DOCUMENT": {
     "description": "",
-    "message": "Megtalált, a fene egye meg! Rendben, aláírtam a dokumentumot. Kérem juttassa vissza a megbízójának!"
+    "message": "Megtalált, a fene egye meg! Rendben, aláírtam a dokumentumot. Kérem juttassa vissza {client} számára!"
   },
   "GREETING_DELIVER_MESSAGE": {
     "description": "",
-    "message": "Köszönöm, hogy továbbította az üzenetet. Átküldtem a válaszomat, kérem juttassa el a megbízójának."
+    "message": "Köszönöm, hogy továbbította az üzenetet. Átküldtem a válaszomat {client} számára a hajója számítógépére."
   },
   "GREETING_EVACUATION": {
     "description": "",
@@ -217,7 +217,7 @@
   },
   "INTROTEXT_DELIVER_DOCUMENT_FEMALE_1": {
     "description": "",
-    "message": "Üdvözlöm! {client} vagyok, {company} megbízásából. Az egyik hajónk közvetlenül a hiperűrbe lépés előtt ütközött egy másik járművel és nem volt idejük leállítani az ugrási szekvenciát. Keresünk valakit, aki fel tudja számunkra kutatni a hajót (lajstromjel: {shipid}), {system} rendszerben ({sectorx}, {sectory}, {sectorz}, {dist} fényév). A feladat: átadni {wanted} kapitánynak a peren kívüli megegyezési javaslatunk dokumentumait. Kérem az átadást követően térjen vissza {domicile} rendszerbe a fizetségért. "
+    "message": "Üdvözlöm! {client} vagyok, {company} megbízásából. Az egyik hajónk közvetlenül a hiperűrbe lépés előtt ütközött egy másik járművel és nem volt idejük leállítani az ugrási szekvenciát. Keresünk valakit, aki fel tudja számunkra kutatni a hajót (lajstromjel: {shipid}), {system} rendszerben ({sectorx}, {sectory}, {sectorz}, {dist} fényév). A feladat: átadni {wanted} kapitánynak a peren kívüli megegyezési javaslatunk dokumentumait. Kérem az átadást követően térjen vissza {domicile} rendszerbe a fizetségért ({cash}). "
   },
   "INTROTEXT_DELIVER_DOCUMENT_FEMALE_2": {
     "description": "",
@@ -233,7 +233,7 @@
   },
   "INTROTEXT_DELIVER_DOCUMENT_MALE_1": {
     "description": "",
-    "message": "Üdvözlöm! {client} vagyok, {company} megbízásából. Az egyik hajónk közvetlenül a hiperűrbe lépés előtt ütközött egy másik járművel és nem volt idejük leállítani az ugrási szekvenciát. Keresünk valakit, aki fel tudja számunkra kutatni a hajót (lajstromjel: {shipid}), {system} rendszerben ({sectorx}, {sectory}, {sectorz}, {dist} fényév). A feladat: átadni {wanted} kapitánynak a peren kívüli megegyezési javaslatunk dokumentumait. Kérem az átadást követően térjen vissza {domicile} rendszerbe a fizetségért. "
+    "message": "Üdvözlöm! {client} vagyok, {company} megbízásából. Az egyik hajónk közvetlenül a hiperűrbe lépés előtt ütközött egy másik járművel és nem volt idejük leállítani az ugrási szekvenciát. Keresünk valakit, aki fel tudja számunkra kutatni a hajót (lajstromjel: {shipid}), {system} rendszerben ({sectorx}, {sectory}, {sectorz}, {dist} fényév). A feladat: átadni {wanted} kapitánynak a peren kívüli megegyezési javaslatunk dokumentumait. Kérem az átadást követően térjen vissza {domicile} rendszerbe a fizetségért ({cash}). "
   },
   "INTROTEXT_DELIVER_DOCUMENT_MALE_2": {
     "description": "",
@@ -321,11 +321,11 @@
   },
   "INTROTEXT_PRIVATEER_FEMALE_1": {
     "description": "",
-    "message": "Üdv! {client} vagyok, keresek valakit.  {wanted} sok pénzzel tartozik nekem. Legfrissebb információim szerint  {system} rendszerben ({sectorx}, {sectory}, {sectorz}) dolgozik jelenleg. Kérem tolmácsolja neki, hogy kezd elfogyni a türelmem. Ha megtalálta, térjen vissza {domicile} kikötőjébe a fizettségéért. "
+    "message": "Üdv! {client} vagyok, keresek valakit.  {wanted} sok pénzzel tartozik nekem. Legfrissebb információim szerint  {system} rendszerben ({sectorx}, {sectory}, {sectorz}) dolgozik jelenleg. Kérem tolmácsolja neki, hogy kezd elfogyni a türelmem. Ha megtalálta, térjen vissza {domicile} kikötőjébe a fizettségéért ({cash}). "
   },
   "INTROTEXT_PRIVATEER_FEMALE_2": {
     "description": "",
-    "message": "Hogy s mint? {client} vagyok, magánnyomozó. Meg kell találnom egy kőrözött kalózt, {wanted}-t, hogy feltehessek neki néhány kérdést. Tartózkodási helye {system} rendszer ({sectorx}, {sectory}, {sectorz}), hajója lajstromjele {shipid}. Jelenleg nem tudom elhagyni {domicle}-t egy másik bűnügy miatt. Úgyhogy alvállalkozóra lenne szükségem, {cash} díjazás ellenében."
+    "message": "Hogy s mint? {client} vagyok, magánnyomozó. Meg kell találnom egy kőrözött kalózt, {wanted}-t, hogy feltehessek neki néhány kérdést. Tartózkodási helye {system} rendszer ({sectorx}, {sectory}, {sectorz}), hajója lajstromjele {shipid}. Jelenleg nem tudom elhagyni {domicile}-t egy másik bűnügy miatt. Úgyhogy alvállalkozóra lenne szükségem, {cash} díjazás ellenében."
   },
   "INTROTEXT_PRIVATEER_FEMALE_3": {
     "description": "",
@@ -333,11 +333,11 @@
   },
   "INTROTEXT_PRIVATEER_MALE_1": {
     "description": "",
-    "message": "Üdv! {client} vagyok, keresek valakit.  {wanted} sok pénzzel tartozik nekem. Legfrissebb információim szerint  {system} rendszerben ({sectorx}, {sectory}, {sectorz}) dolgozik jelenleg. Kérem tolmácsolja neki, hogy kezd elfogyni a türelmem. Ha megtalálta, térjen vissza {domicile} kikötőjébe a fizettségéért. "
+    "message": "Üdv! {client} vagyok, keresek valakit.  {wanted} sok pénzzel tartozik nekem. Legfrissebb információim szerint  {system} rendszerben ({sectorx}, {sectory}, {sectorz}) dolgozik jelenleg. Kérem tolmácsolja neki, hogy kezd elfogyni a türelmem. Ha megtalálta, térjen vissza {domicile} kikötőjébe a fizettségéért ({cash}). "
   },
   "INTROTEXT_PRIVATEER_MALE_2": {
     "description": "",
-    "message": "Hogy s mint? {client} vagyok, magánnyomozó. Meg kell találnom egy kőrözött kalózt, {wanted}-t, hogy feltehessek neki néhány kérdést. Tartózkodási helye {system} rendszer ({sectorx}, {sectory}, {sectorz}), hajója lajstromjele {shipid}. Jelenleg nem tudom elhagyni {domicle}-t egy másik bűnügy miatt. Úgyhogy alvállalkozóra lenne szükségem, {cash} díjazás ellenében."
+    "message": "Hogy s mint? {client} vagyok, magánnyomozó. Meg kell találnom egy kőrözött kalózt, {wanted}-t, hogy feltehessek neki néhány kérdést. Tartózkodási helye {system} rendszer ({sectorx}, {sectory}, {sectorz}), hajója lajstromjele {shipid}. Jelenleg nem tudom elhagyni {domicile}-t egy másik bűnügy miatt. Úgyhogy alvállalkozóra lenne szükségem, {cash} díjazás ellenében."
   },
   "INTROTEXT_PRIVATEER_MALE_3": {
     "description": "",
@@ -433,7 +433,7 @@
   },
   "PIRATE_ANSWER_2": {
     "description": "",
-    "message": "Kérem továbbítsa az üzenetet amit küldök. Viszlát."
+    "message": "Kérem továbbítsa {client} számára az üzenetet, amit most küldök. Viszlát."
   },
   "PIRATE_ANSWER_3": {
     "description": "",
@@ -545,7 +545,7 @@
   },
   "SUCCESS_ATK_3": {
     "description": "",
-    "message": "Találkozott vele és túlélte? Nagyszerű! Utalom a pénzét."
+    "message": "Találkozott vele ({wanted}) és túlélte? Nagyszerű! Utalom a pénzét."
   },
   "SUCCESS_INT_1": {
     "description": "",

@@ -49,7 +49,7 @@
   },
   "NO_CREW_AVAILABLE": {
     "description": "",
-    "message": "Sajnos jelenleg senki sem keres állást."
+    "message": "Sajnos jelenleg senki sem keres állást itt: {station}."
   },
   "NO_EXPERIENCE": {
     "description": "",

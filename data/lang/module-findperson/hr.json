@@ -25,7 +25,7 @@
   },
   "ADTEXT_1": {
     "description": "",
-    "message": "Pronađite osobu u sustavu {system}. Nagradite je novcem (cash)."
+    "message": "Pronađite osobu u sustavu {system}. Nagrada {cash}."
   },
   "ADTEXT_2": {
     "description": "",

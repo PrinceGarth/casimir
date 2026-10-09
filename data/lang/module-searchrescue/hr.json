@@ -53,7 +53,7 @@
   },
   "ENTITY_FAMILY_BUSINESS_3": {
     "description": "",
-    "message": "Cvijeće {name} u {localitude}"
+    "message": "Cvijeće {name} u {locality}"
   },
   "ENTITY_FAMILY_BUSINESS_4": {
     "description": "",
@@ -89,7 +89,7 @@
   },
   "ENTITY_GENERAL_2": {
     "description": "",
-    "message": "Društvo za očuvanje okoliša u {lokalitetu}"
+    "message": "Društvo za očuvanje okoliša u {locality}"
   },
   "ENTITY_GENERAL_3": {
     "description": "",
@@ -133,7 +133,7 @@
   },
   "ENTITY_RESEARCH_3": {
     "description": "",
-    "message": "Kemijsko društvo u {lokalitetu}"
+    "message": "Kemijsko društvo u {locality}"
   },
   "ENTITY_RESEARCH_4": {
     "description": "",
@@ -145,7 +145,7 @@
   },
   "ENTITY_RESEARCH_6": {
     "description": "",
-    "message": "Društvo za astropaleontologiju u {lokalitetu}"
+    "message": "Društvo za astropaleontologiju u {locality}"
   },
   "ENTITY_RESEARCH_7": {
     "description": "",
@@ -273,7 +273,7 @@
   },
   "FLAVOUR_4_ADTEXT": {
     "description": "",
-    "message": "Primljen signal za pomoć: brod je nasukan i ostao bez goriva na {planetu}."
+    "message": "Primljen signal za pomoć: brod je nasukan i ostao bez goriva na {planet}."
   },
   "FLAVOUR_4_ADTITLE": {
     "description": "",
@@ -341,7 +341,7 @@
   },
   "FLAVOUR_5_TYPEOFHELPTEXT": {
     "description": "",
-    "message": "Molimo Vas da nam se dostavi {unit} tona {tereta} na brod."
+    "message": "Molimo Vas da nam se dostavi {unit} tona {cargo} na brod."
   },
   "FLAVOUR_6_ADTEXT": {
     "description": "",
@@ -365,7 +365,7 @@
   },
   "FLAVOUR_6_LOCATIONTEXT": {
     "description": "",
-    "message": "Posljednja poznata pozicija bila je blizina planeta {planet} u sustavu {system} [{sector},{sector},{sector}], {dist} ly udaljen odavde."
+    "message": "Posljednja poznata pozicija bila je blizina planeta {planet} u sustavu {system} [{sectorx},{sectory},{sectorz}], {dist} ly udaljen odavde."
   },
   "FLAVOUR_6_SUCCESSMSG": {
     "description": "",
@@ -401,7 +401,7 @@
   },
   "FLAVOUR_7_LOCATIONTEXT": {
     "description": "",
-    "message": "Brod ćete pronaći u sustavu {system} [{sector},{sector},{sector}], {dist} ky odavde. Drži se u orbiti oko {planeta}."
+    "message": "Brod ćete pronaći u sustavu {system} [{sectorx},{sectory},{sectorz}], {dist} ly odavde. Drži se u orbiti oko {planet}."
   },
   "FLAVOUR_7_SUCCESSMSG": {
     "description": "",
@@ -429,19 +429,19 @@
   },
   "HIGHGRAVITY_0": {
     "description": "",
-    "message": "Površinska gravitacija na {planetu} je {gravitacija} g. Molimo vas da to uzmete u obzir."
+    "message": "Površinska gravitacija na {planet} je {gravity} g. Molimo vas da to uzmete u obzir."
   },
   "HIGHGRAVITY_1": {
     "description": "",
-    "message": "Trebali biste znati da je {planet} {gravitacija} g."
+    "message": "Trebali biste znati da je {planet} {gravity} g."
   },
   "HIGHGRAVITY_2": {
     "description": "",
-    "message": "Sletjet ćete i poletjeti u {gravitaciji} g."
+    "message": "Sletjet ćete i poletjeti u {gravity} g."
   },
   "HIGHGRAVITY_3": {
     "description": "",
-    "message": "{planet} je {gravitacija} g."
+    "message": "{planet} je {gravity} g."
   },
   "HOW_FAR": {
     "description": "",
@@ -553,7 +553,7 @@
   },
   "PROBLEM_CREW_5": {
     "description": "",
-    "message": "Teški oblik groznice u {lokalitetu} ubio je ostale"
+    "message": "Teški oblik groznice u {locality} ubio je ostale"
   },
   "PROBLEM_CREW_6": {
     "description": "",

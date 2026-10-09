@@ -325,7 +325,7 @@
   },
   "FLAVOUR_5_INTROTEXT": {
     "description": "",
-    "message": "{starport}空中交通管制部门确定了一艘标有{shiplabel的星舰因燃料耗尽停在附近。 我们将向任何为该船加油的人支付{cash}，以便他们可以离开{starport}。"
+    "message": "{starport}空中交通管制部门确定了一艘标有{shiplabel}的星舰因燃料耗尽停在附近。 我们将向任何为该船加油的人支付{cash}，以便他们可以离开{starport}。"
   },
   "FLAVOUR_5_LOCATIONTEXT": {
     "description": "",
@@ -413,7 +413,7 @@
   },
   "FLAVOUR_7_TYPEOFHELPTEXT": {
     "description": "",
-    "message": "船员太少，我们不能把船开回来。我正在寻找一个愿意立即将替换船员运送到我们的星际飞船的人。"
+    "message": "船员太少，我们不能把船开回来。我正在寻找一个愿意立即将{deliver_crew}名替换船员运送到我们的星际飞船的人。"
   },
   "FULL_CARGO": {
     "description": "",

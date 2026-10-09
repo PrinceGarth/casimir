@@ -89,7 +89,7 @@
   },
   "HOW_MUCH_TIME_ARMS_DEALER": {
     "description": "",
-    "message": "Moj poslovni partner je u orbiti oko {zvijezde} kako bi izbjegao otkrivanje. Bilo bi sjajno kada biste ga mogli kontaktirati prije {date}."
+    "message": "Moj poslovni partner je u orbiti oko {star} kako bi izbjegao otkrivanje. Bilo bi sjajno kada biste ga mogli kontaktirati prije {date}."
   },
   "HOW_MUCH_TIME_ILLEGAL_GOODS": {
     "description": "",
@@ -105,15 +105,15 @@
   },
   "INTROTEXT_ARMS_DEALER": {
     "description": "",
-    "message": "Pozdrav Zapovjedniče. Moje ime je {client}. Bilo bi sjajno kad biste mi mogli pomoći. Nepouzdani kapetan teretnog broda ispustio je moj teret u blizini {planeta} i od tada je nestao. Vaš zadatak bi bio pokupiti jedan kontejner i dostaviti ga brodu {shipid} u orbiti oko {star}. Platio bih vam {cash}."
+    "message": "Pozdrav Zapovjedniče. Moje ime je {client}. Bilo bi sjajno kad biste mi mogli pomoći. Nepouzdani kapetan teretnog broda ispustio je moj teret u blizini {planet} i od tada je nestao. Vaš zadatak bi bio pokupiti jedan kontejner i dostaviti ga brodu {shipid} u orbiti oko {star}. Platio bih vam {cash}."
   },
   "INTROTEXT_ILLEGAL_GOODS": {
     "description": "",
-    "message": "Hej prijatelju, znam za polje otpada s ilegalnom robom. Policija je uhvatila krijumčara blizu {planeta}. Još nisu stigli očistiti područje. Ako si brz, možeš lako zaraditi! Mogu ti dati koordinate. Košta te samo {cash}. Ne propusti priliku!"
+    "message": "Hej prijatelju, znam za polje otpada s ilegalnom robom. Policija je uhvatila krijumčara blizu {planet}. Još nisu stigli očistiti područje. Ako si brz, možeš lako zaraditi! Mogu ti dati koordinate. Košta te samo {cash}. Ne propusti priliku!"
   },
   "INTROTEXT_LEGAL_GOODS": {
     "description": "",
-    "message": "Bok prijatelju. Ja sam {client}. Čuo sam za teretni brod koji je upao u nevolje blizu {planeta} zbog lošeg održavanja broda. Nevjerojatno tko danas leti svemirskim brodom, zar ne? Uglavnom, morali su se riješiti puno tereta. Ako si brz, možeš vrlo lako zgrabiti teret! Ova informacija je kao nova! Prodat ću ti koordinate za jadne {cash}. Što kažeš?"
+    "message": "Bok prijatelju. Ja sam {client}. Čuo sam za teretni brod koji je upao u nevolje blizu {planet} zbog lošeg održavanja broda. Nevjerojatno tko danas leti svemirskim brodom, zar ne? Uglavnom, morali su se riješiti puno tereta. Ako si brz, možeš vrlo lako zgrabiti teret! Ova informacija je kao nova! Prodat ću ti koordinate za jadne {cash}. Što kažeš?"
   },
   "INTROTEXT_RESCUE": {
     "description": "",

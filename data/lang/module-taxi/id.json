@@ -597,7 +597,7 @@
   },
   "PIRATE_TAUNTS_0": {
     "description": "",
-    "message": "Kau akan menyesal berhubungan dengan [client]"
+    "message": "Kau akan menyesal berhubungan dengan {client}"
   },
   "PIRATE_TAUNTS_1": {
     "description": "",

@@ -1,7 +1,7 @@
 {
   "FINES_ADMONISHING_1": {
     "description": "FINES_INTRO_$ + FINES_MESSAGE_$ + FINES_ADMONISHING_$(this)",
-    "message": "Bitte besuchen Sie die nächste Dienststelle von {policeforce] um Ihe Strafe zu zahlen."
+    "message": "Bitte besuchen Sie die nächste Dienststelle von {policeforce}, um Ihre Strafe zu zahlen."
   },
   "FINES_ADMONISHING_2": {
     "description": "FINES_INTRO_$ + FINES_MESSAGE_$ + FINES_ADMONISHING_$(this)",

@@ -65,7 +65,7 @@
   },
   "FLAVOUR_0_INTROTEXT": {
     "description": "",
-    "message": "Olá, sou {name}. Lhe pagarei {cash}} para se livrar de {target}."
+    "message": "Olá, sou {name}. Lhe pagarei {cash} para se livrar de {target}."
   },
   "FLAVOUR_0_SUCCESSMSG": {
     "description": "",

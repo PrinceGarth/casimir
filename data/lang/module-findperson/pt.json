@@ -121,7 +121,7 @@
   },
   "GREETING_PRIVATEER": {
     "description": "",
-    "message": "Uh, você trabalha para {cliente}? Copiei informações valiosas para o computador da sua nave. {client} vai achar isto muito útil!"
+    "message": "Uh, você trabalha para {client}? Copiei informações valiosas para o computador da sua nave. {client} vai achar isto muito útil!"
   },
   "GREETING_TAXI": {
     "description": "",

@@ -125,7 +125,7 @@
   },
   "BUY_EQUIP": {
     "description": "Button text to buy selected equipment. May be used in a singular or plural context.",
-    "message": "Αγορά"
+    "message": "Αγορά {name}"
   },
   "BUY_PRICE": {
     "description": "Title for buy-price column in commodity market",

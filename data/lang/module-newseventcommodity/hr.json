@@ -21,7 +21,7 @@
   },
   "FLAVOUR_0_NEWSBODY": {
     "description": "Imply high demand for MEDICINE commodity.",
-    "message": "Kuga uzima živote u sustavu {system} ({sector}, {sector}, {sector}). Dužnosnici pozivaju na medicinsku pomoć."
+    "message": "Kuga uzima živote u sustavu {system} ({sectorx}, {sectory}, {sectorz}). Dužnosnici pozivaju na medicinsku pomoć."
   },
   "FLAVOUR_10_HEADLINE": {
     "description": "",
@@ -53,7 +53,7 @@
   },
   "FLAVOUR_13_NEWSBODY": {
     "description": "Imply that nobody wants to buy ROBOTS anymore.",
-    "message": "Sada je u sustavu {system} ({sector}, {sector}, {sector}) sukob čovjek protiv stroja, jer \"poremećaj u ponašanju\" uzrokuje da kućni potrošači izgube povjerenje u robotske sluge."
+    "message": "Sada je u sustavu {system} ({sectorx}, {sectory}, {sectorz}) sukob čovjek protiv stroja, jer \"poremećaj u ponašanju\" uzrokuje da kućni potrošači izgube povjerenje u robotske sluge."
   },
   "FLAVOUR_14_HEADLINE": {
     "description": "",
@@ -69,7 +69,7 @@
   },
   "FLAVOUR_15_NEWSBODY": {
     "description": "Imply high demand of NARCOTICS.",
-    "message": "Administracija u sustavu {system} ({sector}, {sector}, {sector}) nada se da će se kriminal smanjiti jer droge više nisu dostupne, nakon uhićenja nekoliko mafijaša."
+    "message": "Administracija u sustavu {system} ({sectorx}, {sectory}, {sectorz}) nada se da će se kriminal smanjiti jer droge više nisu dostupne, nakon uhićenja nekoliko mafijaša."
   },
   "FLAVOUR_16_HEADLINE": {
     "description": "",
@@ -85,7 +85,7 @@
   },
   "FLAVOUR_17_NEWSBODY": {
     "description": "Imply vast abundance of METAL_ORE.",
-    "message": "Rudari u sustavu {system} ({sector}, {sector}, {sector}) otkrili su ogromno ležište rude dosad neviđenih razmjera."
+    "message": "Rudari u sustavu {system} ({sectorx}, {sectory}, {sectorz}) otkrili su ogromno ležište rude dosad neviđenih razmjera."
   },
   "FLAVOUR_18_HEADLINE": {
     "description": "",
@@ -109,7 +109,7 @@
   },
   "FLAVOUR_1_NEWSBODY": {
     "description": "Imply high demand of BATTLE_WEAPONS. i.e. the word combat is important.",
-    "message": "Dugogodišnji sukob u sustavu {system} ({sector}, {sector}, {sector}) eskalira dok se vojske upuštaju u potpunu otvorenu borbu."
+    "message": "Dugogodišnji sukob u sustavu {system} ({sectorx}, {sectory}, {sectorz}) eskalira dok se vojske upuštaju u potpunu otvorenu borbu."
   },
   "FLAVOUR_20_HEADLINE": {
     "description": "",
@@ -157,7 +157,7 @@
   },
   "FLAVOUR_3_NEWSBODY": {
     "description": "Imply high demand of FRUIT_AND_VEG.",
-    "message": "Administracija u sustavu {system} ({sector}, {sector}, {sector}) nastoji povećati uvoz kako bi zadovoljila rastuću potražnju za svim zelenim stvarima."
+    "message": "Administracija u sustavu {system} ({sectorx}, {sectory}, {sectorz}) nastoji povećati uvoz kako bi zadovoljila rastuću potražnju za svim zelenim stvarima."
   },
   "FLAVOUR_4_HEADLINE": {
     "description": "About mob rivals competing for selling drugs",
@@ -165,7 +165,7 @@
   },
   "FLAVOUR_4_NEWSBODY": {
     "description": "Imply high abundance of NARCOTICS.",
-    "message": "Tržište je preplavljeno jeftinim drogama u sustavu {system} ({sector}, {sector}, {sector}), jer se suparnički narkobosovi natječu za povećanje svoje moći."
+    "message": "Tržište je preplavljeno jeftinim drogama u sustavu {system} ({sectorx}, {sectory}, {sectorz}), jer se suparnički narkobosovi natječu za povećanje svoje moći."
   },
   "FLAVOUR_5_HEADLINE": {
     "description": "",
@@ -189,7 +189,7 @@
   },
   "FLAVOUR_7_NEWSBODY": {
     "description": "Imply demand of INDUSTRIAL_MACHINERY.",
-    "message": "Dugotrajno zanemarivanje održavanja strojeva uzrokuje industrijski zastoj u sustavu {system} ({sector}, {sector}, {sector})."
+    "message": "Dugotrajno zanemarivanje održavanja strojeva uzrokuje industrijski zastoj u sustavu {system} ({sectorx}, {sectory}, {sectorz})."
   },
   "FLAVOUR_8_HEADLINE": {
     "description": "",
@@ -197,7 +197,7 @@
   },
   "FLAVOUR_8_NEWSBODY": {
     "description": "Imply high demand of MINING_MACHINERY.",
-    "message": "U sustavu {system} ({sector}, {sector}, {sector}) urušio se rudnik, usmrtivši stotine radnika i uništivši važne strojeve vitalne za gospodarstvo."
+    "message": "U sustavu {system} ({sectorx}, {sectory}, {sectorz}) urušio se rudnik, usmrtivši stotine radnika i uništivši važne strojeve vitalne za gospodarstvo."
   },
   "FLAVOUR_9_HEADLINE": {
     "description": "",
@@ -205,11 +205,11 @@
   },
   "FLAVOUR_9_NEWSBODY": {
     "description": "live pets is important, since it implies high demand of LIVE_ANIMALS commodity.",
-    "message": "Najnoviji trend u sustavu {system} ({sector}, {sector}, {sector}) je da su pravi živi kućni ljubimci sljedeća velika stvar."
+    "message": "Najnoviji trend u sustavu {system} ({sectorx}, {sectory}, {sectorz}) je da su pravi živi kućni ljubimci sljedeća velika stvar."
   },
   "GRATEFUL_GREETING_0": {
     "description": "",
-    "message": "Dobrodošli trgovče! Ponudit ćemo vam dobru cijenu za vaš {teret}."
+    "message": "Dobrodošli trgovče! Ponudit ćemo vam dobru cijenu za vaš {cargo}."
   },
   "GRATEFUL_GREETING_1": {
     "description": "",
@@ -225,7 +225,7 @@
   },
   "GRATEFUL_GREETING_4": {
     "description": "",
-    "message": "Kako smo samo čeznuli za nekim {teretom}."
+    "message": "Kako smo samo čeznuli za nekim {cargo}."
   },
   "GRATEFUL_GREETING_5": {
     "description": "",

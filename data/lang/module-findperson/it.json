@@ -301,7 +301,7 @@
   },
   "INTROTEXT_EVACUATION_FEMALE_4": {
     "description": "",
-    "message": "Salve! Il mio nome è {client}. Mi è giunta notizia che {relative} {wanted} è stata presa di mira da dei criminali ed è dovuta scappare da casa d'urgenza. Si sta nascondendo da qualche parte nel sistema {system} ({sectorx}, {sectory}, {sectorz}}, distante {dist} AL. La famiglia vorrebbe risolvere la situazione con discrezione. Le pagheremo {cash} se riuscirà a trovarla e riportarla a {domicile}."
+    "message": "Salve! Il mio nome è {client}. Mi è giunta notizia che {relative} {wanted} è stata presa di mira da dei criminali ed è dovuta scappare da casa d'urgenza. Si sta nascondendo da qualche parte nel sistema {system} ({sectorx}, {sectory}, {sectorz}), distante {dist} AL. La famiglia vorrebbe risolvere la situazione con discrezione. Le pagheremo {cash} se riuscirà a trovarla e riportarla a {domicile}."
   },
   "INTROTEXT_EVACUATION_MALE_1": {
     "description": "",
@@ -317,7 +317,7 @@
   },
   "INTROTEXT_EVACUATION_MALE_4": {
     "description": "",
-    "message": "Salve! Il mio nome è {client}. Mi è giunta notizia che {relative} {wanted} è stato presa di mira da dei criminali ed è dovuto scappare da casa d'urgenza. Si sta nascondendo da qualche parte nel sistema {system} ({sectorx}, {sectory}, {sectorz}}, distante {dist} AL. La famiglia vorrebbe risolvere la situazione con discrezione. Le pagheremo {cash} se riuscirà a trovarlo e riportarlo a {domicile}."
+    "message": "Salve! Il mio nome è {client}. Mi è giunta notizia che {relative} {wanted} è stato preso di mira da dei criminali ed è dovuto scappare da casa d'urgenza. Si sta nascondendo da qualche parte nel sistema {system} ({sectorx}, {sectory}, {sectorz}), distante {dist} AL. La famiglia vorrebbe risolvere la situazione con discrezione. Le pagheremo {cash} se riuscirà a trovarlo e riportarlo a {domicile}."
   },
   "INTROTEXT_PRIVATEER_FEMALE_1": {
     "description": "",

@@ -13,7 +13,7 @@
   },
   "ADTEXT_1": {
     "description": "The Galactic Geographical Society is comparable to National Geographical society. But in space!",
-    "message": "Ζητείται χαρτογράφηση σώματος στο σύστημα (system)."
+    "message": "Ζητείται χαρτογράφηση σώματος στο σύστημα {system}."
   },
   "ADTEXT_1_FAILMSG": {
     "description": "",
@@ -21,7 +21,7 @@
   },
   "ADTEXT_1_INTRO": {
     "description": "GGS=Galactic Geographical Society",
-    "message": "Γεια σου! Λέγομαι (name) και εργάζομαι για την Δ.Γ.Υ. Ενδιαφερόμαστε να ενημερώσουμε τον χάρτη του (systembody) στο (system), ({dist}), κάτι για το οποίο προσφέρουμε αμοιβή (cash)."
+    "message": "Γεια σου! Λέγομαι {name} και εργάζομαι για την Δ.Γ.Υ. Ενδιαφερόμαστε να ενημερώσουμε τον χάρτη του {systembody} στο {system}, ({dist}), κάτι για το οποίο προσφέρουμε αμοιβή {cash}."
   },
   "ADTEXT_1_SUCCESSMSG": {
     "description": "",
@@ -33,7 +33,7 @@
   },
   "ADTEXT_2": {
     "description": "",
-    "message": "Συμβόλαιο με κυβερνήτη για το σύστημα (system)."
+    "message": "Συμβόλαιο με κυβερνήτη για το σύστημα {system}."
   },
   "ADTEXT_2_FAILMSG": {
     "description": "",
@@ -41,7 +41,7 @@
   },
   "ADTEXT_2_INTRO": {
     "description": "",
-    "message": "Γεια σας. Λέγομαι (name). Θα πληρώσω (cash) για την χαρτογράφηση του (systembody) στο σύστημα (system), το οποίο βρίσκεται σε απόσταση (dist)."
+    "message": "Γεια σας. Λέγομαι {name}. Θα πληρώσω {cash} για την χαρτογράφηση του {systembody} στο σύστημα {system}, το οποίο βρίσκεται σε απόσταση {dist}."
   },
   "ADTEXT_2_SUCCESSMSG": {
     "description": "",
@@ -53,7 +53,7 @@
   },
   "ADTEXT_3": {
     "description": "",
-    "message": "Για το σύστημα (system)."
+    "message": "Για το σύστημα {system}."
   },
   "ADTEXT_3_FAILMSG": {
     "description": "",
@@ -61,7 +61,7 @@
   },
   "ADTEXT_3_INTRO": {
     "description": "",
-    "message": "Χαίρετε! Ονομάζομαι (name), και πληρώνω (cash) για μια ενδελεχή σάρωση του (systembody) στο σύστημα (system), το οποίο απέχει (dist) από εδώ. Είναι σημαντικό τα δεδομένα να παραδωθούν εμπιστευτικά στο μέρος που θα υποδειχθεί."
+    "message": "Χαίρετε! Ονομάζομαι {name}, και πληρώνω {cash} για μια ενδελεχή σάρωση του {systembody} στο σύστημα {system}, το οποίο απέχει {dist} από εδώ. Είναι σημαντικό τα δεδομένα να παραδωθούν εμπιστευτικά στο μέρος που θα υποδειχθεί."
   },
   "ADTEXT_3_SUCCESSMSG": {
     "description": "",
@@ -73,7 +73,7 @@
   },
   "ADTEXT_4": {
     "description": "",
-    "message": "Στο σύστημα (system) χρειάζεται, για χάρη της επιστήμης."
+    "message": "Στο σύστημα {system} χρειάζεται, για χάρη της επιστήμης."
   },
   "ADTEXT_4_FAILMSG": {
     "description": "",
@@ -93,7 +93,7 @@
   },
   "ADTEXT_5": {
     "description": "",
-    "message": "Ζητείται χαρτογράφηση του πλανήτη στο σύστημα (system)."
+    "message": "Ζητείται χαρτογράφηση του πλανήτη στο σύστημα {system}."
   },
   "ADTEXT_5_FAILMSG": {
     "description": "",
@@ -113,7 +113,7 @@
   },
   "ADTEXT_6": {
     "description": "",
-    "message": "Οι αρχές του συστήματός μας χρειάζονται συνδρομή για την ενημέρωση των χαρτών του (systembody)."
+    "message": "Οι αρχές του συστήματός μας χρειάζονται συνδρομή για την ενημέρωση των χαρτών του {systembody}."
   },
   "ADTEXT_6_FAILMSG": {
     "description": "",
@@ -133,7 +133,7 @@
   },
   "ADTEXT_7": {
     "description": "",
-    "message": "Ζητούνται επειγόντως δεδομένα για το (systembody)."
+    "message": "Ζητούνται επειγόντως δεδομένα για το {systembody}."
   },
   "ADTEXT_7_FAILMSG": {
     "description": "",
@@ -153,7 +153,7 @@
   },
   "ADTEXT_8": {
     "description": "",
-    "message": "Ζητούνται ενημερωμένα δεδομένα για το (systembody)."
+    "message": "Ζητούνται ενημερωμένα δεδομένα για το {systembody}."
   },
   "ADTEXT_8_FAILMSG": {
     "description": "",
@@ -161,7 +161,7 @@
   },
   "ADTEXT_8_INTRO": {
     "description": "",
-    "message": "Γεια σας. Είμαστε από την Γεωγραφική Υπηρεσία και ενδιαφερόμαστε για ενημέρωση των χαρτών μας του (systembody). Αναζητούμε κυβερνήτη ικανό να πετάξει χαμηλότερα από τον τελευταίο, και πληρώνουμε (cash)."
+    "message": "Γεια σας. Είμαστε από την Γεωγραφική Υπηρεσία και ενδιαφερόμαστε για ενημέρωση των χαρτών μας του {systembody}. Αναζητούμε κυβερνήτη ικανό να πετάξει χαμηλότερα από τον τελευταίο, και πληρώνουμε {cash}."
   },
   "ADTEXT_8_SUCCESSMSG": {
     "description": "",
@@ -173,7 +173,7 @@
   },
   "ADTEXT_9": {
     "description": "",
-    "message": "Πληρώνουμε για γρήγορη παράδοση δεδομένων για το (systembody) που βρίσκεται στο σύστημα (system)."
+    "message": "Πληρώνουμε για γρήγορη παράδοση δεδομένων για το {systembody} που βρίσκεται στο σύστημα {system}."
   },
   "ADTEXT_9_FAILMSG": {
     "description": "",
@@ -181,7 +181,7 @@
   },
   "ADTEXT_9_INTRO": {
     "description": "",
-    "message": "Γεια σας. Λέγομαι (name). Η οικογένειά μου και εγώ χρειαζόμαστε μια λεπτομερή έρευνα του (systembody) στο σύστημα (system), προτού το διεκδικήσει κάποιος άλλος. Ζητάμε γρήγορο κυβερνήτη και πληρώνουμε (cash). Θα ενημερώσουμε για την τοποθεσία παράδοσης των δεδομένων με την ολοκλήρωση της έρευνας."
+    "message": "Γεια σας. Λέγομαι {name}. Η οικογένειά μου και εγώ χρειαζόμαστε μια λεπτομερή έρευνα του {systembody} στο σύστημα {system}, προτού το διεκδικήσει κάποιος άλλος. Ζητάμε γρήγορο κυβερνήτη και πληρώνουμε {cash}. Θα ενημερώσουμε για την τοποθεσία παράδοσης των δεδομένων με την ολοκλήρωση της έρευνας."
   },
   "ADTEXT_9_SUCCESSMSG": {
     "description": "",
@@ -241,7 +241,7 @@
   },
   "COMPLETED_SCANS": {
     "description": "Button text for completed scans",
-    "message": "Ολοκληρωμένη."
+    "message": "{} ολοκληρωμένες"
   },
   "COMPLETED_SCAN_TOOLTIP": {
     "description": "",
@@ -285,7 +285,7 @@
   },
   "DROP_OFF_DATA": {
     "description": "",
-    "message": "Παραδώστε τα δεδομένα στο (location) μέχρι τις (date)."
+    "message": "Παραδώστε τα δεδομένα στο {location} μέχρι τις {date}."
   },
   "EXCELLENT_I_AWAIT_YOUR_REPORT": {
     "description": "",
@@ -353,7 +353,7 @@
   },
   "PENDING_SCANS": {
     "description": "Button text for pending scans",
-    "message": "Εκκρεμεί"
+    "message": "{} σε εκκρεμότητα"
   },
   "PENDING_SCAN_TOOLTIP": {
     "description": "",
@@ -361,7 +361,7 @@
   },
   "PLEASE_HAVE_THE_DATA_BACK_BEFORE": {
     "description": "",
-    "message": "Σας παρακαλώ να παραδώσετε τα δεδομένα μέχρι τις (date)"
+    "message": "Σας παρακαλώ να παραδώσετε τα δεδομένα μέχρι τις {date}"
   },
   "REPEAT_THE_ORIGINAL_REQUEST": {
     "description": "",

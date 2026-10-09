@@ -377,7 +377,7 @@
   },
   "INTROTEXT_TRAITOR_FEMALE_3": {
     "description": "",
-    "message": "Bonjour. Je suis {client} de la compagnie {company}. Nous essayons de localiser une ancienne employée qui a travaillé sur l'un de nos derniers projets. Son nom est {wanted}. Nous payons {cash} si vous pouvez la trouver dans le système {system} ({sectorx}, {sectory}, {sectorz}), à une distance de {dist} al. et lui délivrer un message. Soyez conscient qu'elle n'appréciera pas le message."
+    "message": "Bonjour. Je suis {client} de la compagnie {company}. Nous essayons de localiser une ancienne employée, {employee}, qui a travaillé sur l'un de nos derniers projets. Son nom est {wanted}. Nous payons {cash} si vous pouvez la trouver dans le système {system} ({sectorx}, {sectory}, {sectorz}), à une distance de {dist} al. et lui délivrer un message. Soyez conscient qu'elle n'appréciera pas le message."
   },
   "INTROTEXT_TRAITOR_MALE_1": {
     "description": "",
@@ -389,7 +389,7 @@
   },
   "INTROTEXT_TRAITOR_MALE_3": {
     "description": "",
-    "message": "Bonjour. Je suis {client} de la compagnie {company}. Nous essayons de localiser un ancien employé qui a travaillé sur l'un de nos derniers projets. Son nom est {wanted}. Nous payons {cash} si vous pouvez le trouver dans le système {system} ({sectorx}, {sectory}, {sectorz}), à une distance de {dist} al. et lui délivrer un message. Soyez conscient qu'il n'appréciera pas le message."
+    "message": "Bonjour. Je suis {client} de la compagnie {company}. Nous essayons de localiser un ancien employé, {employee}, qui a travaillé sur l'un de nos derniers projets. Son nom est {wanted}. Nous payons {cash} si vous pouvez le trouver dans le système {system} ({sectorx}, {sectory}, {sectorz}), à une distance de {dist} al. et lui délivrer un message. Soyez conscient qu'il n'appréciera pas le message."
   },
   "IS_THERE_A_RISK": {
     "description": "",

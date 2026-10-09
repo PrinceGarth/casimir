@@ -113,7 +113,7 @@
   },
   "INTROTEXT_LEGAL_GOODS": {
     "description": "",
-    "message": "你好，我的朋友。我是{client}。我听说在{planet}附近有一个货运公司因为船只保养不好而出了问题。现在谁能驾驶宇宙飞船真是太神奇了，不是吗？不管怎样，他们不得不抛弃大量货物。如果你快，你可以很容易地捡到货物！这个信息新鲜出炉！我会把坐标卖给你的。你觉得怎么样？"
+    "message": "你好，我的朋友。我是{client}。我听说在{planet}附近有一个货运公司因为船只保养不好而出了问题。现在谁能驾驶宇宙飞船真是太神奇了，不是吗？不管怎样，他们不得不抛弃大量货物。如果你快，你可以很容易地捡到货物！这个信息新鲜出炉！我只要区区{cash}就把坐标卖给你。你觉得怎么样？"
   },
   "INTROTEXT_RESCUE": {
     "description": "",
@@ -149,7 +149,7 @@
   },
   "SHIP_DESTROYED": {
     "description": "",
-    "message": "卧槽，{shipid}已经被摧毁了。马上把货送到空间站！"
+    "message": "卧槽，{shipid}已经被摧毁了。马上把货送到{station}！"
   },
   "SPACEPORT": {
     "description": "",

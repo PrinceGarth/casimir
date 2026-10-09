@@ -313,7 +313,7 @@
   },
   "POLICE_1": {
     "description": "{area} is an asteroid or planet",
-    "message": "Polizeikräfte haben entdeckt, dass eine Gruppe Piraten versucht, eine Festung auf {area} im {system}-System ({sectorx}, {sectory}, {sectorz}) aufzubauen. Das darf nicht geschehen. Die lokalen Behörden zahlen {cash} für eine Mission in der Gegend von {area}, die als Vorbereitung für den Polizeieinsatz dient."
+    "message": "Polizeikräfte haben entdeckt, dass eine Gruppe Piraten versucht, eine Festung auf {area} im {system}-System ({sectorx}, {sectory}, {sectorz}), {dist} Lj entfernt, aufzubauen. Das darf nicht geschehen. Die lokalen Behörden zahlen {cash} für eine Mission in der Gegend von {area}, die als Vorbereitung für den Polizeieinsatz dient."
   },
   "POLICE_2": {
     "description": "{area} is an asteroid or planet",

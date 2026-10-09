@@ -297,7 +297,7 @@
   },
   "OBJECTIVE_3": {
     "description": "{area} is an asteroid or planet",
-    "message": "清除区域周围的区域。消灭任何敌人。"
+    "message": "清除{area}周围的区域。消灭任何敌人。"
   },
   "OK_AGREED": {
     "description": "",
@@ -317,7 +317,7 @@
   },
   "POLICE_2": {
     "description": "{area} is an asteroid or planet",
-    "message": "{org}将为{system}星系（{sectorx}，{sectory}，{sectorz}）中的战斗任务支付{cash}。 我们缺少飞行员和船只。 因此，这将是忠诚的公民赚钱的机会。 目标是{area}上的小型海盗基地。 您需要使用超驱动推进剂以及返回路线的额外燃料。"
+    "message": "{org}将为{system}星系（{sectorx}，{sectory}，{sectorz}）中的战斗任务支付{cash}。 我们缺少飞行员和船只。 因此，这将是忠诚的公民赚钱的机会。 目标是{area}上的小型海盗基地。 您需要足够飞行{dist}光年的超驱动推进剂，以及返回路线的额外燃料。"
   },
   "POLICE_3": {
     "description": "{area} is an asteroid or planet",

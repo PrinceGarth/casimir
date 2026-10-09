@@ -345,7 +345,7 @@
   },
   "INTROTEXT_LOCAL_1": {
     "description": "",
-    "message": "Drago mi je. Ja sam {name} i radim za upravu {starporta}. Plaćamo {cash} nekome tko može premjestiti {cargoname} u {starport}."
+    "message": "Drago mi je. Ja sam {name} i radim za upravu {starport}. Plaćamo {cash} nekome tko može premjestiti {cargoname} u {starport}."
   },
   "INTROTEXT_LOCAL_2": {
     "description": "",

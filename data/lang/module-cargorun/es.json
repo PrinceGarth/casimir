@@ -289,7 +289,7 @@
   },
   "HOWMUCH_2": {
     "description": "regarding mass, always more than 1t",
-    "message": "%{masa} t"
+    "message": "{amount} t"
   },
   "HOWMUCH_3": {
     "description": "regarding mass, always more than 1t",
@@ -333,7 +333,7 @@
   },
   "INTROTEXT_EXPENSIVE_1": {
     "description": "",
-    "message": "Hola. Necesitamos a alguien con experiencia para un viaje potencialmente peligroso al sistema {system} ({sectorx}, {sectory}, {sectorz}). Se pagarán {cash}. La distancia es {dist} año/s luz."
+    "message": "Hola. Necesitamos a alguien con experiencia para un viaje potencialmente peligroso a {starport}, en el sistema {system} ({sectorx}, {sectory}, {sectorz}). Se pagarán {cash}. La distancia es {dist} año/s luz."
   },
   "INTROTEXT_FLUFFY_1": {
     "description": "this is used for the delivery of Quibbles, which is a nod to Tribble (star trek ref. see wikipedia)",

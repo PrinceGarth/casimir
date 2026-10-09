@@ -130,8 +130,13 @@ them from what they see in the game.
 - **Never send Casimir's strings or AI translations to Pioneer's Transifex.**
 
 `scripts/translations.py fill` adds missing keys to every language file in
-English, so nothing shows up as a raw key or crashes the UI. `check` runs in CI.
-`todo` lists Casimir strings still in English.
+English, so nothing shows up as a raw key or crashes the UI. `check` runs in CI
+and catches broken placeholders, like a translated `{planeta}` that would print
+literally. `todo` lists Casimir strings still in English.
+
+Casimir has fixed about 300 such broken placeholders in Pioneer's existing
+translations (names, prices and distances that were missing from mission text).
+Those fixes stay in Casimir.
 
 ## Licence
 

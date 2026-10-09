@@ -425,7 +425,7 @@
   },
   "SURFACE_SCAN_DETAILS": {
     "description": "Additional warning information about a surface scan target",
-    "message": "Meta ima površinski tlak od {tlak} s gravitacijskom silom {gravitacija} na površini."
+    "message": "Meta ima površinski tlak od {pressure} s gravitacijskom silom {gravity} na površini."
   },
   "SURFACE_SCAN_WARNING": {
     "description": "Warning reminder to player",

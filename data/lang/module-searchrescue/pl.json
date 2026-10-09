@@ -653,7 +653,7 @@
   },
   "RESULT_DELIVERY_COMM": {
     "description": "",
-    "message": "Przetransportowano {done} {todo{ ton {cargotype} do okrętu docelowego."
+    "message": "Przetransportowano {done} z {todo} ton {cargotype} do okrętu docelowego."
   },
   "RESULT_DELIVERY_CREW": {
     "description": "",
@@ -665,7 +665,7 @@
   },
   "RESULT_PICKUP_COMM": {
     "description": "",
-    "message": "Odebrano {done} {todo{ ton {cargotype} z okrętu docelowego."
+    "message": "Odebrano {done} z {todo} ton {cargotype} z okrętu docelowego."
   },
   "RESULT_PICKUP_CREW": {
     "description": "",

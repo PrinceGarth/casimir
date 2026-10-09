@@ -37,7 +37,7 @@
   },
   "FLAVOUR_1_BODY": {
     "description": "",
-    "message": "Üdv! Van itt egy majdnem vadonat új {equipment} {price}-ért."
+    "message": "Üdv! {name} vagyok. Van itt egy majdnem vadonat új {equipment} {price}-ért."
   },
   "FLAVOUR_1_TEXT": {
     "description": "Selling second hand ship equipment",

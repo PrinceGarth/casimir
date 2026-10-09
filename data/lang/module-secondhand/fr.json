@@ -25,7 +25,7 @@
   },
   "FLAVOUR_0_BODY": {
     "description": "",
-    "message": "Salut! Mon nom est {name} et je vends un équipement ({equipment}) provenant de mon vieux tas de ferraille."
+    "message": "Salut! Mon nom est {name} et je vends un équipement ({equipment}) provenant de mon vieux tas de ferraille. J'en veux {price}."
   },
   "FLAVOUR_0_TEXT": {
     "description": "Selling second hand ship equipment",

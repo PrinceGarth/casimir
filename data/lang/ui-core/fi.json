@@ -2717,11 +2717,11 @@
   },
   "TRADING_AT": {
     "description": "Indicates the current system for inspecting commodities.",
-    "message": "Järjestelmässä:"
+    "message": "Järjestelmässä {system}:"
   },
   "TRADING_FROM": {
     "description": "Indicates the source system of a commodity trade.",
-    "message": "Järjestelmästä:"
+    "message": "Järjestelmästä {system}:"
   },
   "TRADING_ILLEGAL_GOODS": {
     "description": "",
@@ -2729,7 +2729,7 @@
   },
   "TRADING_TO": {
     "description": "Indicates the destination system of a commodity trade.",
-    "message": "Järjestelmään:"
+    "message": "Järjestelmään {system}:"
   },
   "TRANSFER_FUEL": {
     "description": "Label indicating the ability to transfer fuel between equipment tanks",

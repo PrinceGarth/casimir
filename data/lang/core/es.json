@@ -1085,7 +1085,7 @@
   },
   "NUMBER_TONNES": {
     "description": "",
-    "message": "%{masa} t"
+    "message": "%{mass} t"
   },
   "N_ATMOSPHERE": {
     "description": "",

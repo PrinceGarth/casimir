@@ -5,7 +5,7 @@
   },
   "THIS_IS_STATION_YOU_DO_NOT_HAVE_ENOUGH_LANDING": {
     "description": "",
-    "message": "Itt {station} állomás, Nincs elég pénze [fee] Cr dokkolási illetékre."
+    "message": "Itt {station} állomás. Nincs elég pénze a(z) {fee} dokkolási illetékre."
   },
   "WELCOME_ABOARD_STATION_FEE_DEDUCTED": {
     "description": "Station welcome message, docking in orbit",

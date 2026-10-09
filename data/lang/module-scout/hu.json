@@ -181,7 +181,7 @@
   },
   "ADTEXT_9_INTRO": {
     "description": "",
-    "message": "Üdv!\n{name} vagyok, a családomnak és nekem szükségünk lenne {systembody} felmérésére {system} rendszerben mielőtt még valaki bejelnti az igényét a területre. A munka elvégzése után megküldöm, hova szállítsa le az adatokat."
+    "message": "Üdv!\n{name} vagyok, a családomnak és nekem szükségünk lenne {systembody} felmérésére {system} rendszerben mielőtt még valaki bejelenti az igényét a területre. Egy gyors pilótának {cash} összeget fizetünk. A munka elvégzése után megküldöm, hova szállítsa le az adatokat."
   },
   "ADTEXT_9_SUCCESSMSG": {
     "description": "",

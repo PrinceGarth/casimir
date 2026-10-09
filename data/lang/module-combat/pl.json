@@ -313,11 +313,11 @@
   },
   "POLICE_1": {
     "description": "{area} is an asteroid or planet",
-    "message": "Policja odkryła, że grupa piratów próbuje utworzyć fortecę w {area} w systemie {system} ({sectorx}, {sectory}, {sectorz}), {dist} lś. To się nie może wydarzyć. Władze lokalne płacą {cash na misję w {area} za przygotowanie zasadzki."
+    "message": "Policja odkryła, że grupa piratów próbuje utworzyć fortecę w {area} w systemie {system} ({sectorx}, {sectory}, {sectorz}), {dist} lś. To się nie może wydarzyć. Władze lokalne płacą {cash} na misję w {area} za przygotowanie zasadzki."
   },
   "POLICE_2": {
     "description": "{area} is an asteroid or planet",
-    "message": "{org} płaci {cash} za misję w systemie {system} ({sectorx}, {sectory}, {sectorz}). Brakuje nam statków i pilotów. To będzie okazja dla lojalnego obywatela do zarobienia pieniędzy. Celem jest małą baza piratów w obszarze {area). Potrzebujesz hipernapędu zdolnego pokonać odległość {dist} lś i dodtakowego paliwa na drogę powrotną."
+    "message": "{org} płaci {cash} za misję w systemie {system} ({sectorx}, {sectory}, {sectorz}). Brakuje nam statków i pilotów. To będzie okazja dla lojalnego obywatela do zarobienia pieniędzy. Celem jest mała baza piratów w obszarze {area}. Potrzebujesz hipernapędu zdolnego pokonać odległość {dist} lś i dodatkowego paliwa na drogę powrotną."
   },
   "POLICE_3": {
     "description": "{area} is an asteroid or planet",

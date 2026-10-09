@@ -193,7 +193,7 @@
   },
   "CARGO_SCOOP_ACTIVE_1_TONNE_X_COLLECTED": {
     "description": "",
-    "message": "مغرفة البضائع نشطة. جمع 1 طن من "
+    "message": "مغرفة البضائع نشطة. جمع 1 طن من %item."
   },
   "CARGO_SCOOP_ATTEMPTED": {
     "description": "",
@@ -841,7 +841,7 @@
   },
   "MASS_N_TONNES": {
     "description": "",
-    "message": "كتلة: "
+    "message": "كتلة: %{mass} طن"
   },
   "MEAN_DENSITY": {
     "description": "",

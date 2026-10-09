@@ -37,7 +37,7 @@
   },
   "FLAVOUR_11_NEWSBODY": {
     "description": "Imply high demand of ANIMAL_MEAT.",
-    "message": "像是遇到了一股神秘力量, 在 {system} 星系的农场主一觉醒来以后发现牛栏里面空空如也. 警方报告称：“这是世纪之牛盗窃案”。"
+    "message": "像是遇到了一股神秘力量, 在 {system} 星系 ({sectorx}, {sectory}, {sectorz}) 的农场主一觉醒来以后发现牛栏里面空空如也. 警方报告称：“这是世纪之牛盗窃案”。"
   },
   "FLAVOUR_12_HEADLINE": {
     "description": "",
@@ -133,7 +133,7 @@
   },
   "FLAVOUR_22_NEWSBODY": {
     "description": "Imply high demand of HAND_WEAPONS.",
-    "message": "{system} 星系的警察由于人手不足执法不力而被抗议, 随后集体罢工. 同时, 民间私人警察用钉耙和枪械将自己武装了起来, 以应付最坏状况."
+    "message": "{system} 星系 ({sectorx}, {sectory}, {sectorz}) 的警察由于人手不足执法不力而被抗议, 随后集体罢工. 同时, 民间私人警察用钉耙和枪械将自己武装了起来, 以应付最坏状况."
   },
   "FLAVOUR_23_HEADLINE": {
     "description": "",
@@ -169,7 +169,7 @@
   },
   "FLAVOUR_5_HEADLINE": {
     "description": "",
-    "message": "{system} 星系发生了奴隶叛逃事件. 农业生产处于停滞状态."
+    "message": "{date} 新闻: {system} 星系发生了奴隶叛逃事件. 农业生产处于停滞状态."
   },
   "FLAVOUR_5_NEWSBODY": {
     "description": "Imply high demand of SLAVES.",

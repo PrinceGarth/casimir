@@ -105,7 +105,7 @@
   },
   "CORPORATION_7": {
     "description": "Name of a corporation",
-    "message": "Ertsen Zoekers NV"
+    "message": "{name} Ertsen Zoekers NV"
   },
   "CORPORATION_8": {
     "description": "Name of a corporation",

@@ -2049,7 +2049,7 @@
   },
   "PILOT_SEAT_IS_NOW_OCCUPIED_BY_NAME": {
     "description": "",
-    "message": "مقعد الطيار مُحتل بواسطة "
+    "message": "مقعد الطيار مُحتل بواسطة {name}"
   },
   "PIRACY": {
     "description": "",

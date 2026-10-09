@@ -1093,7 +1093,7 @@
   },
   "N_CELSIUS": {
     "description": "",
-    "message": "Temperatuur graden Celcius"
+    "message": "%temperature °C"
   },
   "N_DAYS": {
     "description": "",

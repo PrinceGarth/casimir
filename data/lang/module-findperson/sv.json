@@ -249,7 +249,7 @@
   },
   "INTROTEXT_DELIVER_MESSAGE_FEMALE_1": {
     "description": "",
-    "message": "Hej, jag heter {client}. Jag söker min {relative}. Hon lämnade familjen i ilska för några år sedan. En vän till mig har nyligen sett henne i {system}-systemet ({sectorx}, {sectory}, {sectorz}). Jag skulle vilja se om hon är redo för en försoning. Jag betalar dig {cash} om du kan lämna ett meddelande till henne och återvända till {domicile} med ett svar. Snälla gör det!"
+    "message": "Hej, jag heter {client}. Jag söker {relative}, {wanted}. Hon lämnade familjen i ilska för några år sedan. En vän till mig har nyligen sett henne i {system}-systemet ({sectorx}, {sectory}, {sectorz}). Jag skulle vilja se om hon är redo för en försoning. Jag betalar dig {cash} om du kan lämna ett meddelande till henne och återvända till {domicile} med ett svar. Snälla gör det!"
   },
   "INTROTEXT_DELIVER_MESSAGE_FEMALE_2": {
     "description": "",
@@ -321,7 +321,7 @@
   },
   "INTROTEXT_PRIVATEER_FEMALE_1": {
     "description": "",
-    "message": "Hej! Jag heter {client}. Jag söker {wanted}. Hon är skyldig mig mycket pengar. Enligt den senaste informationen utför hon uppdrag i {system}-systemet ({sectorx}, {sector}, {sectorz}). Säg till henne att mitt tålamod börjar ta slut. Återvänd till {domicile} för din ersättning {cash}."
+    "message": "Hej! Jag heter {client}. Jag söker {wanted}. Hon är skyldig mig mycket pengar. Enligt den senaste informationen utför hon uppdrag i {system}-systemet ({sectorx}, {sectory}, {sectorz}). Säg till henne att mitt tålamod börjar ta slut. Återvänd till {domicile} för din ersättning {cash}."
   },
   "INTROTEXT_PRIVATEER_FEMALE_2": {
     "description": "",
@@ -333,7 +333,7 @@
   },
   "INTROTEXT_PRIVATEER_MALE_1": {
     "description": "",
-    "message": "Hej! Jag heter {client}. Jag söker {wanted}. Han är skyldig mig mycket pengar. Enligt den senaste informationen utför han uppdrag i {system}-systemet ({sectorx}, {sector}, {sectorz}). Säg till honom att mitt tålamod börjar ta slut. Återvänd till {domicile} för din ersättning {cash}."
+    "message": "Hej! Jag heter {client}. Jag söker {wanted}. Han är skyldig mig mycket pengar. Enligt den senaste informationen utför han uppdrag i {system}-systemet ({sectorx}, {sectory}, {sectorz}). Säg till honom att mitt tålamod börjar ta slut. Återvänd till {domicile} för din ersättning {cash}."
   },
   "INTROTEXT_PRIVATEER_MALE_2": {
     "description": "",

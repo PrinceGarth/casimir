@@ -2549,11 +2549,11 @@
   },
   "STATION_LOCAL_GRAVITY": {
     "description": "",
-    "message": "Lokalna gravitacija ovdje je %,2f g."
+    "message": "Lokalna gravitacija ovdje je %.2f g."
   },
   "STATION_LOCAL_GRAVITY_PRESSURE": {
     "description": "",
-    "message": "Lokalna gravitacija ovdje je %,2f g, a atmosferski tlak %,2f atm."
+    "message": "Lokalna gravitacija ovdje je %.2f g, a atmosferski tlak %.2f atm."
   },
   "STATION_MANAGER": {
     "description": "",

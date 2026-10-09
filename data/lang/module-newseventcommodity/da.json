@@ -149,7 +149,7 @@
   },
   "FLAVOUR_2_NEWSBODY": {
     "description": "Hint there will be high demand of GRAIN.",
-    "message": "Voldsom tørke har ødelagt afgrøderne i systemet {system] ({sectorx}, {sectory}, {sectorz}). Det frygtes at ville føre til systemdækkende hungersnød."
+    "message": "Voldsom tørke har ødelagt afgrøderne i systemet {system} ({sectorx}, {sectory}, {sectorz}). Det frygtes at ville føre til systemdækkende hungersnød."
   },
   "FLAVOUR_3_HEADLINE": {
     "description": "",

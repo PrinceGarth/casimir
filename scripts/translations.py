@@ -4,14 +4,19 @@
 
 Usage:
   scripts/translations.py fill     add missing keys to every language file, in English
-  scripts/translations.py check    fail if a language file lacks a key, or a Casimir
-                                   string has no description or broken placeholders
+  scripts/translations.py check    fail if a language file lacks a key, a translation's
+                                   placeholders differ from English, or a Casimir string
+                                   has no description
   scripts/translations.py todo     list Casimir strings still in English, per language
                                    (the input for an AI or human translator)
-  add --upstream to check to list placeholder problems in upstream Pioneer's files too
 
 Casimir-owned strings live in data/lang/casimir-*/, or use a CASIMIR_ key prefix in
 an upstream folder (C++ strings must live in core/). See README "Translations".
+
+A placeholder difference in an upstream string that is deliberate (e.g. the translator
+wrote out a fixed name to inflect it, or used an extra variable the code does provide)
+can be recorded in scripts/translation-exceptions.json with the exact message and a
+reason. The entry stops applying as soon as that message changes.
 """
 
 import json
@@ -21,12 +26,18 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LANG_DIR = os.path.join(ROOT, 'data', 'lang')
+EXCEPTIONS = os.path.join(ROOT, 'scripts', 'translation-exceptions.json')
 
-# Pioneer has two interpolators:
-#   C++ stringf (src/StringF.h): %name, %0, %{any text}, each optionally followed by {formatspec}
-#   Lua string.interp (data/libs/autoload.lua): {name} or {}
-# %% is a literal percent sign.
-PLACEHOLDER = re.compile(r'%%|%([A-Za-z_][A-Za-z0-9_]*|[0-9]+|\{[^}]+\})(?:\{[^}]*\})?|\{([^{}]*)\}')
+# Placeholder syntaxes:
+#   Lua string.interp (data/libs/autoload.lua): {name} or {}. Used everywhere.
+#   C++ stringf (src/StringF.h): %name, %0, %{any text}, each optionally followed by {formatspec}.
+#     Only core/ strings go through stringf.
+#   Lua string.format: %s, %i, %.1f etc. Used by some non-core strings. These can't be
+#     reordered, so their order must match English. Elsewhere a lone % is literal text
+#     (e.g. Turkish puts it before the number: "%{percent}").
+# %% is a literal percent sign in both C++ and string.format.
+STRINGF = re.compile(r'%%|%([A-Za-z_][A-Za-z0-9_]*|[0-9]+|\{[^}]+\})(?:\{[^}]*\})?|\{([^{}]*)\}')
+PRINTF = re.compile(r'%%|(%[-+#0]*[0-9]*(?:\.[0-9]+)?[sdifuxXcgeEq])(?![A-Za-z])|\{([^{}]*)\}')
 
 
 def read(path):
@@ -41,14 +52,43 @@ def write(path, data):
         fl.write('\n')
 
 
-def placeholders(text):
+def placeholders(folder, text, printf=True):
+    """Named placeholders as a sorted set (order and repeats are free), then
+    string.format conversions in order (they are positional)."""
+    named = set()
+    positional = []
+    if folder == 'core':
+        for m in STRINGF.finditer(text):
+            if m.group(1) is not None:
+                named.add('%' + m.group(1))
+            elif m.group(2) is not None:
+                named.add('{' + m.group(2) + '}')
+    else:
+        for m in PRINTF.finditer(text):
+            if m.group(1) is not None:
+                if printf:
+                    positional.append(m.group(1))
+            elif m.group(2) is not None:
+                named.add('{' + m.group(2) + '}')
+    return sorted(named) + positional
+
+
+def placeholder_mismatch(folder, english, translated):
+    """None if the placeholders agree, else (translated's, english's)."""
+    en = placeholders(folder, english)
+    # a string English never runs through string.format keeps a lone % as text
+    tr = placeholders(folder, translated, printf=any(p.startswith('%') for p in en))
+    return None if tr == en else (tr, en)
+
+
+def bracketed_placeholders(english, translated):
+    """Names from English's {name} (or %name{spec}) written as (name) or [name] in the
+    translation. The set comparison misses these when the name also appears correctly."""
+    names = set(re.findall(r'\{([^{}]+)\}', english))
     found = []
-    for m in PLACEHOLDER.finditer(text):
-        if m.group(1) is not None:
-            found.append('%' + m.group(1))
-        elif m.group(2) is not None:
-            found.append('{' + m.group(2) + '}')
-    return sorted(set(found))
+    for name in sorted(names):
+        found += re.findall(r'%?[\(\[]\s*' + re.escape(name) + r'\s*[\)\]]', translated)
+    return found
 
 
 def is_owned(folder, key):
@@ -107,11 +147,12 @@ def cmd_fill():
     return 0
 
 
-def cmd_check(list_upstream):
+def cmd_check():
     errors = []
     warnings = []
-    upstream_mismatches = []
     code = None
+    exceptions = read(EXCEPTIONS) if os.path.exists(EXCEPTIONS) else {}
+    used_exceptions = set()
 
     for folder in folders():
         en_path = os.path.join(LANG_DIR, folder, 'en.json')
@@ -127,30 +168,39 @@ def cmd_check(list_upstream):
             if not re.search(r'\b' + re.escape(key) + r'\b', code):
                 warnings.append('{}: {} is not used in data/ or src/ (ignore if built dynamically)'.format(rel(en_path), key))
 
-        for _, path in translations(folder):
+        for lang, path in translations(folder):
             data = read(path)
             for key in en:
                 if key not in data:
                     errors.append('{}: missing {} (run scripts/translations.py fill)'.format(rel(path), key))
-                elif placeholders(data[key]['message']) != placeholders(en[key]['message']):
-                    problem = '{}: {} placeholders {} do not match English {}'.format(
-                        rel(path), key, placeholders(data[key]['message']), placeholders(en[key]['message']))
-                    if is_owned(folder, key):
-                        errors.append(problem)
-                    else:
-                        upstream_mismatches.append(problem)
+                    continue
+                message = data[key]['message']
+                if message.count('{') != message.count('}') and en[key]['message'].count('{') == en[key]['message'].count('}'):
+                    errors.append('{}: {} has unbalanced {{ }} braces'.format(rel(path), key))
+                    continue
+                bracketed = bracketed_placeholders(en[key]['message'], message)
+                if bracketed:
+                    errors.append('{}: {} writes placeholders with ( ) or [ ] instead of {{ }}: {}'.format(
+                        rel(path), key, ' '.join(bracketed)))
+                    continue
+                mismatch = placeholder_mismatch(folder, en[key]['message'], message)
+                if not mismatch:
+                    continue
+                ident = '{}/{}/{}'.format(folder, lang, key)
+                exception = exceptions.get(ident)
+                if exception and exception['message'] == data[key]['message'] and not is_owned(folder, key):
+                    used_exceptions.add(ident)
+                    continue
+                errors.append('{}: {} placeholders {} do not match English {}'.format(rel(path), key, *mismatch))
             for key in data:
                 if key not in en:
                     warnings.append('{}: {} is not in en.json'.format(rel(path), key))
 
+    for ident in sorted(set(exceptions) - used_exceptions):
+        warnings.append('{}: stale entry for {} (text changed or now matches); remove it'.format(rel(EXCEPTIONS), ident))
+
     for w in warnings:
         print('warning: ' + w)
-    if list_upstream:
-        for m in upstream_mismatches:
-            print('upstream: ' + m)
-    elif upstream_mismatches:
-        print('note: {} placeholder mismatches in upstream Pioneer translations (not Casimir\'s; --upstream lists them)'
-              .format(len(upstream_mismatches)))
     for e in errors:
         print('error: ' + e)
     print('check: {} error(s), {} warning(s)'.format(len(errors), len(warnings)))
@@ -186,7 +236,7 @@ def main(argv):
     if argv[1] == 'fill':
         return cmd_fill()
     if argv[1] == 'check':
-        return cmd_check('--upstream' in argv[2:])
+        return cmd_check()
     return cmd_todo()
 
 

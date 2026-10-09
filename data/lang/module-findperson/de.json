@@ -437,7 +437,7 @@
   },
   "PIRATE_ANSWER_3": {
     "description": "",
-    "message": "Haha, sag {Client}, dass ich nichts zu sagen habe. Schönen Tag noch. "
+    "message": "Haha, sag {client}, dass ich nichts zu sagen habe. Schönen Tag noch. "
   },
   "PIRATE_GREETING_1": {
     "description": "",

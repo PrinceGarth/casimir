@@ -353,10 +353,10 @@
   },
   "X_WILL_BE_LEAVING_FEMALE": {
     "description": "{ship_indef} is translated in /data/lang/ships/",
-    "message": "Η {target} θα φύγει από το {spaceport} του συστήματος ({sectorX}, {sectorY}, {sectorZ}), που βρίσκεται {dist} ly μακριά στις {date}. Το σκάφος της είναι ένα {ship_indef} με αναγνωριστικό κωδικό {shipregid}."
+    "message": "Η {target} θα φύγει από το {spaceport} του συστήματος {system} ({sectorX}, {sectorY}, {sectorZ}), που βρίσκεται {dist} ly μακριά, στις {date}. Το σκάφος της είναι {ship_indef} με αναγνωριστικό κωδικό {shipregid}."
   },
   "X_WILL_BE_LEAVING_MALE": {
     "description": "{ship_indef} is translated in /data/lang/ships/",
-    "message": "O {target} θα φύγει από το {spaceport} του συστήματος ({sectorX}, {sectorY}, {sectorZ}), που βρίσκεται {dist} ly μακριά στις {date}. Το σκάφος του είναι ένα {ship_indef} με αναγνωριστικό κωδικό {shipregid}."
+    "message": "O {target} θα φύγει από το {spaceport} του συστήματος {system} ({sectorX}, {sectorY}, {sectorZ}), που βρίσκεται {dist} ly μακριά, στις {date}. Το σκάφος του είναι {ship_indef} με αναγνωριστικό κωδικό {shipregid}."
   }
 }

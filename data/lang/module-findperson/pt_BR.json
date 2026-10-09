@@ -25,11 +25,11 @@
   },
   "ADTEXT_1": {
     "description": "",
-    "message": "Encontrar uma pessoa no sistema {system}. Recomenda {cache}."
+    "message": "Encontrar uma pessoa no sistema {system}. Recompensa {cash}."
   },
   "ADTEXT_2": {
     "description": "",
-    "message": "Missão de procura no sistema {system}. Recompensa {cache}."
+    "message": "Missão de procura no sistema {system}. Recompensa {cash}."
   },
   "ADTEXT_3": {
     "description": "",
@@ -121,7 +121,7 @@
   },
   "GREETING_PRIVATEER": {
     "description": "",
-    "message": "Uh, você trabalha para {cliente}? Copiei informações valiosas para o computador da sua nave. {client} vai achar isto muito útil!"
+    "message": "Uh, você trabalha para {client}? Copiei informações valiosas para o computador da sua nave. {client} vai achar isto muito útil!"
   },
   "GREETING_TAXI": {
     "description": "",
