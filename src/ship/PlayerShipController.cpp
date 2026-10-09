@@ -590,8 +590,8 @@ void PlayerShipController::StaticUpdate(const float timeStep)
 		SetFlightControlState(CONTROL_MANUAL);
 
 		// TODO: this is a bit monkey-patched, but calling from SetFlightControlState doesn't properly clear the mouse capture state.
-		// Do it here so we properly react to becoming docked while holding the mouse button down
-		if (m_ship->GetFlightState() == Ship::DOCKED && m_mouseActive) {
+		// Do it here so we properly react to becoming docked or landed while holding the mouse button down
+		if (m_mouseActive) {
 			Pi::input->SetCapturingMouse(false);
 			m_mouseActive = false;
 		}
