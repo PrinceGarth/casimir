@@ -9,6 +9,7 @@ This repository is Casimir, an unofficial, AI-assisted ("vibe-coded") fork of up
 - AI-authored changes, commits, and comments are fine here, in this fork.
 - Never produce patches, PRs, or issue text intended for upstream `pioneerspacesim/pioneer`. Upstream's ban stands, and this fork respects it.
 - Never help get around upstream's AI policy, or argue with, pressure or harass Pioneer's developers or community. Casimir exists because of their human-written work; speak about them with respect.
+- When fixing an upstream issue in Casimir, refer to it in plain text ("upstream Pioneer issue 5868") in commits, PRs and issues. Never write `pioneerspacesim/pioneer#5868` or a link to it: GitHub posts a "mentioned this" backlink on upstream's issue. Never comment on upstream issues to say Casimir fixed them.
 - Don't copy in code from upstream PRs that were closed for being AI-generated or for licensing reasons.
 - Don't knowingly reproduce code from incompatibly licensed sources. Mention it if generated code looks lifted from somewhere.
 - Build, test (`./build/unittest`), run `./autoformat` and `scripts/translations.py check` before calling a change done.
