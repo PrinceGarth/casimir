@@ -142,6 +142,9 @@ function CommodityMarketWidget.New(id, title, config)
         return self.station:GetCommodityStock(commodity)
     end
 
+	-- a market given its own prices (a trader on the bulletin board) charges them for every unit
+	local fixedPrices = config.getBuyPrice ~= nil or config.getSellPrice ~= nil
+
     -- what do we charge for this item if we are buying
     config.getBuyPrice = config.getBuyPrice or function (self, commodity)
 		local price = self.station:GetCommodityPrice(commodity)
@@ -153,6 +156,25 @@ function CommodityMarketWidget.New(id, title, config)
         local price = self.station:GetCommodityPrice(commodity)
 		return price * (1.0 - math.sign(price) * Economy.TradeFeeSplit * 0.01)
     end
+
+	-- what do we charge in total for an order of this many units? The station's price rises
+	-- with each unit bought, so this is more than the amount times the listed price.
+	-- Charging the listed price for the whole order let the player buy out a commodity
+	-- and sell it straight back at the new, higher price.
+	config.getBuyTotal = config.getBuyTotal or function (self, commodity, amount)
+		if fixedPrices then return config.getBuyPrice(self, commodity) * amount end
+
+		local value = self.station:GetCommodityTradeValue(commodity, -amount)
+		return value * (1.0 + math.sign(value) * Economy.TradeFeeSplit * 0.01)
+	end
+
+	-- what do we pay in total for an order of this many units? (the price falls with each unit sold)
+	config.getSellTotal = config.getSellTotal or function (self, commodity, amount)
+		if fixedPrices then return config.getSellPrice(self, commodity) * amount end
+
+		local value = self.station:GetCommodityTradeValue(commodity, amount)
+		return value * (1.0 - math.sign(value) * Economy.TradeFeeSplit * 0.01)
+	end
 
 	config.onClickBuy = config.onClickBuy or function(self, commodity) return true end
 	config.onClickSell = config.onClickSell or function(self, commodity) return true end
@@ -205,6 +227,8 @@ function CommodityMarketWidget.New(id, title, config)
 	self.funcs.getStock = config.getStock
 	self.funcs.getBuyPrice = config.getBuyPrice
 	self.funcs.getSellPrice = config.getSellPrice
+	self.funcs.getBuyTotal = config.getBuyTotal
+	self.funcs.getSellTotal = config.getSellTotal
 	self.funcs.onClickBuy = config.onClickBuy
 	self.funcs.onClickSell = config.onClickSell
 	self.funcs.bought = config.bought
@@ -262,7 +286,9 @@ function CommodityMarketWidget:ChangeTradeAmount(delta)
 	local wantamount = math.clamp(self.tradeAmount + delta, 0, stock)
 
 	--how much would the desired amount of merchandise cost?
-	local tradecost = wantamount * price
+	local getTotal = self.tradeModeBuy and self.funcs.getBuyTotal or self.funcs.getSellTotal
+	local tradecost = getTotal(self, self.selectedItem, wantamount)
+	local costedamount = wantamount
 
 	--another empty initialized
 	self.tradeText = ''
@@ -271,7 +297,17 @@ function CommodityMarketWidget:ChangeTradeAmount(delta)
 		local playerfreecargo = self.cargoMgr:GetFreeSpace()
 
 		if tradecost > playerCash then
-			wantamount =  math.min(wantamount, math.floor(playerCash / price))
+			--find the largest order the player can pay for (the total only grows with the amount)
+			local low, high = 0, math.min(wantamount, math.floor(playerCash / price))
+			while low < high do
+				local mid = math.ceil((low + high) / 2)
+				if self.funcs.getBuyTotal(self, self.selectedItem, mid) > playerCash then
+					high = mid - 1
+				else
+					low = mid
+				end
+			end
+			wantamount = low
 		end
 
 		local tradecargo = (self.selectedItem.mass or 1) * wantamount
@@ -294,7 +330,9 @@ function CommodityMarketWidget:ChangeTradeAmount(delta)
 	self.tradeAmount = wantamount
 
 	--current cost of market order if user confirms the deal
-	tradecost = self.tradeAmount * price
+	if self.tradeAmount ~= costedamount then
+		tradecost = getTotal(self, self.selectedItem, self.tradeAmount)
+	end
 
 	--its possible to get to this line without tradetext being initialized unless done 30 rows up
 	self.tradeText = string.interp(self.tradeText,{ amount = string.format("%d", self.tradeAmount), price = Format.Money(tradecost)})
@@ -303,10 +341,9 @@ end
 
 --player clicked confirm purchase button
 function CommodityMarketWidget:DoBuy()
-	local price = self.funcs.getBuyPrice(self, self.selectedItem)
 	local stock = self.funcs.getStock(self, self.selectedItem)
 	local playerfreecargo = self.cargoMgr:GetFreeSpace()
-	local orderAmount = price * self.tradeAmount
+	local orderAmount = self.funcs.getBuyTotal(self, self.selectedItem, self.tradeAmount)
 
 	--check cash (should never happen since trade amount buttons wont let it happen)
 	if orderAmount > PlayerState.GetMoney() then
@@ -350,9 +387,8 @@ end
 
 --player clicked the confirm sale button
 function CommodityMarketWidget:DoSell()
-	local price = self.funcs.getSellPrice(self, self.selectedItem)
 	--if commodity price is negative (radioactives, garbage), player needs to have enough cash
-	local orderamount = price * self.tradeAmount
+	local orderamount = self.funcs.getSellTotal(self, self.selectedItem, self.tradeAmount)
 
 	-- user validation code
 	if not self.funcs.onClickSell(self, self.selectedItem) then

@@ -259,6 +259,60 @@ function SpaceStation:GetCommodityPrice(itemType)
 end
 
 --
+-- Method: GetCommodityTradeValue
+--
+-- Get the summed price of a number of units of a commodity item traded at
+-- this station in one order. Trading moves the price (see <AddCommodityStock>),
+-- so each unit is priced as the market stands with that unit still in stock.
+-- An order then costs the same in one piece or split into several, and buying
+-- units and selling them straight back returns what they cost (less trade fees).
+--
+-- > value = station:GetCommodityTradeValue(itemType, amount)
+--
+-- Parameters:
+--
+--   itemType - the <CommodityType> of the commodity item in question
+--
+--   amount - the number of units the order adds to the station's stock;
+--            negative when it takes them out
+--
+-- Returns:
+--
+--   value - the summed price of the units in the order
+--
+---@param itemType CommodityType
+---@param amount integer
+---@return number value
+function SpaceStation:GetCommodityTradeValue(itemType, amount)
+	assert(self:exists())
+
+	local id = itemType.name
+	local count = math.abs(amount)
+
+	-- a price set for this station doesn't react to trades
+	local price = commodityPrice[self][id]
+	if price then return price * count end
+
+	local market = self:GetCommodityMarket()
+	local history = market.history[id] or 0
+	local alteration = Game.system:GetCommodityBasePriceAlterations(id)
+
+	-- price each unit on a stand-in for the market, so the real one isn't touched
+	local probeHistory = {}
+	local probe = { supply = market.supply, demand = market.demand, history = probeHistory }
+
+	local value = 0
+	for i = 1, count do
+		-- a unit leaving the station is priced before it goes, one arriving once it's there
+		probeHistory[id] = history + (amount < 0 and 1 - i or i)
+		local pricemod = Economy.GetCommodityPriceMod(self.path, id, probe) + alteration
+		value = value + Economy.GetMarketPrice(itemType.price, pricemod)
+	end
+
+	return value
+end
+
+--
 -- Method: SetCommodityPrice
 --
 -- Set the price of a commodity item traded at this station
