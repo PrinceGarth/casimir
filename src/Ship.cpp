@@ -1345,9 +1345,22 @@ void Ship::StaticUpdate(const float timeStep)
 				 * fuel_scoop_cap = area, m^2. rate = kg^2/(m*s^3) = (Pa*kg)/s^2
 				 */
 				const double hydrogen_density = 0.0002;
-				if ((m_stats.free_cargo > 0) && (dot > 0.90) && speed_times_density > (100.0 * 0.3)) {
+				if ((dot > 0.90) && speed_times_density > (100.0 * 0.3)) {
 					const double rate = speed_times_density * hydrogen_density * double(m_stats.fuel_scoop_cap);
-					m_hydrogenScoopedAccumulator += rate * timeStep;
+					double scooped = rate * timeStep; // tonnes
+
+					// The propellant tank is filled first and directly, in any amount.
+					const double tankMass = m_type->fuelTankMass;
+					const double tankRoom = (1.0 - GetFuel()) * tankMass;
+					if (tankRoom > 0.0) {
+						const bool fillsTank = scooped >= tankRoom;
+						SetFuel(fillsTank ? 1.0 : GetFuel() + scooped / tankMass);
+						scooped = fillsTank ? scooped - tankRoom : 0.0;
+					}
+
+					// What the tank can't take is handed to Lua a tonne at a time, to go
+					// wherever else there is room for it (see data/modules/FuelScoop.lua).
+					m_hydrogenScoopedAccumulator += scooped;
 					if (m_hydrogenScoopedAccumulator > 1) {
 						const double scoopedTons = floor(m_hydrogenScoopedAccumulator);
 						LuaEvent::Queue("onShipScoopFuel", this, p, scoopedTons);
