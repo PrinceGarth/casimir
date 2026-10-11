@@ -327,7 +327,8 @@ function Ship:Refuel(fuelType, amount)
 	local cargoMgr = self:GetComponent('CargoManager')
 
 	local fuelTankMass = ShipDef[self.shipId].fuelTankMass
-	local needed = math.clamp(math.floor(fuelTankMass - self.fuelMassLeft), 0, amount)
+	-- round up: the last unit tops the tank up to 100% and the part that doesn't fit is lost
+	local needed = math.clamp(math.ceil(fuelTankMass - self.fuelMassLeft), 0, amount)
 	needed = math.min(needed, cargoMgr:CountCommodity(fuelType))
 
 	local removed = cargoMgr:RemoveCommodity(fuelType, needed)
