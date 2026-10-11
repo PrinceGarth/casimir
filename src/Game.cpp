@@ -743,6 +743,8 @@ void Game::SetTimeAccel(TimeAccel t)
 	m_timeAccel = t;
 
 	if (emitPaused) {
+		// the ship's controls aren't polled while paused, so it can't notice the mouse button being released
+		m_player->GetPlayerController()->ReleaseMouse();
 		EmitPauseState(true);
 	}
 

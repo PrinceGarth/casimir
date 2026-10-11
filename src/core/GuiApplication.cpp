@@ -134,11 +134,12 @@ void GuiApplication::PollEvents()
 		m_pigui->ProcessEvent(&event);
 
 		// Input system takes priority over mouse events when capturing the mouse
+		// Release events always reach the input system: a key or button that was pressed in the
+		// game and let go while a window has the keyboard or mouse would otherwise stay held
 		if (PiGui::WantCaptureMouse() && !m_input->IsCapturingMouse()) {
 			// don't process mouse event any further, imgui already handled it
 			switch (event.type) {
 			case SDL_MOUSEBUTTONDOWN:
-			case SDL_MOUSEBUTTONUP:
 			case SDL_MOUSEWHEEL:
 			case SDL_MOUSEMOTION:
 				continue;
@@ -149,7 +150,6 @@ void GuiApplication::PollEvents()
 			// don't process keyboard event any further, imgui already handled it
 			switch (event.type) {
 			case SDL_KEYDOWN:
-			case SDL_KEYUP:
 			case SDL_TEXTINPUT:
 				continue;
 			default: break;

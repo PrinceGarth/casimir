@@ -770,23 +770,24 @@ void Manager::HandleSDLEvent(SDL_Event &event)
 		return;
 	}
 
-	// if bindings are disabled, don't process the event any further
-	if (!m_enableBindings)
-		return;
+	// if bindings are disabled, only process release events: a key that was held when the
+	// bindings were disabled and let go since must not stay active once they're enabled again
+	const bool releaseOnly = !m_enableBindings;
 
 	// Update the modifier status from this event
 	for (auto &pair : m_modifiers) {
 		auto r = pair.first.Matches(event);
-		if (r != Response::Ignored) {
-			pair.second = r == Response::Pressed ? true : false;
-		}
+		if (r == Response::Ignored || (releaseOnly && r == Response::Pressed))
+			continue;
+
+		pair.second = r == Response::Pressed ? true : false;
 	}
 
 	// If the event matches one of the key chords we care about, update that chord
 	int num_keys_in_chord = 0;
 	for (auto *chord : m_chords) {
 		Response activator = chord->activator.Matches(event);
-		if (activator == Response::Ignored)
+		if (activator == Response::Ignored || (releaseOnly && activator == Response::Pressed))
 			continue;
 
 		if (chord->IsActive()) {

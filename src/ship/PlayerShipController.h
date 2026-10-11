@@ -22,6 +22,9 @@ public:
 	void PostLoadFixup(Space *s) override;
 	void StaticUpdate(float timeStep) override;
 	bool IsMouseActive() const { return m_mouseActive; }
+	// Stop steering with the mouse and give the cursor back. For when the controls stop being
+	// polled (docked, landed, paused) while the mouse button is still held down.
+	void ReleaseMouse();
 	void SetDisableMouseFacing(bool disabled) { m_disableMouseFacing = disabled; }
 	double GetCruiseSpeed() const override { return m_cruiseSpeed; }
 	void ChangeCruiseSpeed(double delta) override { m_cruiseSpeed += delta; }
