@@ -785,13 +785,18 @@ local function flightAssistButton(pos)
 	end
 
 	-- mouse wheel
-	local wheel = ui.getMouseWheel()
-	if wheel ~= 0 and (ui.getMousePos() - pos):length() < button_size / 2.0 then
-		local delta = wheel
-		if ui.shiftHeld() then
-			delta = delta * 10
+	if (ui.getMousePos() - pos):length() < button_size / 2.0 then
+		-- over the button the wheel sets the speed: keep it from zooming the camera as well
+		ui.captureMouseFromApp(true)
+
+		local wheel = ui.getMouseWheel()
+		if wheel ~= 0 then
+			local delta = wheel
+			if ui.shiftHeld() then
+				delta = delta * 10
+			end
+			Game.player:ChangeCruiseSpeed(delta)
 		end
-		Game.player:ChangeCruiseSpeed(delta)
 	end
 end
 

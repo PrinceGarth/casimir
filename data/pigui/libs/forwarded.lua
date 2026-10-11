@@ -89,6 +89,8 @@ ui.isMouseDoubleClicked = pigui.IsMouseDoubleClicked
 ui.isMouseDown = pigui.IsMouseDown
 ui.getMousePos = pigui.GetMousePos ---@type fun(): Vector2
 ui.getMouseWheel = pigui.GetMouseWheel
+-- Keep the next frame's mouse input (buttons, wheel, motion) from the game, or pass false to let it through
+ui.captureMouseFromApp = pigui.CaptureMouseFromApp ---@type fun(capture: boolean)
 ui.shouldDrawUI = pigui.ShouldDrawUI
 ui.getWindowPos = pigui.GetWindowPos ---@type fun(): Vector2
 ui.getWindowSize = pigui.GetWindowSize ---@type fun(): Vector2
