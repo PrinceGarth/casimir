@@ -1068,27 +1068,36 @@ local discardShip = function (ship)
 	-- 1. hyperjumping to populated system, or
 	-- 2. hyperjumping to non-populated system, or
 	-- 3. fly to high orbit and explode.
+
+	-- The ship can be gone by the time a timer fires: destroyed, or left behind
+	-- when the player jumped out of the system. Using it then is a fatal error.
+	local function later (delay, action)
+		Timer:CallAt(Game.time + delay, function ()
+			if ship:exists() then action() end
+		end)
+	end
+
 	local with_stations = true
 	local nearbysystems = findNearbySystems(with_stations)
 	local status, distance, fuel, duration = ship:GetHyperspaceDetails(Game.system.path, nearbysystems[1])
 	if #nearbysystems > 0 and status == "OK" then
-		Timer:CallAt(Game.time + Engine.rand:Integer(5,10), function ()
+		later(Engine.rand:Integer(5,10), function ()
 			ship:AIEnterLowOrbit(ship:FindNearestTo("PLANET") or ship:FindNearestTo("STAR"))
-			Timer:CallAt(Game.time + 30, function () ship:HyperjumpTo(nearbysystems[1]) end)
+			later(30, function () ship:HyperjumpTo(nearbysystems[1]) end)
 		end)
 	else
 		with_stations = false
 		nearbysystems = findNearbySystems(with_stations)
 		status, distance, fuel, duration = ship:GetHyperspaceDetails(Game.system.path, nearbysystems[1])
 		if #nearbysystems > 0 and status == "OK" then
-			Timer:CallAt(Game.time + Engine.rand:Integer(5,10), function ()
+			later(Engine.rand:Integer(5,10), function ()
 				ship:AIEnterLowOrbit(ship:FindNearestTo("PLANET") or ship:FindNearestTo("STAR"))
-				Timer:CallAt(Game.time + 30, function () ship:HyperjumpTo(nearbysystems[1]) end)
+				later(30, function () ship:HyperjumpTo(nearbysystems[1]) end)
 			end)
 		else
-			Timer:CallAt(Game.time + Engine.rand:Integer(5,10), function ()
+			later(Engine.rand:Integer(5,10), function ()
 				ship:AIEnterHighOrbit(ship:FindNearestTo("PLANET") or ship:FindNearestTo("STAR"))
-				Timer:CallAt(Game.time + 600, function () ship:Explode() end)
+				later(600, function () ship:Explode() end)
 			end)
 		end
 	end
