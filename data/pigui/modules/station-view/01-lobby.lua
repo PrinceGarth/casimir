@@ -12,6 +12,7 @@ local Format = require 'Format'
 local ShipDef = require 'ShipDef'
 local Character = require 'Character'
 local Commodities = require 'Commodities'
+local Economy = require 'Economy'
 local Comms = require 'Comms'
 local Space = require 'Space'
 
@@ -158,6 +159,60 @@ local refuelHyperdrive = function (mass)
 	station:AddCommodityStock(hyperdrive_fuel, -math.round(mass))
 end
 
+-- Buy spare hyperdrive fuel into the cargo hold, or sell it back (negative
+-- amount), in whole tonnes. The order is priced as the commodity market
+-- prices it, so it costs the same from either screen.
+local tradeCargoFuel = function (amount)
+	local station = assert(Game.player:GetDockedWith())
+	---@type CargoManager
+	local cargoMgr = Game.player:GetComponent('CargoManager')
+	local feeSplit = Economy.TradeFeeSplit * 0.01
+
+	if amount < 0 then
+		local sold = math.min(-amount, cargoMgr:CountCommodity(hyperdrive_fuel))
+		if sold == 0 then return end
+
+		local value = station:GetCommodityTradeValue(hyperdrive_fuel, sold)
+		cargoMgr:RemoveCommodity(hyperdrive_fuel, sold)
+		PlayerState.AddMoney(value * (1.0 - math.sign(value) * feeSplit))
+		station:AddCommodityStock(hyperdrive_fuel, sold)
+		return
+	end
+
+	local stock = station:GetCommodityStock(hyperdrive_fuel)
+	local freeSpace = math.floor(cargoMgr:GetFreeSpace() / (hyperdrive_fuel.mass or 1))
+	if stock == 0 or freeSpace == 0 then
+		popupMsg = stock == 0 and l.ITEM_IS_OUT_OF_STOCK or l.SHIP_IS_FULLY_LADEN
+		popup:open()
+		return
+	end
+
+	-- the largest order the station, the hold and our money allow
+	local bought = math.min(amount, stock, freeSpace)
+	local cost = 0
+	while bought > 0 do
+		local value = station:GetCommodityTradeValue(hyperdrive_fuel, -bought)
+		cost = value * (1.0 + math.sign(value) * feeSplit)
+		if cost <= PlayerState.GetMoney() then break end
+		bought = bought - 1
+	end
+
+	if bought == 0 then
+		popupMsg = l.YOU_NOT_ENOUGH_MONEY
+		popup:open()
+		return
+	end
+
+	cargoMgr:AddCommodity(hyperdrive_fuel, bought)
+	PlayerState.AddMoney(-cost)
+	station:AddCommodityStock(hyperdrive_fuel, -bought)
+end
+
+-- Is the fuel for the cargo hold row on sale here?
+local function canTradeCargoFuel()
+	return hyperdrive_fuel and hyperdrive_fuel.purchasable and Game.system:IsCommodityLegal(hyperdrive_fuel.name)
+end
+
 local function lobbyMenu()
 	local station = Game.player:GetDockedWith()
 	if not station then return end -- station can be false if we requested launch this frame
@@ -201,39 +256,80 @@ local function lobbyMenu()
 	-- hyperspace fuel
 	ui.nextColumn()
 
-	if not hyperdrive then return end
+	if hyperdrive then
+		hyperdriveIcon:Draw(widgetSizes.iconSize)
+		ui.nextColumn()
 
-	hyperdriveIcon:Draw(widgetSizes.iconSize)
-	ui.nextColumn()
+		local stored_hyperfuel = hyperdrive.storedFuel
 
-	local stored_hyperfuel = hyperdrive.storedFuel
+		-- hyperspace fuel prices
+		ui.withFont(pionillium.body, function()
+			ui.text(Format.Money(station:GetCommodityPrice(hyperdrive_fuel)) .. "/t")
+			ui.text(Format.Money(station:GetCommodityPrice(hyperdrive_fuel) * stored_hyperfuel))
+		end)
+		ui.nextColumn()
 
-	-- hyperspace fuel prices
-	ui.withFont(pionillium.body, function()
-		ui.text(Format.Money(station:GetCommodityPrice(hyperdrive_fuel)) .. "/t")
-		ui.text(Format.Money(station:GetCommodityPrice(hyperdrive_fuel) * stored_hyperfuel))
-	end)
-	ui.nextColumn()
+		-- hyperspace fuel refill buttons
+		if ui.button("-10t", widgetSizes.buttonSizeBase) then refuelHyperdrive(-10) end
+		ui.sameLine()
+		if ui.button("-1t", widgetSizes.buttonSizeBase) then refuelHyperdrive(-1) end
+		ui.sameLine()
+		if ui.button("+1t", widgetSizes.buttonSizeBase) then refuelHyperdrive(1) end
+		ui.sameLine()
+		if ui.button("+10t", widgetSizes.buttonSizeBase) then refuelHyperdrive(10) end
+		ui.nextColumn()
 
-	-- hyperspace fuel refill buttons
-	if ui.button("-10t", widgetSizes.buttonSizeBase) then refuelHyperdrive(-10) end
-	ui.sameLine()
-	if ui.button("-1t", widgetSizes.buttonSizeBase) then refuelHyperdrive(-1) end
-	ui.sameLine()
-	if ui.button("+1t", widgetSizes.buttonSizeBase) then refuelHyperdrive(1) end
-	ui.sameLine()
-	if ui.button("+10t", widgetSizes.buttonSizeBase) then refuelHyperdrive(10) end
-	ui.nextColumn()
+		-- hyperspace fuel gauge
+		gaugePos = ui.getCursorScreenPos()
+		gaugePos.x = gaugePos.x + gaugeSpacing;
+		gaugePos.y = gaugePos.y + widgetSizes.buttonSizeBase.y/2
+		ui.gauge(gaugePos, stored_hyperfuel, '', string.format(l.FUEL .. ": %0.1f t \t" .. l.HYPERSPACE_RANGE .. ": %d " .. l.LY,
+			stored_hyperfuel, Game.player:GetHyperspaceRange()),
+			0, hyperdrive:GetMaxFuel(),
+			icons.hyperspace, true, colors.gaugeEquipmentMarket, '',
+			gaugeWidth, gaugeHeight, pionillium.body)
 
-	-- hyperspace fuel gauge
-	gaugePos = ui.getCursorScreenPos()
-	gaugePos.x = gaugePos.x + gaugeSpacing;
-	gaugePos.y = gaugePos.y + widgetSizes.buttonSizeBase.y/2
-	ui.gauge(gaugePos, stored_hyperfuel, '', string.format(l.FUEL .. ": %0.1f t \t" .. l.HYPERSPACE_RANGE .. ": %d " .. l.LY,
-		stored_hyperfuel, Game.player:GetHyperspaceRange()),
-		0, hyperdrive:GetMaxFuel(),
-		icons.hyperspace, true, colors.gaugeEquipmentMarket, '',
-		gaugeWidth, gaugeHeight, pionillium.body)
+		ui.nextColumn()
+	end
+
+	-- spare hyperdrive fuel in the cargo hold
+	if canTradeCargoFuel() then
+		---@type CargoManager
+		local cargoMgr = Game.player:GetComponent('CargoManager')
+		local stored_cargofuel = cargoMgr:CountCommodity(hyperdrive_fuel)
+		-- what the commodity market asks for it, trade fee included
+		local price = station:GetCommodityPrice(hyperdrive_fuel)
+		price = price * (1.0 + math.sign(price) * Economy.TradeFeeSplit * 0.01)
+
+		hyperdriveIcon:Draw(widgetSizes.iconSize)
+		ui.nextColumn()
+
+		-- cargo hold fuel prices
+		ui.withFont(pionillium.body, function()
+			ui.text(Format.Money(price) .. "/t")
+			ui.text(Format.Money(price * stored_cargofuel))
+		end)
+		ui.nextColumn()
+
+		-- cargo hold fuel buttons
+		if ui.button("-10t##cargo", widgetSizes.buttonSizeBase) then tradeCargoFuel(-10) end
+		ui.sameLine()
+		if ui.button("-1t##cargo", widgetSizes.buttonSizeBase) then tradeCargoFuel(-1) end
+		ui.sameLine()
+		if ui.button("+1t##cargo", widgetSizes.buttonSizeBase) then tradeCargoFuel(1) end
+		ui.sameLine()
+		if ui.button("+10t##cargo", widgetSizes.buttonSizeBase) then tradeCargoFuel(10) end
+		ui.nextColumn()
+
+		-- cargo hold fuel gauge: full when the hold has no room for more
+		gaugePos = ui.getCursorScreenPos()
+		gaugePos.x = gaugePos.x + gaugeSpacing;
+		gaugePos.y = gaugePos.y + widgetSizes.buttonSizeBase.y/2
+		ui.gauge(gaugePos, stored_cargofuel, '', string.format(l.IN_CARGO_HOLD .. ": %d t", stored_cargofuel),
+			0, math.max(stored_cargofuel + cargoMgr:GetFreeSpace(), 1),
+			icons.cargo_crate, true, colors.gaugeEquipmentMarket, '',
+			gaugeWidth, gaugeHeight, pionillium.body)
+	end
 
 	ui.columns(1, '', false)
 end
@@ -276,7 +372,7 @@ local function drawPlayerInfo()
 	ui.withFont(pionillium.heading, function()
 		ui.withStyleVars({ItemSpacing = widgetSizes.itemSpacing}, function()
 			local buttonSizeSpacing = widgetSizes.buttonLaunchSize.y + widgetSizes.itemSpacing.y
-			local lobbyMenuHeight = widgetSizes.buttonSizeBase.y*2 + widgetSizes.itemSpacing.y*3 -- use an extra itemSpacing to avoid scrollbar
+			local lobbyMenuHeight = widgetSizes.buttonSizeBase.y*3 + widgetSizes.itemSpacing.y*4 -- use an extra itemSpacing to avoid scrollbar
 
 			ui.child("Wrapper", Vector2(0, -lobbyMenuHeight), function()
 				-- face display has 1:1 aspect ratio, and we need size for a launch button underneath
