@@ -688,9 +688,9 @@ end
 --
 -- Event: onShipScoopFuel
 --
--- Triggered when a ship scooping fuel in the atmosphere of a star or gas giant
--- has collected hydrogen that its propellant tank has no room for. The ship
--- fills that tank itself; this event is for stowing the rest.
+-- Triggered a few times a second while a ship is scooping fuel in the
+-- atmosphere of a star or gas giant. The ship fills its propellant tank
+-- itself; this event is for stowing the hydrogen that tank has no room for.
 --
 -- > local onShipScoopFuel = function (ship, body, amount) ... end
 -- > Event.Register("onShipScoopFuel", onShipScoopFuel)
@@ -701,7 +701,8 @@ end
 --
 --   body - the <SystemBody> the fuel was scooped from
 --
---   amount - the hydrogen to stow, in whole tonnes
+--   amount - the hydrogen to stow, in tonnes. Usually a fraction of a tonne,
+--            and 0 while the propellant tank is still taking everything.
 --
 
 --

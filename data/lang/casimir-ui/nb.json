@@ -1,0 +1,10 @@
+{
+  "FUEL_SCOOP_HYPERDRIVE_LEVEL": {
+    "description": "Comms log line shown in flight while the fuel scoop is filling the hyperdrive's own fuel tank, each time it gains another tenth of its capacity. The last line is sent when it is full. {quantity} is the tonnes of hydrogen now in it, with one decimal, for example 1.0.",
+    "message": "Drivstoffskuffe aktiv for hyperdriftens tank. Du har nå {quantity} tonn hydrogen til hyperromshopp."
+  },
+  "FUEL_SCOOP_TANK_LEVEL": {
+    "description": "Comms log line shown in flight while the fuel scoop is filling the ship's main propellant tank, each time the tank passes another 10%. {percent} is the tank level as a whole number, for example 70.",
+    "message": "Drivstoffskuffe aktiv for hovedtanken. Du har nå {percent} % drivstoff."
+  }
+}

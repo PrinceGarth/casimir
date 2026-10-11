@@ -1,0 +1,10 @@
+{
+  "FUEL_SCOOP_HYPERDRIVE_LEVEL": {
+    "description": "Comms log line shown in flight while the fuel scoop is filling the hyperdrive's own fuel tank, each time it gains another tenth of its capacity. The last line is sent when it is full. {quantity} is the tonnes of hydrogen now in it, with one decimal, for example 1.0.",
+    "message": "연료 스쿠프가 하이퍼드라이브 탱크를 채우는 중입니다. 현재 하이퍼스페이스 점프에 쓸 수 있는 수소가 {quantity}톤 있습니다."
+  },
+  "FUEL_SCOOP_TANK_LEVEL": {
+    "description": "Comms log line shown in flight while the fuel scoop is filling the ship's main propellant tank, each time the tank passes another 10%. {percent} is the tank level as a whole number, for example 70.",
+    "message": "연료 스쿠프가 주 연료 탱크를 채우는 중입니다. 현재 연료는 {percent}%입니다."
+  }
+}

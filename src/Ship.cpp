@@ -1358,13 +1358,16 @@ void Ship::StaticUpdate(const float timeStep)
 						scooped = fillsTank ? scooped - tankRoom : 0.0;
 					}
 
-					// What the tank can't take is handed to Lua a tonne at a time, to go
+					// What the tank can't take is handed to Lua a few times a second, to go
 					// wherever else there is room for it (see data/modules/FuelScoop.lua).
+					// The event is sent while the tank is still filling too, with nothing
+					// to hand over, so that Lua can report the tank's progress.
 					m_hydrogenScoopedAccumulator += scooped;
-					if (m_hydrogenScoopedAccumulator > 1) {
-						const double scoopedTons = floor(m_hydrogenScoopedAccumulator);
-						LuaEvent::Queue("onShipScoopFuel", this, p, scoopedTons);
-						m_hydrogenScoopedAccumulator -= scoopedTons;
+					m_scoopReportTimer += timeStep;
+					if (m_scoopReportTimer >= 0.25) {
+						LuaEvent::Queue("onShipScoopFuel", this, p, m_hydrogenScoopedAccumulator);
+						m_hydrogenScoopedAccumulator = 0.0;
+						m_scoopReportTimer = 0.0;
 					}
 				}
 			}

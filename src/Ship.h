@@ -368,6 +368,7 @@ private:
 	std::string m_shipName;
 
 	double m_hydrogenScoopedAccumulator = 0;
+	double m_scoopReportTimer = 0;
 
 	double m_latestSpawnTime = 0.0;
 
