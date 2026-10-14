@@ -131,6 +131,28 @@ static int l_engine_attr_version(lua_State *l)
 }
 
 /*
+ * Attribute: gameName
+ *
+ * The game's name as players see it (GAME_NAME in CMakeLists.txt)
+ */
+static int l_engine_attr_game_name(lua_State *l)
+{
+	lua_pushstring(l, GAME_NAME);
+	return 1;
+}
+
+/*
+ * Attribute: issuesURL
+ *
+ * Web address where players report bugs (GAME_ISSUES_URL in CMakeLists.txt)
+ */
+static int l_engine_attr_issues_url(lua_State *l)
+{
+	lua_pushstring(l, GAME_ISSUES_URL);
+	return 1;
+}
+
+/*
  * Function: Quit
  *
  * Exit the program. If there is a game running it ends the game first.
@@ -1146,6 +1168,8 @@ void LuaEngine::Register()
 		{ "frameTime", l_engine_attr_frame_time },
 		{ "pigui", l_engine_attr_pigui },
 		{ "version", l_engine_attr_version },
+		{ "gameName", l_engine_attr_game_name },
+		{ "issuesURL", l_engine_attr_issues_url },
 		{ 0, 0 }
 	};
 

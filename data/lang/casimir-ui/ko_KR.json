@@ -6,5 +6,9 @@
   "FUEL_SCOOP_TANK_LEVEL": {
     "description": "Comms log line shown in flight while the fuel scoop is filling the ship's main propellant tank, each time the tank passes another 10%. {percent} is the tank level as a whole number, for example 70.",
     "message": "연료 스쿠프가 주 연료 탱크를 채우는 중입니다. 현재 연료는 {percent}%입니다."
+  },
+  "PLEASE_REPORT_THIS_ERROR": {
+    "description": "Shown on the error screen when a game screen fails. Asks the player to report the bug. {game} is the game's name and {issues_url} the web address of its issue tracker: keep both as they are and do not inflect {game} (build the sentence so the name can stay as it is). {path} is a folder.",
+    "message": "이런, 문제가 발생했습니다! 이 오류를 재현하는 단계, 출력 로그, 저장 파일을 {game} 이슈 트래커에 보고해 주세요:\n{issues_url}\n출력 로그 위치: {path}/output.txt"
   }
 }

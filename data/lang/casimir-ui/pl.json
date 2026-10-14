@@ -6,5 +6,9 @@
   "FUEL_SCOOP_TANK_LEVEL": {
     "description": "Comms log line shown in flight while the fuel scoop is filling the ship's main propellant tank, each time the tank passes another 10%. {percent} is the tank level as a whole number, for example 70.",
     "message": "Czerpak paliwowy włączony dla głównego zbiornika paliwa. Masz {percent}% paliwa."
+  },
+  "PLEASE_REPORT_THIS_ERROR": {
+    "description": "Shown on the error screen when a game screen fails. Asks the player to report the bug. {game} is the game's name and {issues_url} the web address of its issue tracker: keep both as they are and do not inflect {game} (build the sentence so the name can stay as it is). {path} is a folder.",
+    "message": "Ups, coś poszło nie tak! Prosimy zgłosić czynności pozwalające odtworzyć ten błąd, raport wyjściowy oraz plik zapisu gry w systemie zgłaszania błędów gry {game}:\n{issues_url}\nRaport wyjściowy znajdziesz w: {path}/output.txt"
   }
 }

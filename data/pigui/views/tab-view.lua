@@ -3,7 +3,9 @@
 
 local Game = require 'Game'
 local ui = require 'pigui'
+local Engine = require 'Engine'
 local lui = require 'Lang'.GetResource 'ui-core'
+local lcu = require 'Lang'.GetResource 'casimir-ui'
 
 local orbiteer = ui.fonts.orbiteer
 local Vector2 = _G.Vector2
@@ -143,7 +145,8 @@ function PiGuiTabView.renderTabView(self, refresh)
 				ui.withFont(ui.fonts.orbiteer.medlarge, function() ui.text(lui.AN_ERROR_HAS_OCCURRED) end)
 				ui.withFont(ui.fonts.pionillium.medium, function()
 					ui.spacing()
-					ui.textWrapped(lui.PLEASE_REPORT_THIS_ERROR:interp {path = ui.userDirPath()})
+					ui.textWrapped(lcu.PLEASE_REPORT_THIS_ERROR:interp {
+						game = Engine.gameName, issues_url = Engine.issuesURL, path = ui.userDirPath() })
 					ui.spacing()
 					ui.child("#TabErrorMsg", function()
 						local err = tab.err

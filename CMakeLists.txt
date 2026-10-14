@@ -8,6 +8,11 @@ set(CMAKE_CXX_STANDARD 17)
 # Do not cache this variable
 set(PIONEER_VERSION "20260907-dev")
 
+# The game's name as players see it, and where they report bugs.
+# A fork of Casimir changes these two lines.
+set(GAME_NAME "Casimir")
+set(GAME_ISSUES_URL "https://github.com/PrinceGarth/casimir/issues")
+
 set(PROJECT_VERSION_INFO ""
 	CACHE STRING "Additional version information (optional)")
 

@@ -14,6 +14,8 @@
 ---@field frameTime number Length of the last frame in seconds.
 ---@field pigui unknown This is purposefully left untyped, type information is provided for the ui object
 ---@field version string
+---@field gameName string The game's name as players see it (GAME_NAME in CMakeLists.txt)
+---@field issuesURL string Where players report bugs (GAME_ISSUES_URL in CMakeLists.txt)
 
 ---@class Engine
 local Engine = {}

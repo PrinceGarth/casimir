@@ -6,5 +6,9 @@
   "FUEL_SCOOP_TANK_LEVEL": {
     "description": "Comms log line shown in flight while the fuel scoop is filling the ship's main propellant tank, each time the tank passes another 10%. {percent} is the tank level as a whole number, for example 70.",
     "message": "Tha sgiob a’ chonnaidh gnìomhach airson prìomh-thanca a’ chonnaidh. Tha {percent}% a chonnadh agad a-nis."
+  },
+  "PLEASE_REPORT_THIS_ERROR": {
+    "description": "Shown on the error screen when a game screen fails. Asks the player to report the bug. {game} is the game's name and {issues_url} the web address of its issue tracker: keep both as they are and do not inflect {game} (build the sentence so the name can stay as it is). {path} is a folder.",
+    "message": "Iochd, chaidh rudeigin ceàrr an-seo! Dèan aithris air na ceuman gus a’ mhearachd seo adhbharachadh, loga an às-chuir agus faidhle an t-sàbhalaidh agad gu tracaiche nam bugaichean airson {game}:\n{issues_url}\nGheibh thu grèim air loga an às-chuir aig: {path}/output.txt"
   }
 }

@@ -6,5 +6,9 @@
   "FUEL_SCOOP_TANK_LEVEL": {
     "description": "Comms log line shown in flight while the fuel scoop is filling the ship's main propellant tank, each time the tank passes another 10%. {percent} is the tank level as a whole number, for example 70.",
     "message": "Sběrač paliva plní hlavní palivovou nádrž. Nyní máte {percent} % paliva."
+  },
+  "PLEASE_REPORT_THIS_ERROR": {
+    "description": "Shown on the error screen when a game screen fails. Asks the player to report the bug. {game} is the game's name and {issues_url} the web address of its issue tracker: keep both as they are and do not inflect {game} (build the sentence so the name can stay as it is). {path} is a folder.",
+    "message": "Jejda, něco se pokazilo! Nahlaste prosím kroky, jak tuto chybu vyvolat, výstupní protokol a uloženou hru do systému hlášení chyb hry {game}:\n{issues_url}\nVýstupní protokol najdete zde: {path}/output.txt"
   }
 }
