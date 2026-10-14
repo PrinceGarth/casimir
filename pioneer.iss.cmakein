@@ -1,25 +1,25 @@
 #define AppExeName "@GAME_ID@.exe"
-#define AppName "Pioneer"
-#define AppUrl "https://www.pioneerspacesim.net"
+#define AppName "@GAME_NAME@"
+#define AppUrl "@GAME_URL@"
 
 [Setup]
-AppId={{5ba280c9-1d73-4039-b2e1-7fc7800f784c}
+AppId={{@GAME_WINDOWS_APP_ID@}
 AppName="{#AppName}"
 AppVersion="@PIONEER_VERSION@"
 AppPublisher="{#AppName} Developers"
 AppPublisherURL="{#AppUrl}"
-AppSupportURL="{#AppUrl}"
+AppSupportURL="@GAME_ISSUES_URL@"
 AppUpdatesURL="{#AppUrl}"
-AppCopyright="Copyright 2008-@BUILD_YEAR@ {#AppName} developers"
+AppCopyright="Copyright 2008-@BUILD_YEAR@ Pioneer developers"
 CreateAppDir=yes
 LicenseFile="@PROJECT_SOURCE_DIR@\licenses\GPL-3.txt"
-OutputBaseFilename=pioneer-@PIONEER_VERSION@-win
+OutputBaseFilename=@GAME_ID@-@PIONEER_VERSION@-win
 OutputDir="@PROJECT_SOURCE_DIR@"
 Compression=lzma
 SolidCompression=yes
 ArchitecturesInstallIn64BitMode=x64
-DefaultDirName={autopf}\Pioneer
-DefaultGroupName=Pioneer
+DefaultDirName={autopf}\{#AppName}
+DefaultGroupName={#AppName}
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"

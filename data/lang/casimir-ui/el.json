@@ -1,4 +1,8 @@
 {
+  "ABOUT_ORIGINAL_GAME": {
+    "description": "Heading in the About window's first tab, under the game's own homepage and bug tracker links. Below it is a link to the homepage of Pioneer, the game this one is a fork of. Pioneer is a name: keep it as it is.",
+    "message": "Pioneer, το αρχικό παιχνίδι"
+  },
   "FUEL_SCOOP_HYPERDRIVE_LEVEL": {
     "description": "Comms log line shown in flight while the fuel scoop is filling the hyperdrive's own fuel tank, each time it gains another tenth of its capacity. The last line is sent when it is full. {quantity} is the tonnes of hydrogen now in it, with one decimal, for example 1.0.",
     "message": "Ενεργός συλλέκτης καυσίμου για τη δεξαμενή του υπερκινητήρα. Τώρα έχετε {quantity} τόνους υδρογόνου διαθέσιμους για άλματα υπερδιαστήματος."

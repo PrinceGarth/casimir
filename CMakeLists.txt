@@ -1,13 +1,17 @@
 cmake_minimum_required(VERSION 3.13)
 
-# The game's name as players see it, and where they report bugs.
+# The game's name as players see it, its homepage, and where they report bugs.
 # A fork of Casimir changes these lines.
 set(GAME_NAME "Casimir")
-set(GAME_ISSUES_URL "https://github.com/PrinceGarth/casimir/issues")
+set(GAME_URL "https://github.com/PrinceGarth/casimir")
+set(GAME_ISSUES_URL "${GAME_URL}/issues")
 # Short lower-case name for files and folders: the executable, the install
 # folders, and the player's config and saves (~/.casimir on Linux; "Casimir"
 # on Windows and macOS). Changing it moves players' saves to a new folder.
 set(GAME_ID "casimir")
+# Windows installer ID. A fork generates its own (run `uuidgen`), so that
+# installing it never upgrades or overwrites another game.
+set(GAME_WINDOWS_APP_ID "241518fd-d9d6-40db-86d0-00af1bec7e89")
 
 project(${GAME_ID} LANGUAGES CXX)
 

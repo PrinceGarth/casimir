@@ -94,7 +94,7 @@ jobs:
       uses: actions/upload-artifact@v7
       with:
         name: Windows-Artifacts
-        path: pioneer/pioneer-*-win.exe
+        path: pioneer/*-win.exe
         retention-days: 14
         archive: false
 
@@ -102,7 +102,7 @@ jobs:
       uses: softprops/action-gh-release@v3
       if: ${{ github.event_name == 'release' || github.event_name == 'workflow_dispatch' }}
       with:
-        files: pioneer/pioneer-*-win.exe
+        files: pioneer/*-win.exe
         tag_name: ${{ inputs.tag_name || github.ref_name }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

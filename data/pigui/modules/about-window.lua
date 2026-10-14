@@ -10,6 +10,7 @@ local PiImage = require 'pigui.libs.image'
 local Vector2 = _G.Vector2
 
 local l = Lang.GetResource("about")
+local lc = Lang.GetResource("casimir-ui")
 local lui = Lang.GetResource("ui-core")
 
 local ui = require 'pigui'
@@ -68,23 +69,18 @@ local function showInfo()
 
 		ui.bulletText(l.LINK_HOMEPAGE)
 		ui.sameLine()
-		ui.textLinkOpenURL("http://pioneerspacesim.net/")
+		ui.textLinkOpenURL(Engine.homepageURL)
 
-		ui.bulletText(l.LINK_COMMUNITY_FORUM)
+		ui.bulletText(l.LINK_BUG_TRACKER)
 		ui.sameLine()
-		ui.textLinkOpenURL("https://spacesimcentral.com/viewforum.php?f=49")
+		ui.textLinkOpenURL(Engine.issuesURL)
 
-		ui.bulletText(l.LINK_DEVELOPER_FORUM)
-		ui.sameLine()
-		ui.textLinkOpenURL("https://forum.pioneerspacesim.net/")
+		ui.spacing()
+		ui.text(lc.ABOUT_ORIGINAL_GAME)
 
-		ui.bulletText(l.LINK_COMMUNITY_CHAT)
+		ui.bulletText(l.LINK_HOMEPAGE)
 		ui.sameLine()
-		ui.textLinkOpenURL("Beyond the Frontier", "https://discord.gg/Xzwh5ZPFcK")
-
-		ui.bulletText(l.LINK_DEVELOPER_CHAT)
-		ui.sameLine()
-		ui.textLinkOpenURL("#pioneer @ libera.chat", "https://web.libera.chat/#pioneer")
+		ui.textLinkOpenURL("https://pioneerspacesim.net/")
 
 		ui.separator()
 		ui.spacing()

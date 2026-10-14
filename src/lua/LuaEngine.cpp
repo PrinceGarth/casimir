@@ -142,6 +142,17 @@ static int l_engine_attr_game_name(lua_State *l)
 }
 
 /*
+ * Attribute: homepageURL
+ *
+ * The game's homepage (GAME_URL in CMakeLists.txt)
+ */
+static int l_engine_attr_homepage_url(lua_State *l)
+{
+	lua_pushstring(l, GAME_URL);
+	return 1;
+}
+
+/*
  * Attribute: issuesURL
  *
  * Web address where players report bugs (GAME_ISSUES_URL in CMakeLists.txt)
@@ -1169,6 +1180,7 @@ void LuaEngine::Register()
 		{ "pigui", l_engine_attr_pigui },
 		{ "version", l_engine_attr_version },
 		{ "gameName", l_engine_attr_game_name },
+		{ "homepageURL", l_engine_attr_homepage_url },
 		{ "issuesURL", l_engine_attr_issues_url },
 		{ 0, 0 }
 	};
