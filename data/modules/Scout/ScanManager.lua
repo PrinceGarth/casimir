@@ -583,8 +583,11 @@ function ScanManager:OnUpdateScan(scan)
 		end
 	end
 
-	-- Determine if we're currently in range to record scan data
+	-- Determine if we're currently in range to record scan data. A docked or
+	-- landed ship records nothing: from inside an orbital station it would
+	-- otherwise map the planet as the station orbits.
 	local withinParams = resolution <= scan.minResolution and altitude > self.activeSensor.minAltitude
+		and self.ship.flightState == "FLYING"
 
 
 
