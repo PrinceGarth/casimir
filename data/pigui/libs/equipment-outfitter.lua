@@ -519,23 +519,24 @@ function Outfitter:renderCompareRow(label, stat_a, stat_b)
 	ui.text(label)
 
 	local icon_size = Vector2(ui.getTextLineHeight())
-	local default = type((stat_a or stat_b)[3]) == "number" and 0 or ""
-	local cmp_a, cmp_b = default, default
 
-	if stat_a then
-		cmp_a = stat_a[3] == "MILITARY" and 11 or stat_a[3]
+	-- The "MILITARY" tech level ranks above every numbered level. It is shown
+	-- as an icon, so it never goes through the row's number formatter.
+	local function value(stat)
+		return stat and (stat[3] == "MILITARY" and 11 or stat[3])
 	end
-	if stat_b then
-		cmp_b = stat_b[3] == "MILITARY" and 11 or stat_b[3]
-	end
+	local default = type(value(stat_a or stat_b)) == "number" and 0 or ""
+	local cmp_a = value(stat_a) or default
+	local cmp_b = value(stat_b) or default
+
 	local color = compare(cmp_a, cmp_b, (stat_a or stat_b)[5])
 		or colors.font
 
 	local icon = (stat_a or stat_b)[2]
 	local format = (stat_a or stat_b)[4]
 
-	local val_a = stat_a and format(stat_a[3]) or format(default)
-	local val_b = stat_b and format(stat_b[3]) or format(default)
+	local val_a = format(cmp_a)
+	local val_b = format(cmp_b)
 
 	ui.tableNextColumn()
 	ui.icon(icon, icon_size, colors.font)
