@@ -73,4 +73,106 @@ namespace Text {
 		}
 	}
 
+	Uint32 unicode_to_upper(Uint32 c)
+	{
+		// Basic Latin and Latin-1
+		if (c < 0x80) return (c >= 'a' && c <= 'z') ? c - 0x20 : c;
+		if (c >= 0xe0 && c <= 0xfe) return c != 0xf7 ? c - 0x20 : c;
+		if (c == 0xff) return 0x178;
+		// Latin Extended-A; the pairs sit next to each other, but which of
+		// the two comes first changes twice along the way
+		if (c >= 0x100 && c <= 0x17f) {
+			if (c == 0x131) return 'I';
+			if (c == 0x17f) return 'S';
+			if (c == 0x138 || c == 0x149) return c;
+			const bool lowerIsEven = (c >= 0x139 && c <= 0x148) || c >= 0x179;
+			return ((c & 1) == (lowerIsEven ? 0 : 1)) ? c - 1 : c;
+		}
+		// Romanian comma-below letters
+		if (c == 0x219 || c == 0x21b) return c - 1;
+		// Greek
+		if (c >= 0x3b1 && c <= 0x3cb) return c == 0x3c2 ? 0x3a3 : c - 0x20;
+		if (c == 0x3ac) return 0x386;
+		if (c >= 0x3ad && c <= 0x3af) return c - 0x25;
+		if (c == 0x3cc) return 0x38c;
+		if (c == 0x3cd || c == 0x3ce) return c - 0x3f;
+		// Cyrillic
+		if (c >= 0x430 && c <= 0x44f) return c - 0x20;
+		if (c >= 0x450 && c <= 0x45f) return c - 0x50;
+		if ((c >= 0x460 && c <= 0x481) || (c >= 0x48a && c <= 0x4bf) || (c >= 0x4d0 && c <= 0x52f))
+			return (c & 1) ? c - 1 : c;
+		if (c >= 0x4c1 && c <= 0x4ce) return (c & 1) ? c : c - 1;
+		if (c == 0x4cf) return 0x4c0;
+		return c;
+	}
+
+	Uint32 unicode_to_lower(Uint32 c)
+	{
+		// Basic Latin and Latin-1
+		if (c < 0x80) return (c >= 'A' && c <= 'Z') ? c + 0x20 : c;
+		if (c >= 0xc0 && c <= 0xde) return c != 0xd7 ? c + 0x20 : c;
+		// Latin Extended-A
+		if (c >= 0x100 && c <= 0x17f) {
+			if (c == 0x130) return 'i';
+			if (c == 0x178) return 0xff;
+			if (c == 0x138 || c == 0x149 || c == 0x17f) return c;
+			const bool upperIsOdd = (c >= 0x139 && c <= 0x148) || c >= 0x179;
+			return ((c & 1) == (upperIsOdd ? 1 : 0)) ? c + 1 : c;
+		}
+		// Romanian comma-below letters
+		if (c == 0x218 || c == 0x21a) return c + 1;
+		// Greek
+		if (c >= 0x391 && c <= 0x3ab) return c != 0x3a2 ? c + 0x20 : c;
+		if (c == 0x386) return 0x3ac;
+		if (c >= 0x388 && c <= 0x38a) return c + 0x25;
+		if (c == 0x38c) return 0x3cc;
+		if (c == 0x38e || c == 0x38f) return c + 0x3f;
+		// Cyrillic
+		if (c >= 0x410 && c <= 0x42f) return c + 0x20;
+		if (c >= 0x400 && c <= 0x40f) return c + 0x50;
+		if ((c >= 0x460 && c <= 0x481) || (c >= 0x48a && c <= 0x4bf) || (c >= 0x4d0 && c <= 0x52f))
+			return (c & 1) ? c : c + 1;
+		if (c >= 0x4c1 && c <= 0x4ce) return (c & 1) ? c + 1 : c;
+		if (c == 0x4c0) return 0x4cf;
+		return c;
+	}
+
+	static std::string utf8_convert_case(std::string_view str, Uint32 (*convert)(Uint32))
+	{
+		std::string out;
+		out.reserve(str.size());
+
+		for (size_t i = 0; i < str.size();) {
+			const unsigned char lead = str[i];
+
+			// Every letter with a case mapping here is one or two bytes long.
+			// Anything else is copied as it is, one byte at a time, which
+			// also carries longer characters and invalid bytes through.
+			if (lead < 0x80) {
+				out.push_back(char(convert(lead)));
+				i += 1;
+			} else if (lead >= 0xc2 && lead <= 0xdf && i + 1 < str.size() && (str[i + 1] & 0xc0) == 0x80) {
+				char buf[4];
+				const Uint32 chr = convert(((lead & 0x1f) << 6) | (str[i + 1] & 0x3f));
+				out.append(buf, utf8_encode_char(chr, buf));
+				i += 2;
+			} else {
+				out.push_back(str[i]);
+				i += 1;
+			}
+		}
+
+		return out;
+	}
+
+	std::string utf8_to_upper(std::string_view str)
+	{
+		return utf8_convert_case(str, unicode_to_upper);
+	}
+
+	std::string utf8_to_lower(std::string_view str)
+	{
+		return utf8_convert_case(str, unicode_to_lower);
+	}
+
 } // namespace Text

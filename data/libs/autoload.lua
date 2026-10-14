@@ -12,9 +12,14 @@ end
 -- the string and any first letters of consecutive sentences in the string.
 ---@param s string
 string.scase = function (s)
-    s = s:gsub("^%l", string.upper)
+    -- An ASCII letter or one whole non-ASCII UTF-8 character, so that this
+    -- also works on letters outside A to Z (string.upper leaves anything
+    -- that is not a letter alone)
+    local char = "[%a\194-\244][\128-\191]*"
 
-    s = s:gsub("([.!?]%s*)(%l)", function(punct, letter)
+    s = s:gsub("^" .. char, string.upper)
+
+    s = s:gsub("([.!?]%s*)(" .. char .. ")", function(punct, letter)
         return punct .. letter:upper()
     end)
 

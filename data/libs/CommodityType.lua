@@ -86,8 +86,6 @@ end
 --
 -- Returns the translated name of this commodity, capitalized for use as a
 -- label or proper name according to the rules of English capitalization.
--- TODO: this function does not work properly on Cyrillic or other non-Latin
--- scripts.
 function CommodityType:GetProperName()
 	return self.lang.proper_name
 end

@@ -5,6 +5,7 @@
 #include "FileSystem.h"
 #include "LuaUtils.h"
 #include "core/Log.h"
+#include "text/TextSupport.h"
 #include "utils.h"
 #include "FileSystem.h"
 #include "LuaFileSystem.h"
@@ -106,6 +107,27 @@ static int l_log_warning(lua_State *L)
 	return 0;
 }
 
+// Lua's own string.upper and string.lower only know the letters A to Z.
+// These also convert the accented Latin, Greek and Cyrillic letters of UTF-8
+// text, so that searches and capitalised names work in every language.
+static int l_string_upper(lua_State *L)
+{
+	size_t len;
+	const char *str = luaL_checklstring(L, 1, &len);
+	const std::string result = Text::utf8_to_upper(std::string_view(str, len));
+	lua_pushlstring(L, result.data(), result.size());
+	return 1;
+}
+
+static int l_string_lower(lua_State *L)
+{
+	size_t len;
+	const char *str = luaL_checklstring(L, 1, &len);
+	const std::string result = Text::utf8_to_lower(std::string_view(str, len));
+	lua_pushlstring(L, result.data(), result.size());
+	return 1;
+}
+
 static const luaL_Reg STANDARD_LIBS[] = {
 	{ "_G", luaopen_base },
 	{ LUA_COLIBNAME, luaopen_coroutine },
@@ -141,6 +163,8 @@ static const luaL_Reg STANDARD_LIBS[] = {
 //  - import(): library/dependency loader
 //  - import_core(): lowlevel library/dependency loader
 //  - math.rad is aliased as math.deg2rad: I prefer the explicit name
+//  - string.upper()/string.lower(): replaced with versions that also convert
+//    the non-English letters of UTF-8 text
 //  - util.hash_random(): a repeatable, safe, hash function based source of
 //    variation
 
@@ -199,6 +223,14 @@ void pi_lua_open_standard_base(lua_State *L)
 	lua_setfield(L, -2, "stderr");
 
 	lua_pop(L, 1); // pop the io table
+
+	// standard library adjustments (string library)
+	lua_getglobal(L, LUA_STRLIBNAME);
+	lua_pushcfunction(L, l_string_upper);
+	lua_setfield(L, -2, "upper");
+	lua_pushcfunction(L, l_string_lower);
+	lua_setfield(L, -2, "lower");
+	lua_pop(L, 1); // pop the string table
 
 	// standard library adjustments (math library)
 	lua_getglobal(L, LUA_MATHLIBNAME);

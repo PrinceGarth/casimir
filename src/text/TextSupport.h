@@ -6,6 +6,8 @@
 
 #include <SDL_stdinc.h>
 #include <cassert>
+#include <string>
+#include <string_view>
 
 namespace Text {
 
@@ -23,6 +25,20 @@ namespace Text {
 	//       (i.e., assigning to buf[3] must be a valid operation)
 	//  returns: number of bytes in the encoded character
 	int utf8_encode_char(Uint32 chr, char buf[4]);
+
+	// convert one Unicode code-point to upper or lower case
+	// Covers the Latin, Greek and Cyrillic letters of the languages the game
+	// is translated into; any other code-point is returned unchanged.
+	// Each letter maps to exactly one letter, so some pairs are approximate:
+	// German sharp s stays as it is, and the Turkish dotted capital I and
+	// dotless small i are paired with the plain i and I.
+	Uint32 unicode_to_upper(Uint32 chr);
+	Uint32 unicode_to_lower(Uint32 chr);
+
+	// convert a UTF-8 string to upper or lower case
+	// Bytes that are not valid UTF-8 are copied through unchanged.
+	std::string utf8_to_upper(std::string_view str);
+	std::string utf8_to_lower(std::string_view str);
 
 	// this can tell you the length of a UTF-8 character, or more generally
 	// it tells you the number of bytes to move forward to get to the beginning
