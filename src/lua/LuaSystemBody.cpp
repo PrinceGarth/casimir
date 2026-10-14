@@ -13,6 +13,20 @@
 #include "galaxy/Galaxy.h"
 #include "galaxy/StarSystem.h"
 
+// A SystemBody only knows its parent, children and StarSystem while that
+// StarSystem is loaded. Lua can keep a body for longer (the destination of a
+// mission in a distant system, for one); once its system is unloaded the body
+// is an orphan, so look it up again in a freshly loaded copy of its system.
+// `keepSystem` keeps that copy alive while the caller uses the body. Without a
+// game (main menu, new game window) the orphan is returned as it is.
+static SystemBody *GetLinkedBody(SystemBody *sbody, RefCountedPtr<StarSystem> &keepSystem)
+{
+	if (sbody->GetStarSystem() || !Pi::game)
+		return sbody;
+	keepSystem = Pi::game->GetGalaxy()->GetStarSystem(sbody->GetPath());
+	return keepSystem->GetBodyByPath(sbody->GetPath());
+}
+
 /*
  * Class: SystemBody
  *
@@ -30,6 +44,7 @@
  *
  * The body index of the body in its system
  */
+
 static int l_sbody_attr_index(lua_State *l)
 {
 	SystemBody *sbody = LuaObject<SystemBody>::CheckFromLua(1);
@@ -98,17 +113,9 @@ static int l_sbody_attr_seed(lua_State *l)
  */
 static int l_sbody_attr_parent(lua_State *l)
 {
-	SystemBody *sbody = LuaObject<SystemBody>::CheckFromLua(1);
-
-	if (!sbody->GetStarSystem()) {
-		// orphan, its system has already been deleted, but SystemPath remains
-		// we'll make a new one just like it
-		RefCountedPtr<StarSystem> s = Pi::game->GetGalaxy()->GetStarSystem(sbody->GetPath());
-		sbody = s->GetBodyByPath(sbody->GetPath());
-		LuaObject<SystemBody>::PushToLua(sbody->GetParent());
-	} else {
-		LuaObject<SystemBody>::PushToLua(sbody->GetParent());
-	}
+	RefCountedPtr<StarSystem> system;
+	SystemBody *sbody = GetLinkedBody(LuaObject<SystemBody>::CheckFromLua(1), system);
+	LuaObject<SystemBody>::PushToLua(sbody->GetParent());
 	return 1;
 }
 
@@ -119,7 +126,8 @@ static int l_sbody_attr_parent(lua_State *l)
  */
 static int l_sbody_attr_system(lua_State *l)
 {
-	SystemBody *sbody = LuaObject<SystemBody>::CheckFromLua(1);
+	RefCountedPtr<StarSystem> system;
+	SystemBody *sbody = GetLinkedBody(LuaObject<SystemBody>::CheckFromLua(1), system);
 	LuaPush(l, sbody->GetStarSystem());
 	return 1;
 }
@@ -484,7 +492,8 @@ static int l_sbody_attr_body(lua_State *l)
 
 static int l_sbody_attr_children(lua_State *l)
 {
-	SystemBody *sbody = LuaObject<SystemBody>::CheckFromLua(1);
+	RefCountedPtr<StarSystem> system;
+	SystemBody *sbody = GetLinkedBody(LuaObject<SystemBody>::CheckFromLua(1), system);
 	LuaTable children(l);
 	int i = 1;
 	for (auto child : sbody->GetChildren()) {
@@ -498,13 +507,16 @@ static int l_sbody_attr_children(lua_State *l)
 static int l_sbody_attr_nearest_jumpable(lua_State *l)
 {
 	double time = Pi::game->GetTime();
-	LuaObject<SystemBody>::PushToLua(LuaObject<SystemBody>::CheckFromLua(1)->GetNearestJumpable(time));
+	RefCountedPtr<StarSystem> system;
+	SystemBody *sbody = GetLinkedBody(LuaObject<SystemBody>::CheckFromLua(1), system);
+	LuaObject<SystemBody>::PushToLua(sbody->GetNearestJumpable(time));
 	return 1;
 }
 
 static int l_sbody_attr_is_moon(lua_State *l)
 {
-	LuaPush<bool>(l, LuaObject<SystemBody>::CheckFromLua(1)->IsMoon());
+	RefCountedPtr<StarSystem> system;
+	LuaPush<bool>(l, GetLinkedBody(LuaObject<SystemBody>::CheckFromLua(1), system)->IsMoon());
 	return 1;
 }
 
