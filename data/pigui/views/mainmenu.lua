@@ -137,7 +137,7 @@ local function showMainMenu()
 	ui.setNextWindowPos(Vector2(110,65),'Always')
 	ui.withStyleColors({WindowBg=colors.transparent}, function()
 		ui.window("headingWindow", overlayWindowFlags, function()
-			ui.withFont(orbiteer.xlarge, function() ui.text("Casimir") end)
+			ui.withFont(orbiteer.xlarge, function() ui.text(Engine.gameName) end)
 		end)
 	end)
 	if Engine.IsIntroZooming() then

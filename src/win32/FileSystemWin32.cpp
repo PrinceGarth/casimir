@@ -5,6 +5,7 @@
 
 #include "FileSystem.h"
 #include "TextUtils.h"
+#include "buildopts.h"
 #include "core/OS.h"
 #include "libs.h"
 #include "utils.h"
@@ -57,7 +58,7 @@ namespace FileSystem {
 		}
 
 		std::wstring path(appdata_path);
-		path += L"/Casimir";
+		path += L"/" GAME_ID_TITLE; // the wide prefix carries over to the joined literal
 
 		if (!PathFileExistsW(path.c_str())) {
 			if (SHCreateDirectoryExW(0, path.c_str(), 0) != ERROR_SUCCESS) {

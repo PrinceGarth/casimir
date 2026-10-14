@@ -6,6 +6,7 @@
 #include "RefCounted.h"
 #include <SDL_video.h>
 #include "StringF.h"
+#include "buildopts.h"
 
 #include "graphics/Graphics.h"
 #include "graphics/Light.h"
@@ -119,7 +120,7 @@ namespace Graphics {
 		PROFILE_SCOPED()
 		assert(vs.rendererType == Graphics::RendererType::RENDERER_OPENGL_3x);
 
-		const std::string name("Casimir");
+		const std::string name(GAME_NAME);
 		SDL_Window *window = nullptr;
 		SDL_GLContext glContext = nullptr;
 

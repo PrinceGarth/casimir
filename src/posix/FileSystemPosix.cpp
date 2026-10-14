@@ -59,10 +59,10 @@ namespace FileSystem {
 		}
 
 #ifdef __APPLE__
-		path += "Library/Application Support/Casimir";
+		path += "Library/Application Support/" GAME_ID_TITLE;
 #else
 		// Casimir keeps its config and saves apart from upstream Pioneer's
-		path += ".casimir";
+		path += "." GAME_ID;
 #endif
 		return path;
 	}

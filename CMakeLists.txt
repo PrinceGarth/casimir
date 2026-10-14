@@ -1,5 +1,15 @@
 cmake_minimum_required(VERSION 3.13)
-project(casimir LANGUAGES CXX)
+
+# The game's name as players see it, and where they report bugs.
+# A fork of Casimir changes these lines.
+set(GAME_NAME "Casimir")
+set(GAME_ISSUES_URL "https://github.com/PrinceGarth/casimir/issues")
+# Short lower-case name for files and folders: the executable, the install
+# folders, and the player's config and saves (~/.casimir on Linux; "Casimir"
+# on Windows and macOS). Changing it moves players' saves to a new folder.
+set(GAME_ID "casimir")
+
+project(${GAME_ID} LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_CXX_STANDARD 17)
@@ -8,10 +18,11 @@ set(CMAKE_CXX_STANDARD 17)
 # Do not cache this variable
 set(PIONEER_VERSION "20260907-dev")
 
-# The game's name as players see it, and where they report bugs.
-# A fork of Casimir changes these two lines.
-set(GAME_NAME "Casimir")
-set(GAME_ISSUES_URL "https://github.com/PrinceGarth/casimir/issues")
+# GAME_ID with a capital first letter, for the Windows and macOS folders
+string(SUBSTRING "${GAME_ID}" 0 1 GAME_ID_FIRST)
+string(TOUPPER "${GAME_ID_FIRST}" GAME_ID_FIRST)
+string(SUBSTRING "${GAME_ID}" 1 -1 GAME_ID_REST)
+set(GAME_ID_TITLE "${GAME_ID_FIRST}${GAME_ID_REST}")
 
 set(PROJECT_VERSION_INFO ""
 	CACHE STRING "Additional version information (optional)")

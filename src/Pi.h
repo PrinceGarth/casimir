@@ -6,6 +6,7 @@
 
 #include "Random.h"
 #include "MathUtil.h"
+#include "buildopts.h"
 #include "core/GuiApplication.h"
 #include "gameconsts.h"
 
@@ -93,7 +94,7 @@ public:
 		friend class TombstoneLoop;
 
 		App() :
-			GuiApplication("Casimir") {}
+			GuiApplication(GAME_NAME) {}
 
 		void OnStartup() override;
 		void OnShutdown() override;

@@ -55,7 +55,7 @@ local function showInfo()
 	end)
 
 	ui.withFont(pionillium.body, function()
-		ui.textWrapped("Casimir is an unofficial, AI-assisted (\"vibe-coded\") fork of Pioneer. It is not affiliated with, endorsed by, or supported by the Pioneer project. Please do not report Casimir bugs to upstream Pioneer.")
+		ui.textWrapped(string.format("%s is an unofficial, AI-assisted (\"vibe-coded\") fork of Pioneer. It is not affiliated with, endorsed by, or supported by the Pioneer project. Please do not report %s bugs to upstream Pioneer.", Engine.gameName, Engine.gameName))
 		ui.spacing()
 	end)
 
@@ -172,7 +172,7 @@ local function showGPL()
 	ui.withFont(pionillium.body, function()
 		ui.text("Licensed under the terms of the GPL v3")
 		ui.text("Copyright © 2008-2026 Pioneer Developers")
-		ui.text("Casimir modifications: AI-assisted fork of Pioneer")
+		ui.text(Engine.gameName .. " modifications: AI-assisted fork of Pioneer")
 		ui.text("Portions copyright © 2013-2014 Meteoric Games Ltd")
 
 		ui.textWrapped("Pioneer's core code and extension modules are licensed under the terms of the GNU General Public License version 3. See licenses/GPL-3.txt for details.")
