@@ -37,7 +37,12 @@ local getAcceptableShips = function ()
 	local filter_function = function(_,def)
 		-- XXX should limit to ships large enough to carry significant
 		--     cargo, but we don't have enough ships yet
-		return def.tag == 'SHIP' and def.hyperdriveClass > 0 and def.cargo > 0 -- and def.roles.merchant
+		-- Ships in police colours (a police role and no civilian one) are left
+		-- to the police: a trader flying one looks like a patrol that ignores
+		-- pirates.
+		local roles = def.roles
+		local police_only = roles.police and not (roles.merchant or roles.courier or roles.passenger or roles.pirate)
+		return def.tag == 'SHIP' and def.hyperdriveClass > 0 and def.cargo > 0 and not police_only -- and def.roles.merchant
 	end
 	return utils.build_array(
 		utils.map(function (k,def)
