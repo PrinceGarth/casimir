@@ -280,20 +280,32 @@ static int l_get_remaining_delta_v(lua_State *l)
  *
  * Parameters:
  *
- *   thruster - a string specifying which thruster's acceleration to return. One of "forward", "reverse" or "up"
+ *   thruster - a string specifying which thruster's acceleration to return. One of "forward", "reverse", "up", "down", "left" or "right"
  */
 
 static std::map<std::string, Thruster> thrusters_map = {
 	{ "forward", THRUSTER_FORWARD },
 	{ "reverse", THRUSTER_REVERSE },
 	{ "up", THRUSTER_UP },
+	{ "down", THRUSTER_DOWN },
+	{ "left", THRUSTER_LEFT },
+	{ "right", THRUSTER_RIGHT },
 };
+
+// An unknown name is a Lua error, not an uncaught C++ exception that ends the game
+static Thruster check_thruster(lua_State *l, int idx, const char *method)
+{
+	std::string name = LuaPull<std::string>(l, idx);
+	auto it = thrusters_map.find(name);
+	if (it == thrusters_map.end())
+		luaL_error(l, "Player:%s(): invalid thruster '%s' specified\n", method, name.c_str());
+	return it->second;
+}
 
 static int l_get_acceleration(lua_State *l)
 {
 	Player *player = LuaObject<Player>::CheckFromLua(1);
-	std::string thruster = LuaPull<std::string>(l, 2);
-	double acceleration = player->GetAccel(thrusters_map.at(thruster));
+	double acceleration = player->GetAccel(check_thruster(l, 2, "GetAcceleration"));
 	LuaPush(l, acceleration);
 	return 1;
 }
@@ -314,8 +326,7 @@ static int l_get_distance_to_zero_v(lua_State *l)
 {
 	Player *player = LuaObject<Player>::CheckFromLua(1);
 	double speed = LuaPull<double>(l, 2);
-	std::string thruster = LuaPull<std::string>(l, 3);
-	double acceleration = player->GetAccel(thrusters_map.at(thruster));
+	double acceleration = player->GetAccel(check_thruster(l, 3, "GetDistanceToZeroV"));
 	// approximation, ignores mass change and gravity
 	LuaPush(l, speed * speed / (2 * acceleration));
 	return 1;
