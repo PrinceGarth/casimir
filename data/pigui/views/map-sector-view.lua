@@ -558,11 +558,16 @@ local function drawRouteList(route)
 			ui.text(i)
 			ui.tableNextColumn()
 
+			local status_icon = jump.reachable and icons.map_checkmark
+				or jump.out_of_range and icons.alert_generic
+				or icons.fuel
 			ui.withStyleColors({ Text = jump.color }, function()
-				ui.textAligned(ui.get_icon_glyph(jump.reachable and icons.map_checkmark or icons.fuel), 0.0)
+				ui.textAligned(ui.get_icon_glyph(status_icon), 0.0)
 			end)
 
-			ui.setItemTooltip(jump.reachable and lui.JUMP_REACHABLE or lui.INSUFFICIENT_FUEL)
+			ui.setItemTooltip(jump.reachable and lui.JUMP_REACHABLE
+				or jump.out_of_range and lui.OUT_OF_RANGE
+				or lui.INSUFFICIENT_FUEL)
 
 			ui.sameLine()
 

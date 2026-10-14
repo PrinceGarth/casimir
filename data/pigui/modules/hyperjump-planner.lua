@@ -49,14 +49,17 @@ local function buildJumpRouteList()
 	local cur_fuel = drive.storedFuel
 
 	for jumpIndex, jump in pairs(sectorView:GetRoute()) do
-		local _, distance, fuel, duration = player:GetHyperspaceDetails(start, jump)
+		local status, distance, fuel, duration = player:GetHyperspaceDetails(start, jump)
 		local color = colors.font
 		local remaining_fuel = cur_fuel - fuel
+		-- a jump beyond the drive's range is listed with no fuel and no time,
+		-- because it can't be made at all
+		local out_of_range = status == "OUT_OF_RANGE"
 
-		if remaining_fuel == 0 then
-			color = colors.alertYellow
-		elseif remaining_fuel < 0 then
+		if out_of_range or remaining_fuel < 0 then
 			color = colors.alertRed
+		elseif remaining_fuel == 0 then
+			color = colors.alertYellow
 		end
 
 		hyperjump_route[jumpIndex] = {
@@ -65,7 +68,8 @@ local function buildJumpRouteList()
 			distance = distance,
 			duration = duration,
 			fuel = fuel,
-			reachable = remaining_fuel >= 0
+			out_of_range = out_of_range,
+			reachable = not out_of_range and remaining_fuel >= 0
 		}
 
 		cur_fuel = cur_fuel - fuel
