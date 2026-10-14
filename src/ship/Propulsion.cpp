@@ -237,8 +237,15 @@ float Propulsion::GetFuelUseRate()
 
 void Propulsion::UpdateFuel(const float timeStep)
 {
+	// Fuel is burnt in proportion to the thrust each thruster really produces,
+	// so a weak side thruster at full power uses less than the main engine.
+	// GetFuelUseRate() is the rate of the forward thruster at full power.
 	const double fuelUseRate = GetFuelUseRate() * 0.01;
-	double totalThrust = (fabs(m_linThrusters.x) + fabs(m_linThrusters.y) + fabs(m_linThrusters.z));
+	const double forwardThrust = m_linThrust[THRUSTER_FORWARD];
+	const vector3d thrust = GetActualLinThrust();
+	double totalThrust = forwardThrust > 0 ?
+		(fabs(thrust.x) + fabs(thrust.y) + fabs(thrust.z)) / forwardThrust :
+		(fabs(m_linThrusters.x) + fabs(m_linThrusters.y) + fabs(m_linThrusters.z));
 	FuelState lastState = GetFuelState();
 	m_thrusterFuel -= timeStep * (totalThrust * fuelUseRate);
 	FuelState currentState = GetFuelState();
