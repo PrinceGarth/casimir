@@ -1,4 +1,12 @@
 {
+  "ABOUT_CONTRIBUTE_BODY": {
+    "description": "About window, Contribute tab: the text above the links to this game's contributing guide and its translation-fix form. Asks players not to send their changes to Pioneer, the game this one is a fork of, because Pioneer does not accept AI-assisted work. {game} is this game's name: keep it as it is and do not inflect it. Pioneer is a name: keep it as it is.",
+    "message": "{game} هو نسخة متفرعة من Pioneer مطوَّرة بمساعدة الذكاء الاصطناعي. هل تريد تغيير شيء أو تحسينه، أو تصحيح ترجمة؟ اتبع الروابط أدناه. يُرجى عدم إرسال هذا العمل إلى Pioneer: فهو لا يقبل المساهمات المنجزة بمساعدة الذكاء الاصطناعي."
+  },
+  "ABOUT_DONATIONS_GO_TO_PIONEER": {
+    "description": "About window, Donate tab, shown under Pioneer's own request for donations and above its PayPal link. Says the money goes to Pioneer, the game this one is a fork of. {game} is this game's name: keep it as it is and do not inflect it (build the sentence so the name can stay as it is). Pioneer is a name: keep it as it is.",
+    "message": "تذهب التبرعات إلى مشروع Pioneer الذي صنع اللعبة الأصلية. لا يتلقى {game} أي جزء من هذا المال."
+  },
   "ABOUT_ORIGINAL_GAME": {
     "description": "Heading in the About window's first tab, under the game's own homepage and bug tracker links. Below it is a link to the homepage of Pioneer, the game this one is a fork of. Pioneer is a name: keep it as it is.",
     "message": "Pioneer، اللعبة الأصلية"

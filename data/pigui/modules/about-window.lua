@@ -122,6 +122,7 @@ local function showDonateInfo()
 
 	ui.withFont(pionillium.body, function()
 		ui.textWrapped(l.DONATE_BODY)
+		ui.textWrapped(string.interp(lc.ABOUT_DONATIONS_GO_TO_PIONEER, { game = Engine.gameName }))
 		ui.spacing()
 		ui.textLinkOpenURL("PayPal:", "https://www.paypal.com/donate?hosted_button_id=PYPCS2TYD8H4G")
 		ui.spacing()
@@ -144,15 +145,15 @@ local function showContribute()
 	end)
 
 	ui.withFont(pionillium.body, function()
-		ui.textWrapped(l.CONTRIBUTE_BODY)
+		ui.textWrapped(string.interp(lc.ABOUT_CONTRIBUTE_BODY, { game = Engine.gameName }))
 
 		ui.bulletText("")
 		ui.sameLine()
-		ui.textLinkOpenURL(l.CONTRIBUTE, "https://wiki.pioneerspacesim.net/wiki/How_you_can_contribute")
+		ui.textLinkOpenURL(l.CONTRIBUTE, Engine.homepageURL .. "#contributing")
 
 		ui.bulletText("")
 		ui.sameLine()
-		ui.textLinkOpenURL(l.TRANSLATIONS, "https://wiki.pioneerspacesim.net/wiki/Translations")
+		ui.textLinkOpenURL(l.TRANSLATIONS, Engine.issuesURL .. "/new?template=translation.yml")
 
 		ui.bulletText("")
 		ui.sameLine()
