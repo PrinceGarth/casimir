@@ -63,12 +63,10 @@ void ShipCockpit::Update(const Player *player, float timeStep)
 		resetInternalCameraController();
 	}
 
+	// Only the lag of the cockpit behind the ship's turns is worked out here;
+	// the head's rotation is added in RenderCockpit(), because this isn't
+	// called while the game is paused and the head can still turn then.
 	m_transform = matrix4x4d::Identity;
-	double rotX;
-	double rotY;
-	m_icc->getRots(rotX, rotY);
-	m_transform.RotateX(rotX);
-	m_transform.RotateY(rotY);
 
 	vector3d cur_dir = player->GetOrient().VectorZ().Normalized();
 	if (cur_dir.Dot(m_shipDir) < 1.0f) {
@@ -204,7 +202,15 @@ void ShipCockpit::RenderCockpit(Graphics::Renderer *renderer, const Camera *came
 	PROFILE_SCOPED()
 	renderer->ClearDepthBuffer();
 	Body::SetFrame(frameId);
-	Render(renderer, camera, m_translate, m_transform);
+	matrix4x4d transform = matrix4x4d::Identity;
+	if (m_icc) {
+		double rotX;
+		double rotY;
+		m_icc->getRots(rotX, rotY);
+		transform.RotateX(rotX);
+		transform.RotateY(rotY);
+	}
+	Render(renderer, camera, m_translate, transform * m_transform);
 	Body::SetFrame(FrameId::Invalid);
 }
 

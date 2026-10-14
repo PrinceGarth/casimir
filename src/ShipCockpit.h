@@ -47,7 +47,7 @@ private:
 	float m_offset; // current ship offset due to acceleration effect
 	float m_shipVel; // current ship velocity
 	vector3d m_translate; // cockpit translation
-	matrix4x4d m_transform; // cockpit transformation
+	matrix4x4d m_transform; // cockpit lag behind the ship's turns (head rotation is added when rendering)
 	InternalCameraController *m_icc;
 };
 #endif
