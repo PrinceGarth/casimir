@@ -441,7 +441,11 @@ local onGameStart = function ()
 	if not loaded_data or not loaded_data.ads then return end
 
 	for k,ad in pairs(loaded_data.ads) do
-		placeAdvert(ad.station, ad)
+		-- A save from an older version can name a starport that the
+		-- current galaxy generation no longer has: drop that advert.
+		if ad.location:GetSystemBody() then
+			placeAdvert(ad.station, ad)
+		end
 	end
 
 	missions = loaded_data.missions

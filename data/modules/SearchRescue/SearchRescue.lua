@@ -2071,7 +2071,13 @@ local onGameStart = function ()
 
 	-- fill the global containers with previously saved data if this is a reload
 	for _,ad in pairs(loaded_data.ads) do
-		placeAdvert(Space.GetBody(ad.station_local.bodyIndex), ad)
+		-- A save from an older version can name a body that the current
+		-- galaxy generation no longer has: drop that advert.
+		local missing = (ad.station_target and not ad.station_target:GetSystemBody())
+			or (ad.planet_target and not ad.planet_target:GetSystemBody())
+		if not missing then
+			placeAdvert(Space.GetBody(ad.station_local.bodyIndex), ad)
+		end
 	end
 	missions = loaded_data.missions
 	aircontrol_chars = loaded_data.aircontrol_chars
