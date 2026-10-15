@@ -1,7 +1,7 @@
 Tags: `[qol]` quality of life, small and self-contained · `[perf]` performance fix · `[balance]` needs a design decision before code · `[big]` multi-day feature · `[dream]` may never ship
 
 - `[qol]` Have a linear list of systems to sort through in the interstellar map. Sort by distance, but maybe other sort modes.
-    - `[perf]` Related: Fix search lag. The system search does a search for every keystroke. The first characters typed each take time to generate results in bulk that are usually unnecessary
+    - ~~`[perf]` Related: Fix search lag. The system search does a search for every keystroke.~~ **Done** (`dee29eb3f`): the lag was per-frame sorting and drawing of every result, not the per-keystroke search.
 - `[qol]` In the interstellar map, where it shows multiple stars in a single system (and allows targeting those stars for hyperspace jump) indicate which ones have starports and which ones don't. So that I don't have to go to the tab that shows all the stars and planets and starports in that system, to identify which star has the starports and is safe to hyperjump to without having to drift 2000 AUs to the correct star and wait real-time hours even when the game time is sped up to its max.
 - `[balance]` Make military drive more OP, ideas:
     - `[big]` Military drive can target individual planets (or stars) in a system, and do same-system jumps
