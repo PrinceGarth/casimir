@@ -146,6 +146,12 @@ void StringTable::Erase(uint32_t key)
 		if (probed_key == key) {
 			entries--;
 
+			// free the string data allocated in StringName::make_data
+			if (values[idx]) {
+				values[idx]->~StringData();
+				std::free(values[idx]);
+			}
+
 			// backshift all following entries
 			for (uint32_t jdx = idx + 1;; idx++, jdx++) {
 				idx &= keys.size() - 1;
