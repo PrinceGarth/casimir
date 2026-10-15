@@ -976,6 +976,28 @@ void Ship::Blastoff()
 	OnTakeoff(f->GetBody());
 }
 
+// Normal of the terrain under the point "up" (a unit vector from the planet's
+// centre), averaged over a patch about "span" metres across.
+static vector3d TerrainNormal(const Planet *planet, const vector3d &up, double span)
+{
+	vector3d t1 = up.Cross(vector3d(0.0, 1.0, 0.0));
+	if (t1.LengthSqr() < 0.25)
+		t1 = up.Cross(vector3d(1.0, 0.0, 0.0));
+	t1 = t1.Normalized();
+	const vector3d t2 = up.Cross(t1);
+
+	const double d = 0.5 * span / planet->GetTerrainHeight(up);
+	auto surfacePoint = [&](vector3d dir) {
+		dir = dir.Normalized();
+		return dir * planet->GetTerrainHeight(dir);
+	};
+
+	vector3d n = (surfacePoint(up + t1 * d) - surfacePoint(up - t1 * d))
+					 .Cross(surfacePoint(up + t2 * d) - surfacePoint(up - t2 * d))
+					 .Normalized();
+	return n.Dot(up) < 0.0 ? -n : n;
+}
+
 void Ship::TestLanded()
 {
 	PROFILE_SCOPED()
@@ -991,14 +1013,23 @@ void Ship::TestLanded()
 		const double planetRadius = static_cast<Planet *>(f->GetBody())->GetTerrainHeight(up);
 
 		if (speed < MAX_LANDING_SPEED) {
-			// check player is sortof sensibly oriented for landing
-			if (GetOrient().VectorY().Dot(up) > 0.99) {
+			// Check the ship is sort of sensibly oriented for landing: upright,
+			// or resting flat on ground that is not too steep. On small bodies
+			// the ground can slope far from "up" even where it looks flat.
+			vector3d shipUp = up;
+			if (GetOrient().VectorY().Dot(up) <= 0.99) {
+				const vector3d normal = TerrainNormal(static_cast<Planet *>(f->GetBody()), up, 2.0 * GetAabb().radius);
+				if (normal.Dot(up) > MAX_LANDING_SLOPE_COS && GetOrient().VectorY().Dot(normal) > 0.99)
+					shipUp = normal;
+			}
+
+			if (GetOrient().VectorY().Dot(shipUp) > 0.99) {
 				// position at zero altitude
-				SetPosition(up * (planetRadius - GetAabb().min.y));
+				SetPosition(up * planetRadius - GetAabb().min.y * shipUp);
 
 				// position facing in roughly the same direction
-				vector3d right = up.Cross(GetOrient().VectorZ()).Normalized();
-				SetOrient(matrix3x3d::FromVectors(right, up));
+				vector3d right = shipUp.Cross(GetOrient().VectorZ()).Normalized();
+				SetOrient(matrix3x3d::FromVectors(right, shipUp));
 
 				SetVelocity(vector3d::Zero);
 				SetAngVelocity(vector3d::Zero);

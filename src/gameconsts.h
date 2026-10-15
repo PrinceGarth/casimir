@@ -9,6 +9,7 @@
 static const double PHYSICS_HZ = 60.0;
 
 static const double MAX_LANDING_SPEED = 30.0; // m/sec
+static const double MAX_LANDING_SLOPE_COS = 0.866; // cos(30 degrees): steepest ground a ship can land on tilted
 static const double LIGHT_SPEED = 3e8; // m/sec
 
 static const uint32_t UNIVERSE_SEED = 0xabcd1234;
