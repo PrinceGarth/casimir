@@ -9,6 +9,7 @@ local lc = Lang.GetResource("core");
 local lec = Lang.GetResource("equipment-core");
 
 local ui = require 'pigui'
+local gameView = require 'pigui.views.game'
 
 local player = nil
 local colors = ui.theme.colors
@@ -124,6 +125,11 @@ end
 local function displayEquipment()
 	if ui.optionsWindow.isOpen then return end
 	local uiPos = Vector2(15, ui.screenHeight / 3 + 10)
+	-- keep the icons beside an open left sidebar panel (e.g. comms) instead of on top of it
+	local sidebar = gameView.leftSidebar
+	if sidebar.displayAlpha > 0 then
+		uiPos.x = sidebar.displayPos.x + sidebar.displaySize.x + 15
+	end
 	uiPos = displayMissiles(uiPos)
 	uiPos = displayECM(uiPos + Vector2(0, 10))
 end
