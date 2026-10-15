@@ -7,6 +7,8 @@ on:
   push:
     branches:
     - master
+    # Branches named wintest/* get a Windows build to test under Wine
+    - 'wintest/**'
   pull_request:
     paths:
     - 'src/**.cpp'
