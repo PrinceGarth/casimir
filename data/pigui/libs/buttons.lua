@@ -224,8 +224,10 @@ function ui.mainMenuButton(icon, tooltip, variant, size)
 		variant = ui.theme.buttonColors.selected
 	end
 
-	local tt = string.match(tooltip, "^(.+)##.+$")
-	return ui.iconButton(tooltip, icon, tt or tooltip, variant, size or ui.theme.styles.MainButtonSize)
+	-- The text before "##" is the tooltip; "##id" alone means no tooltip.
+	local tt = string.match(tooltip, "^(.*)##.+$") or tooltip
+	if tt == "" then tt = nil end
+	return ui.iconButton(tooltip, icon, tt, variant, size or ui.theme.styles.MainButtonSize)
 end
 
 --
