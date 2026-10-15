@@ -108,3 +108,13 @@ Forking and making AI-assisted changes in a separate fork is legal; the no-AI ru
 - Exceptions: fonts are SIL OFL 1.1 (Pionillium, Inpionata, Orbiteer), DejaVu licence, and Apache-2.0 (WenQuanYi Micro Hei). `data/icons/icons.svg` is believed to be the CC-BY-SA-3.0 WPZOOM icon set (David Ferreira; unconfirmed, the SVG has no licence metadata). `data/textures/skybox/skybox.dds` is the NASA public-domain Milky Way panorama (credit required; likely mapping).
 - `data/galaxy_colour.png` is the NASA Spitzer image (NASA/JPL-Caltech/R. Hurt; policy in `licenses/`). Git history shows it replaced an earlier Baobobafet image in 2014 (`0444e824c`, credit added in `d33782e68`). Nothing in the code references it since GalacticView was removed (2020), so it can be deleted safely if the NASA policy is unwanted.
 - AI-generated code in a fork goes under GPLv3; AI-generated art may not be copyrightable (jurisdiction-dependent). Keep `AUTHORS.txt`, `licenses/`, and the about-window credits intact when publishing.
+
+## Agent skills
+
+### Issue tracker
+
+GitHub issues on PrinceGarth/casimir, with `--repo` always pinned (never upstream). See `docs/agents/issue-tracker.md`.
+
+### Domain docs
+
+Single-context (root `CONTEXT.md` + `docs/adr/`, created lazily). See `docs/agents/domain.md`.
