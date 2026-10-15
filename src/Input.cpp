@@ -672,9 +672,44 @@ static float applyDeadzoneAndCurve(const JoystickInfo::Axis &axis, float value)
 	return AnimationCurves::SmoothEasing(absVal, axis.curve) * sign;
 }
 
+// With a non-Latin keyboard layout (e.g. Russian), letter and symbol keys
+// report non-ASCII keycodes, so no key binding (W, A, S, D...) matches them.
+// Map such keys back to the keycode of the same physical key on a US layout.
+static SDL_Keycode LatinKeycode(const SDL_Keysym &keysym)
+{
+	const SDL_Keycode sym = keysym.sym;
+	if (sym < 0x80 || (sym & SDLK_SCANCODE_MASK))
+		return sym;
+
+	const SDL_Scancode sc = keysym.scancode;
+	if (sc >= SDL_SCANCODE_A && sc <= SDL_SCANCODE_Z)
+		return SDLK_a + (sc - SDL_SCANCODE_A);
+	if (sc >= SDL_SCANCODE_1 && sc <= SDL_SCANCODE_9)
+		return SDLK_1 + (sc - SDL_SCANCODE_1);
+
+	switch (sc) {
+	case SDL_SCANCODE_0: return SDLK_0;
+	case SDL_SCANCODE_MINUS: return SDLK_MINUS;
+	case SDL_SCANCODE_EQUALS: return SDLK_EQUALS;
+	case SDL_SCANCODE_LEFTBRACKET: return SDLK_LEFTBRACKET;
+	case SDL_SCANCODE_RIGHTBRACKET: return SDLK_RIGHTBRACKET;
+	case SDL_SCANCODE_BACKSLASH: return SDLK_BACKSLASH;
+	case SDL_SCANCODE_SEMICOLON: return SDLK_SEMICOLON;
+	case SDL_SCANCODE_APOSTROPHE: return SDLK_QUOTE;
+	case SDL_SCANCODE_GRAVE: return SDLK_BACKQUOTE;
+	case SDL_SCANCODE_COMMA: return SDLK_COMMA;
+	case SDL_SCANCODE_PERIOD: return SDLK_PERIOD;
+	case SDL_SCANCODE_SLASH: return SDLK_SLASH;
+	default: return sym;
+	}
+}
+
 void Manager::HandleSDLEvent(SDL_Event &event)
 {
 	using namespace InputBindings;
+
+	if (event.type == SDL_KEYDOWN || event.type == SDL_KEYUP)
+		event.key.keysym.sym = LatinKeycode(event.key.keysym);
 
 	switch (event.type) {
 	case SDL_KEYDOWN:
