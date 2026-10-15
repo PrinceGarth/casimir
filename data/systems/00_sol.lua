@@ -412,7 +412,9 @@ local jupiter_moons = {
 	CustomSystemBody:new('Themisto', 'PLANET_ASTEROID')
 		:seed(134102334)
 		:radius(f(627,1000000))
-		:mass(f(115,1000000000000)) -- 6.9e14 kg, 1.15e-10 EM
+		-- 6.9e14 kg (1.15e-10 EM) is below the smallest mass a fixed-point value
+		-- can hold and would round to zero, so use that smallest step instead
+		:mass(f(1,4294967296)) -- 1.4e15 kg, 2.3e-10 EM
 		:temp(124)
 		:semi_major_axis(f(494,10000))
 		:eccentricity(f(2006,10000))
