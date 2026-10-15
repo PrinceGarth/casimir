@@ -693,7 +693,7 @@ local onPlayerDocked = function (player, station)
 			end
 		end
 
-		if mission.return_to_station or mission.deliver_to_ship and not mission.client_ship and mission.station == station.path then
+		if (mission.return_to_station or mission.deliver_to_ship and not mission.client_ship) and mission.station == station.path then
 			---@type CargoManager
 			local cargoMgr = player:GetComponent('CargoManager')
 
