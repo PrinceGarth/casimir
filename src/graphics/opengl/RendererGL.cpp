@@ -47,6 +47,25 @@ using RenderPassCmd = Graphics::OGL::CommandList::RenderPassCmd;
 // 1MB vertex draw buffer should be enough for most cases, right?
 static constexpr uint32_t DYNAMIC_DRAW_BUFFER_SIZE = 1 << 20;
 
+// True if the context offers vertex attribute bindings (core in OpenGL 4.3,
+// or GL_ARB_vertex_attrib_binding) and the functions the renderer calls.
+static bool HasVertexAttribBinding()
+{
+	if (!glBindVertexBuffer || !glVertexAttribBinding || !glVertexAttribFormat || !glVertexBindingDivisor)
+		return false;
+	if (GLEW_VERSION_4_3)
+		return true;
+
+	GLint numExtensions = 0;
+	glGetIntegerv(GL_NUM_EXTENSIONS, &numExtensions);
+	for (GLint i = 0; i < numExtensions; i++) {
+		const char *ext = reinterpret_cast<const char *>(glGetStringi(GL_EXTENSIONS, i));
+		if (ext && strcmp(ext, "GL_ARB_vertex_attrib_binding") == 0)
+			return true;
+	}
+	return false;
+}
+
 namespace Graphics {
 
 	const char *gl_framebuffer_error_to_string(GLuint st);
@@ -221,7 +240,10 @@ namespace Graphics {
 			}
 		}
 
-		if (!glewIsSupported("GL_ARB_vertex_attrib_binding")) {
+		// Not glewIsSupported(): GLEW 2.0 also demands the EXT_direct_state_access
+		// variants of these functions, which the renderer never calls and which
+		// some drivers (Mesa core profile, so Wine and Proton) don't provide.
+		if (!HasVertexAttribBinding()) {
 			Error("OpenGL extension GL_ARB_vertex_attrib_binding not supported.\n"
 				  "Pioneer can not run on your graphics card as it does not support vertex attribute bindings.\n"
 				  "Please check to see if your GPU driver vendor has an updated driver - or that drivers are installed correctly.");
