@@ -179,21 +179,49 @@ local function calc_star_dist(star)
 	return dist
 end
 
-local function drawSearchResults(systempaths)
-	local data = {}
-	for _,path in pairs(systempaths) do table.insert(data, getHyperspaceDetails(path)) end
+-- Sort search matches by distance from the current system. Done once per
+-- search, not per frame: a one-letter search can match over a thousand systems.
+---@param systempaths SystemPath[]
+local function sortSearchResults(systempaths)
+	local here = sectorView:GetCurrentSystemPath()
+	local results = {}
+	for i, path in ipairs(systempaths) do
+		results[i] = { path = path, distance = path:DistanceTo(here) }
+	end
+	table.sort(results, function(a, b) return a.distance < b.distance end)
+	return results
+end
 
+-- Measured height of one result row, used to skip drawing rows scrolled out of view
+local searchRowHeight = nil
+
+local function drawSearchResults(results)
 	ui.child("search_results", function ()
-		table.sort(data, function(a,b)
-			return a.path ~= b.path and (not a.path:IsSameSystem(b.path)) and a.distance < b.distance
-		end)
-		for i, item in pairs(data) do
-			local system = item.path:GetStarSystem()
-			if ui.selectable(system.name .. "##" .. i, false, {}) then
-				sectorView:SwitchToPath(item.path)
+		local spacing = ui.getItemSpacing().y
+		local rowHeight = searchRowHeight or ui.getTextLineHeightWithSpacing()
+		local first = math.max(1, math.floor(ui.getScrollY() / rowHeight) + 1)
+		local last = math.min(#results, first + math.ceil(ui.getWindowSize().y / rowHeight) + 1)
+		first = math.min(first, last)
+
+		-- Empty space stands in for the rows above and below the view, so the
+		-- scrollbar still covers the whole list
+		if first > 1 then
+			ui.dummy(Vector2(0, (first - 1) * rowHeight - spacing))
+		end
+
+		for i = first, last do
+			local path = results[i].path
+			local rowTop = ui.getCursorPos().y
+			if ui.selectable(path:GetStarSystem().name .. "##" .. i, false, {}) then
+				sectorView:SwitchToPath(path)
 			end
 			ui.sameLine()
-			ui.withFont(smallfont, function() draw_jump_status(item) end)
+			ui.withFont(smallfont, function() draw_jump_status(getHyperspaceDetails(path)) end)
+			if i == first then searchRowHeight = ui.getCursorPos().y - rowTop end
+		end
+
+		if last < #results then
+			ui.dummy(Vector2(0, (#results - last) * rowHeight - spacing))
 		end
 	end)
 end
@@ -493,7 +521,7 @@ local searchBar = {
 			self.systemPaths = nil
 
 			if search ~= "" then
-				self.systemPaths = sectorView:GetMap():SearchNearbyStarSystemsByName(search)
+				self.systemPaths = sortSearchResults(sectorView:GetMap():SearchNearbyStarSystemsByName(search))
 			end
 		end
 
