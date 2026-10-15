@@ -393,10 +393,13 @@ bool Game::UpdateTimeAccel()
 		RequestTimeAccel(newTimeAccel);
 	}
 
-	// force down to timeaccel 1 during the docking sequence or when just initiating hyperspace
+	// force down to timeaccel 1 during the docking sequence or when just initiating hyperspace;
+	// also when docked or landed with an autopilot order, which is about to launch
+	// the ship: a 10000x physics step would skip the launch sequence
 	else if (m_player->GetFlightState() == Ship::DOCKING ||
 		m_player->GetFlightState() == Ship::JUMPING ||
-		m_player->GetFlightState() == Ship::UNDOCKING) {
+		m_player->GetFlightState() == Ship::UNDOCKING ||
+		((m_player->GetFlightState() == Ship::DOCKED || m_player->GetFlightState() == Ship::LANDED) && m_player->AIIsActive())) {
 		newTimeAccel = std::min(newTimeAccel, Game::TIMEACCEL_10X);
 		RequestTimeAccel(newTimeAccel);
 	}
